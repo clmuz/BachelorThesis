@@ -1,0 +1,288 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Адаптивный рандомизированный жадный алгоритм}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Применимость алгоритма SPSA}
+
+Для того, чтобы алгоритм SPSA был применим --- необходимо иметь выпуклую функцию качества, которую необходимо минимизировать. В большинстве модулярность результатов работы рандомизированного жадного алгоритма на разных графах с разными значениями параметра $k$ будет выглядеть следующим образом:
+
+\begin{figure}[H]
+	\begin{tikzpicture}
+		\begin{axis}[
+		    table/col sep = semicolon,
+		    height = 0.16\paperheight, 
+		    width = 0.495\columnwidth,
+		    xlabel = {$k$},
+		    ylabel = {$Q$},
+		    legend pos = north east,
+		    no marks
+		]
+		\addplot table [x={k}, y={q}]{data/arg/validity/karate.csv};
+		\legend{karate};
+		\end{axis}
+	\end{tikzpicture}
+	\hskip 0.01\columnwidth
+	\begin{tikzpicture}
+		\begin{axis}[
+		    table/col sep = semicolon,
+		    height = 0.16\paperheight, 
+		    width = 0.495\columnwidth,
+		    xlabel = {$k$},
+		    ylabel = {$Q$},
+		    legend pos = south east,
+		    no marks
+		]
+		\addplot table [x={k}, y={q}]{data/arg/validity/chesapeake.csv};
+		\legend{chesapeake};
+		\end{axis}
+	\end{tikzpicture} % 2nd row
+	\begin{tikzpicture}
+		\begin{axis}[
+		    table/col sep = semicolon,
+		    height = 0.16\paperheight, 
+		    width = 0.495\columnwidth,
+		    xlabel = {$k$},
+		    ylabel = {$Q$},
+		    legend pos = south east,
+		    no marks
+		]
+		\addplot table [x={k}, y={q}]{data/arg/validity/polbooks.csv};
+		\legend{polbooks};
+		\end{axis}
+	\end{tikzpicture}
+	\hskip 0.01\columnwidth
+	\begin{tikzpicture}
+		\begin{axis}[
+		    table/col sep = semicolon,
+		    height = 0.16\paperheight, 
+		    width = 0.495\columnwidth,
+		    xlabel = {$k$},
+		    ylabel = {$Q$},
+		    legend pos = south east,
+		    no marks
+		]
+		\addplot table [x={k}, y={q}]{data/arg/validity/netscience.csv};
+		\legend{netscience};
+		\end{axis}
+	\end{tikzpicture} % 3rd row
+	\begin{tikzpicture}
+		\begin{axis}[
+		    table/col sep = semicolon,
+		    height = 0.16\paperheight, 
+		    width = 0.495\columnwidth,
+		    xlabel = {$k$},
+		    ylabel = {$Q$},
+		    legend pos = north east,
+		    no marks
+		]
+		\addplot table [x={k}, y={q}]{data/arg/validity/email.csv};
+		\legend{email};
+		\end{axis}
+	\end{tikzpicture}
+	\hskip 0.01\columnwidth
+	\begin{tikzpicture}
+		\begin{axis}[
+		    table/col sep = semicolon,
+		    height = 0.16\paperheight, 
+		    width = 0.495\columnwidth,
+		    xlabel = {$k$},
+		    ylabel = {$Q$},
+		    legend pos = south east,
+		    no marks
+		]
+		\addplot table [x={k}, y={q}]{data/arg/validity/cond-mat-2003.csv};
+		\legend{cond-mat-2003};
+		\end{axis}
+	\end{tikzpicture} % 4rd row
+	\begin{tikzpicture}
+		\begin{axis}[
+		    table/col sep = semicolon,
+		    height = 0.16\paperheight, 
+		    width = 0.495\columnwidth,
+		    xlabel = {$k$},
+		    ylabel = {$Q$},
+		    legend pos = south east,
+		    no marks
+		]
+		\addplot table [x={k}, y={q}]{data/arg/validity/in-2004.csv};
+		\legend{in-2004};
+		\end{axis}
+	\end{tikzpicture}
+	\begin{tikzpicture}
+		\begin{axis}[
+		    table/col sep = semicolon,
+		    height = 0.16\paperheight, 
+		    width = 0.495\columnwidth,
+		    xlabel = {$k$},
+		    ylabel = {$Q$},
+		    legend pos = north east,
+		    no marks
+		]
+		\addplot table [x={k}, y={q}]{data/arg/validity/eu-2005.csv};
+		\legend{eu-2005};
+		\end{axis}
+	\end{tikzpicture}
+	\caption{Зависимость модулярности от $k$ для рандомизированного случайного алгоритма на разных графах}
+\end{figure}
+
+Результаты показывают разделение поведения алгоритма на разных графах на два возможных случая: в первом алгоритм принимает наилучший результат при некотором небольшом, но разном $k_{best}$ (например работа алгоритма на графе \emph{karate}). Во втором результаты алгоритма постепенно возрастают, приближаясь к некоторой асимптоте (хорошим примером будет работа алгоритма на графе \emph{netscience}. К первому случаю так же относится такое поведение, в котором алгоритм быстро (с ростом $k$) достигает своего лучшего значения, и затем его результаты очень несильно падают, и в дальнейшем держатся того же значения (такое выполняется, например, на графе \emph{in-2004}).
+
+Похожее поведение алгоритм показывает на автоматически сгенерированных графах, но в таких графах можно получить более отличающиеся значения $k_{best}$ и предположить, что будет происходить с модулярностью при дальнейшем росте $k$.
+
+\begin{figure}[H]
+	\begin{tikzpicture}
+		\begin{axis}[
+		    table/col sep = semicolon,
+		    height = 0.16\paperheight, 
+		    width = \columnwidth,
+		    xlabel = {$k$},
+		    ylabel = {$Q$},
+		    no marks
+		]
+		\addplot table [x={k}, y={q}]{data/arg/validity/auto13.csv};
+		\end{axis}
+	\end{tikzpicture}
+	\caption{Зависимость модулярности от $k$ для рандомизированного случайного алгоритма на автоматически сгенерированном графе с параметрами $N = 40.000,\;K = 40,\;p_1 = 0.1,\;p_2 = 5\cdot 10^{-4}$}
+\end{figure}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Функция качества}
+
+Таким образом, имеет смысл использовать в функции качества не только модулярность, но и время. Подсчёт времени сам по себе занимает время и в разных случаях может давать сильно отличающиеся результаты. Теоретическая трудоёмкость алгоритма линейно зависит от параметра $k$, на реальных графах зависимость тоже близка к линейной:
+
+\begin{figure}[H]
+	\begin{tikzpicture}
+		\begin{axis}[
+		    table/col sep = semicolon,
+		    height = 0.16\paperheight, 
+		    width = 0.495\columnwidth,
+		    xlabel = {$k$},
+		    ylabel = {$t$},
+		    legend pos = south east,
+		    no marks
+		]
+		\addplot[red] table [x={k}, y={time}]{data/arg/validity/polbooks.csv};
+		\legend{polbooks};
+		\end{axis}
+	\end{tikzpicture}
+	\hskip 0.01\columnwidth
+	\begin{tikzpicture}
+		\begin{axis}[
+		    table/col sep = semicolon,
+		    height = 0.16\paperheight, 
+		    width = 0.495\columnwidth,
+		    xlabel = {$k$},
+		    ylabel = {$t$},
+		    legend pos = south east,
+		    no marks
+		]
+		\addplot[red] table [x={k}, y={time}]{data/arg/validity/celegans_metabolic.csv};
+		\legend{celegans\_metabolic};
+		\end{axis}
+	\end{tikzpicture}
+	\caption{Зависимость времени $t$ в миллисекундах от $k$ для рандомизированного случайного алгоритма на графах \emph{polbooks} и \emph{celegans\_metabolic}}
+\end{figure}
+
+Таким образом, вместо времени можно использовать значение $k$. Максимальное значение модулярности, которое может быть достигнуто на графе очень сильно отличается, поэтому нет смысла использовать абсолютное значение модулярности, но имеет смысл использовать относительные значения. При вычислении центрального значения \eqref{eq:spsa-central} в алгоритме одновременно возмущаемой стохастической аппроксимации использутся только разность функций качества. Таким образом, если использовать в функции качетсва логарифмы от модулярности --- разность функций укажет, во сколько раз модулярность изменилась.
+
+Так же функция качества должна принимать минимум, а не максимум, поэтому первой версией подобной функции может быть $f(Q) = -\alpha \ln Q,\;\alpha > 0$. Для того, чтобы принимать во внимание время работы, разумно добавить логарифм от $k$: $f(Q, k) = -\alpha (\ln Q - \beta \ln k),\;\alpha > 0, \beta \ge 0$. Коэффициент $\beta$ в таком случае можно рассматривать в следующем виде $\beta = \frac{\ln \gamma}{\ln 2}$, где коэффициент $\beta$ указывает, во сколько раз необходимо увеличиться модулярности для того, чтобы покрыть увеличение времени (то есть $k$) вдвое. Если время не имеет значение коэффициент $\gamma$ принимает значение 1, а следовательно коэффициент $\beta$ принимает значение 0. Коэффициент $\alpha$ же играет роль размера шага при выборе следующей центральной точки.
+
+\begin{figure}[H]
+	\begin{tikzpicture}
+		\begin{axis}[
+		    table/col sep = semicolon,
+		    height = 0.2\paperheight, 
+		    width = 0.73\columnwidth,
+		    xlabel = {$k$},
+		    ylabel = {$F(Q, k)$},
+		    legend style = {
+		    	cells = {anchor = west},
+		    	legend pos = outer north east
+		    },
+		    title = {karate},
+		    no marks
+		]
+		\addplot table [x={k}, y expr={-ln(\thisrowno{1})}]{data/arg/validity/karate.csv};
+		\addplot table [x={k}, y expr={-ln(\thisrowno{1}) + 0.01 * ln(\thisrowno{0})}]{data/arg/validity/karate.csv};
+		\addplot table [x={k}, y expr={-ln(\thisrowno{1}) + 0.02 * ln(\thisrowno{0})}]{data/arg/validity/karate.csv};
+		\legend{karate};
+		\legend{{$-\ln Q$}, {$-(\ln Q - 0.01 \ln k)$}, {$-(\ln Q - 0.02 \ln k)$}}
+		\end{axis}
+	\end{tikzpicture}
+	\begin{tikzpicture}
+		\begin{axis}[
+		    table/col sep = semicolon,
+		    height = 0.2\paperheight, 
+		    width = 0.73\columnwidth,
+		    xlabel = {$k$},
+		    ylabel = {$F(Q, k)$},
+		    legend style = {
+		    	cells = {anchor = west},
+		    	legend pos = outer north east
+		    },
+		    title = {jazz},
+		    no marks
+		]
+		\addplot table [x={k}, y expr={-ln(\thisrowno{1})}]{data/arg/validity/jazz.csv};
+		\addplot table [x={k}, y expr={-ln(\thisrowno{1}) + 0.01 * ln(\thisrowno{0})}]{data/arg/validity/jazz.csv};
+		\addplot table [x={k}, y expr={-ln(\thisrowno{1}) + 0.02 * ln(\thisrowno{0})}]{data/arg/validity/jazz.csv};
+		\legend{karate};
+		\legend{{$-\ln Q$}, {$-(\ln Q - 0.01 \ln k)$}, {$-(\ln Q - 0.02 \ln k)$}}
+		\end{axis}
+	\end{tikzpicture}
+	\caption{Функции качества с разными коэффициентами $\beta$ для графов \emph{karate} и \emph{jazz}}
+	\label{fig:qua1}
+\end{figure}
+\begin{figure}[H]
+	\begin{tikzpicture}
+		\begin{axis}[
+		    table/col sep = semicolon,
+		    height = 0.2\paperheight, 
+		    width = 0.73\columnwidth,
+		    xlabel = {$k$},
+		    ylabel = {$F(Q, k)$},
+		    legend style = {
+		    	cells = {anchor = west},
+		    	legend pos = outer north east
+		    },
+		    title = {netscience},
+		    no marks
+		]
+		\addplot table [x={k}, y expr={-ln(\thisrowno{1})}]{data/arg/validity/netscience.csv};
+		\addplot[violet] table [x={k}, y expr={-ln(\thisrowno{1}) + 0.1 * ln(\thisrowno{0})}]{data/arg/validity/netscience.csv};
+		\addplot[purple] table [x={k}, y expr={-ln(\thisrowno{1}) + 0.2 * ln(\thisrowno{0})}]{data/arg/validity/netscience.csv};
+		\legend{karate};
+		\legend{{$-\ln Q$}, {$-(\ln Q - 0.1 \ln k)$}, {$-(\ln Q - 0.2 \ln k)$}}
+		\end{axis}
+	\end{tikzpicture}
+	\caption{Продолжение Рис. \ref{fig:qua1}. Функции качества с разными коэффициентами $\beta$ для графа \emph{netscience}}
+	\label{fig:qua2}
+\end{figure}
+
+Как видно из Рис. \ref{fig:qua2}, иногда для того, чтобы функция качества имела минимум на небольших $k$, надо задавать довольно большое значение коэффициента $\beta$. Однако это логично, на данном графе если нас устраивает время работы --- выгоднее всё время увеличивать значение $k$.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Адаптивный алгоритм}
+
+При использовании алгоритма SPSA для рандомизированного жадного алгоритма предлагается разбить действие алгоритма на периоды длиной в $\sigma$ итераций. В течении каждого периода используется одно значение $k$. После каждого периода можно считать прирост модулярности, но вместо этого имеет смысл считать медиану прироста модулярности за $\sigma$ итераций --- так как алгоритм рандомизированный, время от времени будут появляться очень хорошие соединения сообществ, которые будут портить функцию качества, такой большой прирост может появиться даже при очень плохом $k$.
+
+\begin{enumerate}
+	\item Выбор начальной центральной точки $\hat{k}_0 \in \mathbb{N}$, счётчик $n = 0$, выбор размера возбуждения $d \in \mathbb{N}$, коэффициентов функции качества $\alpha, \beta \in \mathbb{R},\; \alpha > 0, \beta \ge 0$, $\sigma \in \mathbb{N}$ --- количество итераций в одном периоде
+	\item Увеличение счётчика $n \rightarrow n + 1$
+	\item Определение новых аргументов функции $k_{n}^{-}=\hat{k}_{n - 1} - d$ и $k_{n}^{+}=\hat{k}_{n - 1} + d$
+	\item Выполнение $\sigma$ итераций с параметром $k_{n}^{-}$, вычисление медианы прироста модулярности $\mu_n^{-}$
+	\item Выполнение $\sigma$ итераций с параметром $k_{n}^{+}$, вычисление медианы прироста модулярности $\mu_n^{+}$
+	\item Вычисление функций качества $y^{-} = -\alpha (\ln \mu_n^{-} - \beta \ln k_n^{-})$, $y^{+} = -\alpha (\ln \mu_n^{+} - \beta \ln k_n^{+})$
+	\item Вычисление следующей центральной точки
+	\begin{equation}
+		\hat{k}_n = \hat{k}_{n - 1} - \frac{y_n^{+} - y_n^{-}}{k^{+} - k^{-}}
+	\end{equation}
+	\item Далее происходит либо остановка алгоритма, либо переход на второй пункт
+\end{enumerate}
