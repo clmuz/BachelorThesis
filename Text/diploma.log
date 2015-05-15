@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.1415926-2.4-0.9998 (MiKTeX 2.9) (preloaded format=xelatex 2015.3.30)  14 MAY 2015 12:05
+This is XeTeX, Version 3.1415926-2.4-0.9998 (MiKTeX 2.9) (preloaded format=xelatex 2015.3.30)  15 MAY 2015 14:38
 entering extended mode
 **diploma
 ("D:\9. Диплом\BachelorThesis\Text\diploma.tex"
@@ -1590,7 +1590,7 @@ File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 )
 \tf@toc=\write5
 
-("D:\9. Диплом\BachelorThesis\Text\section2.tex"
+("D:\9. Диплом\BachelorThesis\Text\section2/section2.II.tex"
 .................................................
 . fontspec info: "defining-font"
 . 
@@ -1634,6 +1634,7 @@ File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 . 
 . This font family consists of the following shapes:
 .................................................
+PGFPlots: reading {data/arg/d/cond_d.csv}
 .................................................
 . fontspec info: "defining-font"
 . 
@@ -1642,8 +1643,6 @@ File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 . 
 . This font family consists of the following shapes:
 .................................................
-PGFPlots: reading {data/arg/validity/karate.csv}
-Missing character: There is no ; in font nullfont!
 .................................................
 . fontspec info: "defining-font"
 . 
@@ -1764,6 +1763,7 @@ Missing character: There is no ; in font nullfont!
 . 
 . This font family consists of the following shapes:
 .................................................
+PGFPlots: reading {data/arg/d/caida_d.csv}
 .................................................
 . fontspec info: "defining-font"
 . 
@@ -1796,8 +1796,6 @@ Missing character: There is no ; in font nullfont!
 . 
 . This font family consists of the following shapes:
 .................................................
-PGFPlots: reading {data/arg/validity/chesapeake.csv}
-Missing character: There is no ; in font nullfont!
 .................................................
 . fontspec info: "defining-font"
 . 
@@ -1902,6 +1900,7 @@ Missing character: There is no ; in font nullfont!
 . 
 . This font family consists of the following shapes:
 .................................................
+PGFPlots: reading {data/arg/d/cnr_d.csv}
 .................................................
 . fontspec info: "defining-font"
 . 
@@ -1958,8 +1957,6 @@ Missing character: There is no ; in font nullfont!
 . 
 . This font family consists of the following shapes:
 .................................................
-PGFPlots: reading {data/arg/validity/polbooks.csv}
-Missing character: There is no ; in font nullfont!
 .................................................
 . fontspec info: "defining-font"
 . 
@@ -2024,800 +2021,7 @@ Missing character: There is no ; in font nullfont!
 . 
 . This font family consists of the following shapes:
 .................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-PGFPlots: reading {data/arg/validity/netscience.csv}
-Missing character: There is no ; in font nullfont!
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-PGFPlots: reading {data/arg/validity/email.csv}
-Missing character: There is no ; in font nullfont!
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-PGFPlots: reading {data/arg/validity/cond-mat-2003.csv}
-Missing character: There is no ; in font nullfont!
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-PGFPlots: reading {data/arg/validity/in-2004.csv}
-Missing character: There is no ; in font nullfont!
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-PGFPlots: reading {data/arg/validity/eu-2005.csv}
-Missing character: There is no ; in font nullfont!
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
+PGFPlots: reading {data/arg/d/eu_d.csv}
 .................................................
 . fontspec info: "defining-font"
 . 
@@ -2931,23 +2135,13 @@ Missing character: There is no ; in font nullfont!
 . This font family consists of the following shapes:
 .................................................
 
-Overfull \hbox (1.58583pt too wide) in paragraph at lines 26--128
+Overfull \hbox (1.58711pt too wide) in paragraph at lines 23--68
 [][]  []
  []
 
 
-Overfull \hbox (1.58656pt too wide) in paragraph at lines 26--128
-[]  []
- []
-
-
-Overfull \hbox (1.58748pt too wide) in paragraph at lines 26--128
-[]  []
- []
-
-
-Overfull \hbox (7.31879pt too wide) in paragraph at lines 26--128
-[] [] 
+Overfull \hbox (1.58711pt too wide) in paragraph at lines 23--68
+[]  [] 
  []
 
 .................................................
@@ -2974,7 +2168,6 @@ Overfull \hbox (7.31879pt too wide) in paragraph at lines 26--128
 . 
 . This font family consists of the following shapes:
 .................................................
-[4]
 .................................................
 . fontspec info: "defining-font"
 . 
@@ -2983,6 +2176,7 @@ Overfull \hbox (7.31879pt too wide) in paragraph at lines 26--128
 . 
 . This font family consists of the following shapes:
 .................................................
+PGFPlots: reading {data/arg/sigma/cond_sigma.csv}
 .................................................
 . fontspec info: "defining-font"
 . 
@@ -2991,7 +2185,6 @@ Overfull \hbox (7.31879pt too wide) in paragraph at lines 26--128
 . 
 . This font family consists of the following shapes:
 .................................................
-PGFPlots: reading {data/arg/validity/auto13.csv}
 .................................................
 . fontspec info: "defining-font"
 . 
@@ -3096,6 +2289,7 @@ PGFPlots: reading {data/arg/validity/auto13.csv}
 . 
 . This font family consists of the following shapes:
 .................................................
+PGFPlots: reading {data/arg/sigma/caida_sigma.csv}
 .................................................
 . fontspec info: "defining-font"
 . 
@@ -3184,8 +2378,6 @@ PGFPlots: reading {data/arg/validity/auto13.csv}
 . 
 . This font family consists of the following shapes:
 .................................................
-PGFPlots: reading {data/arg/validity/polbooks.csv}
-Missing character: There is no ; in font nullfont!
 .................................................
 . fontspec info: "defining-font"
 . 
@@ -3202,6 +2394,7 @@ Missing character: There is no ; in font nullfont!
 . 
 . This font family consists of the following shapes:
 .................................................
+PGFPlots: reading {data/arg/sigma/cnr_sigma.csv}
 .................................................
 . fontspec info: "defining-font"
 . 
@@ -3298,6 +2491,7 @@ Missing character: There is no ; in font nullfont!
 . 
 . This font family consists of the following shapes:
 .................................................
+)
 .................................................
 . fontspec info: "defining-font"
 . 
@@ -3314,6 +2508,7 @@ Missing character: There is no ; in font nullfont!
 . 
 . This font family consists of the following shapes:
 .................................................
+ [4] ("D:\9. Диплом\BachelorThesis\Text\diploma.bbl"
 .................................................
 . fontspec info: "defining-font"
 . 
@@ -3330,184 +2525,7 @@ Missing character: There is no ; in font nullfont!
 . 
 . This font family consists of the following shapes:
 .................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-PGFPlots: reading {data/arg/validity/celegans_metabolic.csv}
-Missing character: There is no ; in font nullfont!
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
+ [5]
 .................................................
 . fontspec info: "defining-font"
 . 
@@ -3517,817 +2535,17 @@ Missing character: There is no ; in font nullfont!
 . This font family consists of the following shapes:
 .................................................
 
-
-LaTeX Warning: Reference `eq:spsa-central' on page 5 undefined on input line 19
-1.
-
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-[5]
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-PGFPlots: reading {data/arg/validity/karate.csv}
-PGFPlots: reading {data/arg/validity/karate.csv}
-PGFPlots: reading {data/arg/validity/karate.csv}
-Missing character: There is no ; in font nullfont!
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-PGFPlots: reading {data/arg/validity/jazz.csv}
-PGFPlots: reading {data/arg/validity/jazz.csv}
-PGFPlots: reading {data/arg/validity/jazz.csv}
-Missing character: There is no ; in font nullfont!
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-
-Overfull \hbox (5.8589pt too wide) in paragraph at lines 216--238
-[][]
+Underfull \hbox (badness 1297) in paragraph at lines 9--13
+[]\EU1/CMUSerif(1)/m/n/12 Michalis Faloutsos, Petros Faloutsos, and Christos Fa
+loutsos.  On power-law
  []
 
 
-Overfull \hbox (5.85701pt too wide) in paragraph at lines 216--238
-[] 
+Underfull \hbox (badness 1960) in paragraph at lines 15--19
+[]\EU1/CMUSerif(1)/m/n/12 Andrei Broder, Ravi Kumar, Farzin Maghoul, Prabhakar 
+Raghavan, Sridhar
  []
 
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-PGFPlots: reading {data/arg/validity/netscience.csv}
-PGFPlots: reading {data/arg/validity/netscience.csv}
-PGFPlots: reading {data/arg/validity/netscience.csv}
-Missing character: There is no ; in font nullfont!
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
 .................................................
 . fontspec info: "defining-font"
 . 
@@ -4345,6 +2563,17 @@ Missing character: There is no ; in font nullfont!
 . This font family consists of the following shapes:
 .................................................
 [6]
+Underfull \hbox (badness 1394) in paragraph at lines 108--112
+[]\EU1/CMUSerif(1)/m/n/12 James C Spall.  Multivariate stochastic approximation
+ using a simultaneous
+ []
+
+
+Underfull \hbox (badness 1902) in paragraph at lines 125--129
+[]\EU1/CMUSerif(1)/m/n/12 Oleg Granichin and Natalia Amelina.  Simultaneous per
+turbation stochastic
+ []
+
 .................................................
 . fontspec info: "defining-font"
 . 
@@ -4361,24 +2590,14 @@ Missing character: There is no ; in font nullfont!
 . 
 . This font family consists of the following shapes:
 .................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
- [7]
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-) ("D:\9. Диплом\BachelorThesis\Text\diploma.bbl"
+[7]
+Underfull \hbox (badness 1082) in paragraph at lines 202--207
+[]\EU1/CMUSerif(1)/m/n/12 Paolo Boldi, Marco Rosa, Massimo Santini, and Sebasti
+ano Vigna.  Layered
+ []
+
+)
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 77.
 .................................................
 . fontspec info: "defining-font"
 . 
@@ -4396,38 +2615,7 @@ Missing character: There is no ; in font nullfont!
 . This font family consists of the following shapes:
 .................................................
  [8]
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-
-
-LaTeX Warning: Empty `thebibliography' environment on input line 3.
-
-)
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 76.
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Mapping=tex-text,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
- [9]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 76.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 77.
  ("D:\9. Диплом\BachelorThesis\Text\diploma.aux"
 .................................................
 . fontspec info: "defining-font"
@@ -4438,20 +2626,16 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 76.
 . This font family consists of the following shapes:
 .................................................
 )
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 76.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 76.
-
-
-LaTeX Warning: There were undefined references.
-
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 77.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 77.
  ) 
 Here is how much of TeX's memory you used:
- 41986 strings out of 429035
- 877002 string characters out of 3166907
- 1125056 words of memory out of 3000000
- 44670 multiletter control sequences out of 15000+200000
- 11100 words of font info for 74 fonts, out of 3000000 for 9000
+ 41581 strings out of 429035
+ 868851 string characters out of 3166907
+ 1080223 words of memory out of 3000000
+ 44272 multiletter control sequences out of 15000+200000
+ 9371 words of font info for 65 fonts, out of 3000000 for 9000
  912 hyphenation exceptions out of 8191
- 63i,19n,94p,10396b,2129s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 63i,11n,94p,10396b,1957s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on diploma.pdf (9 pages).
+Output written on diploma.pdf (8 pages).

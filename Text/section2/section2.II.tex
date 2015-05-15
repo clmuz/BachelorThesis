@@ -1,0 +1,131 @@
+\newpage % DELETE
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Размер возмущения}
+
+Коэффициент $d$ отвечает за то, насколько сильно будет возмущаться центральная точка для получения следующих измерений. То есть, насколько $k_n^{+}$ и $k_n^{-}$ будут отличаться от $\hat{k}_{n - 1}$. Зависимость модулярности от размера возмущения при $f(Q, k) = -10 \ln Q,\ \sigma = 500,\ k_0 = 10$ будет выглядеть следующим образом:
+
+\begin{figure}[H]
+	\begin{tikzpicture}
+		\begin{axis}[
+		    table/col sep = semicolon,
+		    height = 0.16\paperheight, 
+		    width = 0.495\columnwidth,
+		    xlabel = {$d$},
+		    ylabel = {$Q$},
+		    legend pos = north east,
+		    no marks,
+		    title = {cond-mat-2003}
+		]
+		\addplot table [x={d}, y={q}]{data/arg/d/cond_d.csv};
+		\end{axis}
+	\end{tikzpicture}
+	\hskip 0.01\columnwidth
+	\begin{tikzpicture}
+		\begin{axis}[
+		    table/col sep = semicolon,
+		    height = 0.16\paperheight, 
+		    width = 0.495\columnwidth,
+		    xlabel = {$d$},
+		    ylabel = {$Q$},
+		    legend pos = south east,
+		    no marks,
+		    title = {caidaRouterLevel}
+		]
+		\addplot table [x={d}, y={q}]{data/arg/d/caida_d.csv};
+		\end{axis}
+	\end{tikzpicture} % 2nd row
+	\begin{tikzpicture}
+		\begin{axis}[
+		    table/col sep = semicolon,
+		    height = 0.16\paperheight, 
+		    width = 0.495\columnwidth,
+		    xlabel = {$d$},
+		    ylabel = {$Q$},
+		    legend pos = south east,
+		    no marks,
+		    title = {cnr-2000}
+		]
+		\addplot table [x={d}, y={q}]{data/arg/d/cnr_d.csv};
+		\end{axis}
+	\end{tikzpicture}
+	\hskip 0.01\columnwidth
+	\begin{tikzpicture}
+		\begin{axis}[
+		    table/col sep = semicolon,
+		    height = 0.16\paperheight, 
+		    width = 0.495\columnwidth,
+		    xlabel = {$d$},
+		    ylabel = {$Q$},
+		    legend pos = south east,
+		    no marks,
+		    title = {eu-2005}
+		]
+		\addplot table [x={d}, y={q}]{data/arg/d/eu_d.csv};
+		\end{axis}
+	\end{tikzpicture}
+	\caption{Зависимость модулярности от размера возмущения на четырёх графах}
+\end{figure}
+
+На графах \emph{cnr-2000} и \emph{eu-2005} значения модулярности не очень сильно менялись в зависимости от параметра $d$, хотя некоторые значения $d$ и давали более большие значения. Однако на графах \emph{cond-mat-2003} и \emph{caidaRouterLevel} после некоторого порогового значения возмущения модулярность показывала, что получившееся разбиение не лучше случайного.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Количество итераций в одном шаге}
+
+Параметр $\sigma$ указывает, как часто меняется $k$ в рандомизированного жадном алгоритме. Так как в функции качества используется медиана прироста модулярности, а не прирост модулярности за все $\sigma$ шагов --- при изменении $\sigma$ нет необходимости менять функцию качества, модулярность прироста будет оставаться приблизительно такой же по величине, в то время как прирост модулярности линейно зависит от $\sigma$. Зависимость модулярности от количества итераций в одном шаге при $d = 5,\ f(Q, k) = -10 \ln Q,\ k_0 = 10$ принимает такой вид:
+
+\begin{figure}[H]
+	\begin{tikzpicture}
+		\begin{axis}[
+		    table/col sep = semicolon,
+		    height = 0.16\paperheight, 
+		    width = 0.31\columnwidth,
+		    xlabel = {$\sigma$},
+		    ylabel = {$Q$},
+		    legend pos = north east,
+		    no marks,
+		    title = {cond-mat-2003}
+		]
+		\addplot table [x={sigma}, y={q}]{data/arg/sigma/cond_sigma.csv};
+		\end{axis}
+	\end{tikzpicture}
+	\hskip 0.01\columnwidth
+	\begin{tikzpicture}
+		\begin{axis}[
+		    table/col sep = semicolon,
+		    height = 0.16\paperheight, 
+		    width = 0.31\columnwidth,
+		    xlabel = {$\sigma$},
+		    legend pos = south east,
+		    no marks,
+		    title = {caidaRouterLevel}
+		]
+		\addplot table [x={sigma}, y={q}]{data/arg/sigma/caida_sigma.csv};
+		\end{axis}
+	\end{tikzpicture}
+	\hskip 0.01\columnwidth
+	\begin{tikzpicture}
+		\begin{axis}[
+		    table/col sep = semicolon,
+		    height = 0.16\paperheight, 
+		    width = 0.31\columnwidth,
+		    xlabel = {$\sigma$},
+		    legend pos = south east,
+		    no marks,
+		    title = {cnr-2000}
+		]
+		\addplot table [x={sigma}, y={q}]{data/arg/sigma/cnr_sigma.csv};
+		\end{axis}
+	\end{tikzpicture}
+	\caption{Зависимость модулярности от значения $\sigma$ на трёх графах. $\sigma$ принимает значения от 50 до 1400}
+\end{figure}
+
+На всех трёх графах модулярность несильно, но непредсказуемо меняется при изменении $\sigma$. Во всех случаях есть хорошие и плохие значения $\sigma$, но в целом значения параметра достаточно равнозначны.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Начальная центральная точка}

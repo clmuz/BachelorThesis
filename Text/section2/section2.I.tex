@@ -188,7 +188,7 @@
 	\caption{Зависимость времени $t$ в миллисекундах от $k$ для рандомизированного случайного алгоритма на графах \emph{polbooks} и \emph{celegans\_metabolic}}
 \end{figure}
 
-Таким образом, вместо времени можно использовать значение $k$. Максимальное значение модулярности, которое может быть достигнуто на графе очень сильно отличается, поэтому нет смысла использовать абсолютное значение модулярности, но имеет смысл использовать относительные значения. При вычислении центрального значения \eqref{eq:spsa-central} в алгоритме одновременно возмущаемой стохастической аппроксимации использутся только разность функций качества. Таким образом, если использовать в функции качетсва логарифмы от модулярности --- разность функций укажет, во сколько раз модулярность изменилась.
+Таким образом, вместо времени можно использовать значение $k$. Максимальное значение модулярности, которое может быть достигнуто на графе очень сильно отличается, поэтому нет смысла использовать абсолютное значение модулярности, но имеет смысл использовать относительные значения. При вычислении центрального значения \eqref{eq:spsa-central} в алгоритме одновременно возмущаемой стохастической аппроксимации использутся только разность функций качества. Таким образом, если использовать в функции качества логарифмы от модулярности --- разность функций укажет, во сколько раз модулярность изменилась.
 
 Так же функция качества должна принимать минимум, а не максимум, поэтому первой версией подобной функции может быть $f(Q) = -\alpha \ln Q,\;\alpha > 0$. Для того, чтобы принимать во внимание время работы, разумно добавить логарифм от $k$: $f(Q, k) = -\alpha (\ln Q - \beta \ln k),\;\alpha > 0, \beta \ge 0$. Коэффициент $\beta$ в таком случае можно рассматривать в следующем виде $\beta = \frac{\ln \gamma}{\ln 2}$, где коэффициент $\beta$ указывает, во сколько раз необходимо увеличиться модулярности для того, чтобы покрыть увеличение времени (то есть $k$) вдвое. Если время не имеет значение коэффициент $\gamma$ принимает значение 1, а следовательно коэффициент $\beta$ принимает значение 0. Коэффициент $\alpha$ же играет роль размера шага при выборе следующей центральной точки.
 
@@ -210,7 +210,6 @@
 		\addplot table [x={k}, y expr={-ln(\thisrowno{1})}]{data/arg/validity/karate.csv};
 		\addplot table [x={k}, y expr={-ln(\thisrowno{1}) + 0.01 * ln(\thisrowno{0})}]{data/arg/validity/karate.csv};
 		\addplot table [x={k}, y expr={-ln(\thisrowno{1}) + 0.02 * ln(\thisrowno{0})}]{data/arg/validity/karate.csv};
-		\legend{karate};
 		\legend{{$-\ln Q$}, {$-(\ln Q - 0.01 \ln k)$}, {$-(\ln Q - 0.02 \ln k)$}}
 		\end{axis}
 	\end{tikzpicture}
@@ -231,7 +230,6 @@
 		\addplot table [x={k}, y expr={-ln(\thisrowno{1})}]{data/arg/validity/jazz.csv};
 		\addplot table [x={k}, y expr={-ln(\thisrowno{1}) + 0.01 * ln(\thisrowno{0})}]{data/arg/validity/jazz.csv};
 		\addplot table [x={k}, y expr={-ln(\thisrowno{1}) + 0.02 * ln(\thisrowno{0})}]{data/arg/validity/jazz.csv};
-		\legend{karate};
 		\legend{{$-\ln Q$}, {$-(\ln Q - 0.01 \ln k)$}, {$-(\ln Q - 0.02 \ln k)$}}
 		\end{axis}
 	\end{tikzpicture}
@@ -256,7 +254,6 @@
 		\addplot table [x={k}, y expr={-ln(\thisrowno{1})}]{data/arg/validity/netscience.csv};
 		\addplot[violet] table [x={k}, y expr={-ln(\thisrowno{1}) + 0.1 * ln(\thisrowno{0})}]{data/arg/validity/netscience.csv};
 		\addplot[purple] table [x={k}, y expr={-ln(\thisrowno{1}) + 0.2 * ln(\thisrowno{0})}]{data/arg/validity/netscience.csv};
-		\legend{karate};
 		\legend{{$-\ln Q$}, {$-(\ln Q - 0.1 \ln k)$}, {$-(\ln Q - 0.2 \ln k)$}}
 		\end{axis}
 	\end{tikzpicture}
@@ -264,25 +261,203 @@
 	\label{fig:qua2}
 \end{figure}
 
-Как видно из Рис. \ref{fig:qua2}, иногда для того, чтобы функция качества имела минимум на небольших $k$, надо задавать довольно большое значение коэффициента $\beta$. Однако это логично, на данном графе если нас устраивает время работы --- выгоднее всё время увеличивать значение $k$.
+Как видно из рисунка \ref{fig:qua2}, иногда для того, чтобы функция качества имела минимум на небольших $k$, надо задавать довольно большое значение коэффициента $\beta$. Однако это логично, на данном графе если нас устраивает время работы --- выгоднее всё время увеличивать значение $k$.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsection{Адаптивный алгоритм}
 
-При использовании алгоритма SPSA для рандомизированного жадного алгоритма предлагается разбить действие алгоритма на периоды длиной в $\sigma$ итераций. В течении каждого периода используется одно значение $k$. После каждого периода можно считать прирост модулярности, но вместо этого имеет смысл считать медиану прироста модулярности за $\sigma$ итераций --- так как алгоритм рандомизированный, время от времени будут появляться очень хорошие соединения сообществ, которые будут портить функцию качества, такой большой прирост может появиться даже при очень плохом $k$.
+При использовании алгоритма SPSA для рандомизированного жадного алгоритма предлагается разбить действие алгоритма на шаги длиной в $\sigma$ итераций. В течении каждого шага используется одно значение $k$. После каждого шага можно считать прирост модулярности, но вместо этого имеет смысл считать медиану прироста модулярности за $\sigma$ итераций --- так как алгоритм рандомизированный, время от времени будут появляться очень хорошие соединения сообществ, которые будут портить функцию качества, такой большой прирост может появиться даже при очень плохом $k$. В таком случае схема алгоритма будет выглядеть следующим образом:
 
 \begin{enumerate}
-	\item Выбор начальной центральной точки $\hat{k}_0 \in \mathbb{N}$, счётчик $n = 0$, выбор размера возбуждения $d \in \mathbb{N}$, коэффициентов функции качества $\alpha, \beta \in \mathbb{R},\; \alpha > 0, \beta \ge 0$, $\sigma \in \mathbb{N}$ --- количество итераций в одном периоде
+	\item Выбор начальной центральной точки $\hat{k}_0 \in \mathbb{N}$, счётчик $n = 0$, выбор размера возбуждения $d \in \mathbb{N}$, коэффициентов функции качества $\alpha, \beta \in \mathbb{R},\; \alpha > 0,\;\beta \ge 0$, и $\sigma \in \mathbb{N}$ --- количество итераций в одном шаге
 	\item Увеличение счётчика $n \rightarrow n + 1$
-	\item Определение новых аргументов функции $k_{n}^{-}=\hat{k}_{n - 1} - d$ и $k_{n}^{+}=\hat{k}_{n - 1} + d$
+	\item Определение новых аргументов функции $k_{n}^{-} = \max\{\hat{k}_{n - 1} - d, 1\}$ и $k_{n}^{+}=\hat{k}_{n - 1} + d$
 	\item Выполнение $\sigma$ итераций с параметром $k_{n}^{-}$, вычисление медианы прироста модулярности $\mu_n^{-}$
 	\item Выполнение $\sigma$ итераций с параметром $k_{n}^{+}$, вычисление медианы прироста модулярности $\mu_n^{+}$
-	\item Вычисление функций качества $y^{-} = -\alpha (\ln \mu_n^{-} - \beta \ln k_n^{-})$, $y^{+} = -\alpha (\ln \mu_n^{+} - \beta \ln k_n^{+})$
+	\item Вычисление функций качества $y_n^{-} = -\alpha (\ln \mu_n^{-} - \beta \ln k_n^{-})$, $y_n^{+} = -\alpha (\ln \mu_n^{+} - \beta \ln k_n^{+})$
 	\item Вычисление следующей центральной точки
 	\begin{equation}
-		\hat{k}_n = \hat{k}_{n - 1} - \frac{y_n^{+} - y_n^{-}}{k^{+} - k^{-}}
+		\hat{k}_n = \max\left\{1, \left[\hat{k}_{n - 1} - \frac{y_n^{+} - y_n^{-}}{k_n^{+} - k_n^{-}}\right]\right\}
 	\end{equation}
-	\item Далее происходит либо остановка алгоритма, либо переход на второй пункт
+	\item Далее происходит переход на второй пункт
 \end{enumerate}
+
+Алгоритм заканчивает работу в тот момент, когда для рассмотрения осталось ровно одно сообщество.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Чувствительность к перепадам функции качества}
+
+Коэффициент $\alpha$ отвечает за то, насколько чувствителен алгоритм будет к перепадам функций качества --- чем больше $\alpha$, тем сильнее будет отличаться новая центральная точка от предыдущей в одной и той же ситуации. На трёх графах были измерены зависимости модулярности от параметра $\alpha$ при $d = 2,\ \sigma = 500,\ k_0 = 10,\ \beta = 0$:
+
+\begin{figure}[H]
+	\begin{tikzpicture}
+		\begin{axis}[
+		    table/col sep = semicolon,
+		    height = 0.14\paperheight, 
+		    width = \columnwidth,
+		    xlabel = {$\alpha$},
+		    ylabel = {$Q$},
+		    legend style = {
+		    	cells = {anchor = west},
+		    	legend pos = outer north east
+		    },
+		    title = {cond-mat-2003},
+		    no marks
+		]
+		\addplot table [x={alpha}, y={q}]{data/arg/alpha/cond/cond_alpha.csv};
+		\end{axis}
+	\end{tikzpicture}
+	\begin{tikzpicture}
+		\begin{axis}[
+		    table/col sep = semicolon,
+		    height = 0.14\paperheight, 
+		    width = \columnwidth,
+		    xlabel = {$\alpha$},
+		    ylabel = {$Q$},
+		    legend style = {
+		    	cells = {anchor = west},
+		    	legend pos = outer north east
+		    },
+		    title = {caidaRouterLevel},
+		    no marks
+		]
+		\addplot table [x={alpha}, y={q}]{data/arg/alpha/caida/caida_alpha.csv};
+		\end{axis}
+	\end{tikzpicture}
+	\begin{tikzpicture}
+		\begin{axis}[
+		    table/col sep = semicolon,
+		    height = 0.14\paperheight, 
+		    width = \columnwidth,
+		    xlabel = {$\alpha$},
+		    ylabel = {$Q$},
+		    legend style = {
+		    	cells = {anchor = west},
+		    	legend pos = outer north east
+		    },
+		    title = {cnr-2000},
+		    no marks
+		]
+		\addplot table [x={alpha}, y={q}]{data/arg/alpha/cnr/cnr_alpha.csv};
+		\end{axis}
+	\end{tikzpicture}
+	\caption{Зависимость модулярности от параметра $\alpha$ в работе адаптивного рандомизированного жадного алгоритма на графах \emph{cond-mat-2003}, \emph{caidaRouterLevel}, \emph{cnr-2000}}
+	\label{fig:alpha}
+\end{figure}
+
+Из рисунка \ref{fig:alpha} видно, что результат не очень стабильный, хотя значение модулярности и колеблется на небольшом промежутке. Так же на третьем графе заметно, что увеличение параметра $\alpha$ влечёт за собой уменьшение модулярности в среднем.
+
+\begin{figure}[H]
+	\begin{tikzpicture}
+		\begin{axis}[
+		    table/col sep = semicolon,
+		    height = 0.18\paperheight, 
+		    width = 0.44\columnwidth,
+		    xlabel = {$n$},
+		    ylabel = {$k$},
+		    y label style={at={(axis description cs:0.15,.5)}, anchor=south},
+		    title = {cond-mat-2003},
+		    title style = {xshift = 3.5cm, yshift = 0.3cm},
+		    no marks
+		]
+		\addplot table [x expr = {\thisrowno{0} / 1000}, y={k}]{data/arg/alpha/cond/cond10.csv};
+		\addplot table [x expr = {\thisrowno{0} / 1000}, y={k}]{data/arg/alpha/cond/cond50.csv};
+		\addplot table [x expr = {\thisrowno{0} / 1000}, y={k}]{data/arg/alpha/cond/cond100.csv};
+		\end{axis}
+	\end{tikzpicture}
+	\hskip -3cm
+	\begin{tikzpicture}
+		\begin{axis}[
+		    table/col sep = semicolon,
+		    height = 0.18\paperheight, 
+		    width = 0.44\columnwidth,
+		    xlabel = {$n$},
+		    ylabel = {$\mu$},
+		    legend pos = outer north east,
+		    y label style={at={(axis description cs:0.15,.5)}, anchor=south},
+		    no marks
+		]
+		\addplot table [x expr = {\thisrowno{0} / 1000}, y={mu}]{data/arg/alpha/cond/cond10.csv};
+		\addplot table [x expr = {\thisrowno{0} / 1000}, y={mu}]{data/arg/alpha/cond/cond50.csv};
+		\addplot table [x expr = {\thisrowno{0} / 1000}, y={mu}]{data/arg/alpha/cond/cond100.csv};
+		\legend{{$\alpha = 10$}, {$\alpha = 50$}, {$\alpha = 100$}};
+		\end{axis}
+	\end{tikzpicture}
+	\begin{tikzpicture}
+		\begin{axis}[
+		    table/col sep = semicolon,
+		    height = 0.18\paperheight, 
+		    width = 0.44\columnwidth,
+		    xlabel = {$n$},
+		    ylabel = {$k$},
+		    y label style={at={(axis description cs:0.15,.5)}, anchor=south},
+		    title = {caidaRouterLevel},
+		    title style = {xshift = 3.5cm, yshift = 0.3cm},
+		    no marks
+		]
+		\addplot table [x expr = {\thisrowno{0} / 1000}, y={k}]{data/arg/alpha/caida/caida10s.csv};
+		\addplot table [x expr = {\thisrowno{0} / 1000}, y={k}]{data/arg/alpha/caida/caida50s.csv};
+		\addplot table [x expr = {\thisrowno{0} / 1000}, y={k}]{data/arg/alpha/caida/caida100s.csv};
+		\end{axis}
+	\end{tikzpicture}
+	\hskip -3cm
+	\begin{tikzpicture}
+		\begin{axis}[
+		    table/col sep = semicolon,
+		    height = 0.18\paperheight, 
+		    width = 0.44\columnwidth,
+		    xlabel = {$n$},
+		    ylabel = {$\mu$},
+		    legend pos = outer north east,
+		    y label style={at={(axis description cs:0.1,.5)}, anchor=south},
+		    no marks
+		]
+		\addplot table [x expr = {\thisrowno{0} / 1000}, y={mu}]{data/arg/alpha/caida/caida10s.csv};
+		\addplot table [x expr = {\thisrowno{0} / 1000}, y={mu}]{data/arg/alpha/caida/caida50s.csv};
+		\addplot table [x expr = {\thisrowno{0} / 1000}, y={mu}]{data/arg/alpha/caida/caida100s.csv};
+		\legend{{$\alpha = 10$}, {$\alpha = 50$}, {$\alpha = 100$}};
+		\end{axis}
+	\end{tikzpicture}
+	\begin{tikzpicture}
+		\begin{axis}[
+		    table/col sep = semicolon,
+		    height = 0.18\paperheight, 
+		    width = 0.44\columnwidth,
+		    xlabel = {$n$},
+		    ylabel = {$k$},
+		    y label style={at={(axis description cs:0.1,.5)}, anchor=south},
+		    title = {cnr-2000},
+		    title style = {xshift = 3.5cm, yshift = 0.3cm},
+		    no marks
+		]
+		\addplot table [x expr = {\thisrowno{0} / 1000}, y={k}]{data/arg/alpha/cnr/cnr5s.csv};
+		\addplot table [x expr = {\thisrowno{0} / 1000}, y={k}]{data/arg/alpha/cnr/cnr50s.csv};
+		\addplot table [x expr = {\thisrowno{0} / 1000}, y={k}]{data/arg/alpha/cnr/cnr100s.csv};
+		\end{axis}
+	\end{tikzpicture}
+	\hskip -1.5cm
+	\begin{tikzpicture}
+		\begin{axis}[
+		    table/col sep = semicolon,
+		    height = 0.18\paperheight, 
+		    width = 0.44\columnwidth,
+		    xlabel = {$n$},
+		    ylabel = {$\mu$},
+		    legend pos = outer north east,
+		    y label style={at={(axis description cs:0.1,.5)}, anchor=south},
+		    no marks
+		]
+		\addplot table [x expr = {\thisrowno{0} / 1000}, y={mu}]{data/arg/alpha/cnr/cnr5s.csv};
+		\addplot table [x expr = {\thisrowno{0} / 1000}, y={mu}]{data/arg/alpha/cnr/cnr50s.csv};
+		\addplot table [x expr = {\thisrowno{0} / 1000}, y={mu}]{data/arg/alpha/cnr/cnr100s.csv};
+		\legend{{$\alpha = 5$}, {$\alpha = 50$}, {$\alpha = 100$}};
+		\end{axis}
+	\end{tikzpicture}
+	\caption{Изменения параметра $k$ и медианы приросты модулярности со временем для разных параметров $\alpha$ на трёх графах. Графики для второго и третьего графа смазаны для повышения читаемости}
+\end{figure}
+
+Из рисунков видно, что в зависимости от $\alpha$ параметр $k$, с которым прогоняются шаги по $\sigma$ шагов, и который поочередно принимает значения $k_n^{-}$ и $k_n^{+}$, меняется с разной интенсивностью, но результаты при этом получаются приблизительно одинаковые.
