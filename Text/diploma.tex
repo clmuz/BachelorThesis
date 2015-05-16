@@ -28,7 +28,11 @@
 \SetKwFor{ForAll}{forall}{do}{end}
 % ------------------- Русский для algorithm2e
 
-%\captionsetup[figure]{skip=2cm}
+% ------------------- Tabular cells
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}	% Tabular commands
+\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash}p{#1}}
+% ------------------- Tabular cells
 
 \begin{document}
 \filltitle{ru}{
@@ -70,9 +74,8 @@
 \maketitle
 \tableofcontents
 
-\input{section1/section1}
-\input{section2/section2.I}
-\input{section2/section2.II}
+\input{section1/section1} \input{section2/section2.I} \input{section2/section2.II}
+\input{section3/section3}
 
 \bibliographystyle{unsrt}
 \bibliography{diploma}

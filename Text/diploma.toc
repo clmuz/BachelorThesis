@@ -19,4 +19,8 @@
 \contentsline {subsection}{\numberline {2.7}Начальная центральная точка}{21}{subsection.2.7}
 \contentsline {subsection}{\numberline {2.8}Коэффициент $\beta $ функции качества}{22}{subsection.2.8}
 \contentsline {subsection}{\numberline {2.9}Результаты}{22}{subsection.2.9}
-\contentsline {section}{Список литературы}{25}{section*.17}
+\contentsline {section}{\numberline {3}Ансамблевая стратегия}{25}{section.3}
+\contentsline {subsection}{\numberline {3.1}Адаптивный рандомизированный жадный алгоритм в ансамблевой стратегии}{25}{subsection.3.1}
+\contentsline {subsection}{\numberline {3.2}Адаптивное построение промежуточного разбиения}{26}{subsection.3.2}
+\contentsline {subsection}{\numberline {3.3}Количество начальных разбиений}{27}{subsection.3.3}
+\contentsline {section}{Список литературы}{28}{section*.18}

@@ -145,7 +145,7 @@
 		\addplot table [x={k}, y={q}]{data/arg/validity/auto13.csv};
 		\end{axis}
 	\end{tikzpicture}
-	\caption{Зависимость модулярности от $k$ для рандомизированного случайного алгоритма на автоматически сгенерированном графе с параметрами $N = 40.000,\;K = 40,\;p_1 = 0.1,\;p_2 = 5\cdot 10^{-4}$}
+	\caption{Зависимость модулярности от $k$ для рандомизированного случайного алгоритма на автоматически сгенерированном графе \emph{auto40} с параметрами $N = 40.000,\;K = 40,\;p_1 = 0.1,\;p_2 = 5\cdot 10^{-4}$}
 	\label{fig:q-auto13}
 \end{figure}
 
@@ -283,7 +283,7 @@ f(Q, k) = -\alpha (\ln Q - \beta \ln k),\;\alpha > 0, \beta \ge 0
 	\item Выполнение $\sigma$ итераций с параметром $k_{n}^{+}$, вычисление медианы прироста модулярности $\mu_n^{+}$
 	\item Вычисление функций качества $y_n^{-} = -\alpha (\ln \mu_n^{-} - \beta \ln k_n^{-})$, $y_n^{+} = -\alpha (\ln \mu_n^{+} - \beta \ln k_n^{+})$
 	\item Вычисление следующей центральной точки
-	\begin{equation}
+	\begin{equation} \label{eq:arg-centre}
 		\hat{k}_n = \max\left\{1, \left[\hat{k}_{n - 1} - \frac{y_n^{+} - y_n^{-}}{k_n^{+} - k_n^{-}}\right]\right\}
 	\end{equation}
 	\item Далее происходит переход на второй пункт
