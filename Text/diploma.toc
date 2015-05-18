@@ -22,5 +22,8 @@
 \contentsline {section}{\numberline {3}Ансамблевая стратегия}{25}{section.3}
 \contentsline {subsection}{\numberline {3.1}Адаптивный рандомизированный жадный алгоритм в ансамблевой стратегии}{25}{subsection.3.1}
 \contentsline {subsection}{\numberline {3.2}Адаптивное построение промежуточного разбиения}{26}{subsection.3.2}
-\contentsline {subsection}{\numberline {3.3}Количество начальных разбиений}{27}{subsection.3.3}
-\contentsline {section}{Список литературы}{28}{section*.18}
+\contentsline {subsection}{\numberline {3.3}Размер возмущения и чувствительность к перепадам функции качества}{27}{subsection.3.3}
+\contentsline {subsection}{\numberline {3.4}Начальная центральная точка}{29}{subsection.3.4}
+\contentsline {subsection}{\numberline {3.5}Количество шагов и доля хороших разбиений}{30}{subsection.3.5}
+\contentsline {subsection}{\numberline {3.6}Время работы}{31}{subsection.3.6}
+\contentsline {section}{Список литературы}{34}{section*.26}

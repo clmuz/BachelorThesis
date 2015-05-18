@@ -140,6 +140,8 @@
 		    width = \columnwidth,
 		    xlabel = {$k$},
 		    ylabel = {$Q$},
+		    yticklabel style={/pgf/number format/fixed,
+                  /pgf/number format/precision=3},
 		    no marks
 		]
 		\addplot table [x={k}, y={q}]{data/arg/validity/auto13.csv};
@@ -153,6 +155,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsection{Функция качества}
+\label{subsec:arg-f}
 
 Таким образом, имеет смысл использовать в функции качества не только модулярность, но и время. Подсчёт времени сам по себе занимает время и в разных случаях может давать сильно отличающиеся результаты. Теоретическая трудоёмкость алгоритма линейно зависит от параметра $k$, на реальных графах зависимость тоже близка к линейной:
 
@@ -337,7 +340,7 @@ f(Q, k) = -\alpha (\ln Q - \beta \ln k),\;\alpha > 0, \beta \ge 0
 		\begin{axis}[
 		    table/col sep = semicolon,
 		    height = 0.14\paperheight, 
-		    width = \columnwidth,
+		    width = 0.98\columnwidth,
 		    xlabel = {$\alpha$},
 		    ylabel = {$Q$},
 		    legend style = {
@@ -345,7 +348,10 @@ f(Q, k) = -\alpha (\ln Q - \beta \ln k),\;\alpha > 0, \beta \ge 0
 		    	legend pos = outer north east
 		    },
 		    title = {cnr-2000},
-		    no marks
+		    no marks,
+		    yticklabel style={/pgf/number format/fixed,
+                  /pgf/number format/precision=3},
+            y label style={at={(axis description cs:0,.5)}, anchor=south},
 		]
 		\addplot table [x={alpha}, y={q}]{data/arg/alpha/cnr/cnr_alpha.csv};
 		\end{axis}

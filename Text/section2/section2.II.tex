@@ -43,7 +43,9 @@
 		    ylabel = {$Q$},
 		    legend pos = south east,
 		    no marks,
-		    title = {cnr-2000}
+		    title = {cnr-2000},
+		    yticklabel style={/pgf/number format/fixed,
+                  /pgf/number format/precision=3}
 		]
 		\addplot table [x={d}, y={q}]{data/arg/d/cnr_d.csv};
 		\end{axis}
@@ -80,7 +82,7 @@
 		\begin{axis}[
 		    table/col sep = semicolon,
 		    height = 0.16\paperheight, 
-		    width = 0.31\columnwidth,
+		    width = 0.32\columnwidth,
 		    xlabel = {$\sigma$},
 		    ylabel = {$Q$},
 		    legend pos = north east,
@@ -90,12 +92,12 @@
 		\addplot table [x={sigma}, y={q}]{data/arg/sigma/cond_sigma.csv};
 		\end{axis}
 	\end{tikzpicture}
-	\hskip 0.01\columnwidth
+	\hskip -0.01\columnwidth
 	\begin{tikzpicture}
 		\begin{axis}[
 		    table/col sep = semicolon,
 		    height = 0.16\paperheight, 
-		    width = 0.31\columnwidth,
+		    width = 0.32\columnwidth,
 		    xlabel = {$\sigma$},
 		    legend pos = south east,
 		    no marks,
@@ -104,16 +106,18 @@
 		\addplot table [x={sigma}, y={q}]{data/arg/sigma/caida_sigma.csv};
 		\end{axis}
 	\end{tikzpicture}
-	\hskip 0.01\columnwidth
+	\hskip -0.01\columnwidth
 	\begin{tikzpicture}
 		\begin{axis}[
 		    table/col sep = semicolon,
 		    height = 0.16\paperheight, 
-		    width = 0.31\columnwidth,
+		    width = 0.32\columnwidth,
 		    xlabel = {$\sigma$},
 		    legend pos = south east,
 		    no marks,
-		    title = {cnr-2000}
+		    title = {cnr-2000},
+		    yticklabel style={/pgf/number format/fixed,
+                  /pgf/number format/precision=3}
 		]
 		\addplot table [x={sigma}, y={q}]{data/arg/sigma/cnr_sigma.csv};
 		\end{axis}
@@ -128,7 +132,7 @@
 
 \subsection{Начальная центральная точка}
 
-Начальная центральная точка указывает, с какой точки будут находиться $k_1^{-}$ и $k_1^{+}$, с которыми будут проходиться первые и вторые $\sigma$ итераций, соответственно. Зависимость модулярности от начальной центральной точки $\hat{k}_0$ при $d = 5,\ f(\mu, k) = -10 \ln \mu,\ \sigma = 1000$ будет выглядеть следующим образом:
+Начальная центральная точка указывает, от какой точки будут строиться $k_1^{-}$ и $k_1^{+}$, с которыми будут проходить первые и вторые $\sigma$ итераций, соответственно. Зависимость модулярности от начальной центральной точки $\hat{k}_0$ при $d = 5,\ f(\mu, k) = -10 \ln \mu,\ \sigma = 1000$ будет выглядеть следующим образом:
 
 \begin{figure}[H]
 	\begin{tikzpicture}
@@ -168,7 +172,9 @@
 		    xlabel = {$\hat{k}_0$},
 		    legend pos = south east,
 		    no marks,
-		    title = {cnr-2000}
+		    title = {cnr-2000},
+		    yticklabel style={/pgf/number format/fixed,
+                  /pgf/number format/precision=3}
 		]
 		\addplot table [x={k0}, y={q}]{data/arg/k0/cnr_k0.csv};
 		\end{axis}
