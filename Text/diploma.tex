@@ -15,8 +15,11 @@
 \usepackage{algorithm2e}			% Algorithm
 \usepackage{array}					% Tabular box size
 \usepackage[font=small,skip=0pt]{caption} % Distance to caption
-\usepackage{tabularx}
-
+\usepackage{tabularx}				% Complex table
+\usepackage{enumitem}				% Label to enumerate
+\usepackage{setspace}				% Spacing between lines
+\usepackage{multicol}
+\usepackage[normalem]{ulem}
 
 % ------------------- Русский для algorithm2e
 \SetKwInput{KwData}{Исходные параметры}
@@ -33,6 +36,8 @@
 \newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
 \newcolumntype{R}[1]{>{\raggedleft\arraybackslash}p{#1}}
 % ------------------- Tabular cells
+
+\newcommand{\celegans}{celegans\textunderscore metabolic}
 
 \begin{document}
 \filltitle{ru}{
@@ -74,8 +79,11 @@
 \maketitle
 \tableofcontents
 
-\input{section1/section1} \input{section2/section2.I} \input{section2/section2.II}
-\input{section3/section3}
+% \input{section1/section1}
+% \input{section2/section2.I}
+% \input{section2/section2.II}
+% \input{section3/section3.I}
+\input{section3/section3.II}
 
 \bibliographystyle{unsrt}
 \bibliography{diploma}
