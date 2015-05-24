@@ -1,23 +1,25 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Адаптивная схема кластеризации основных групп графа}
+\label{sec:ACGGC}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsection{ARG в схеме кластеризации основных групп графа}
+\label{subsec:arg_in_cggc}
 
-Схема кластеризации основных групп графа (\emph{CGGC}) была более подробно описана в подразделе \ref{subsec:ens}, однако общая схема работы заключается в том, что сначала $s$ начальных алгоритмов выделяют сообщества, а те узлы, в которых они разошлись по мнению, затем разбивает на сообщества финальный алгоритм. Трудоёмкость таким образом складывается из $s$ трудоёмкостей начальных алгоритмов и трудоёмкости финального алгоритма. Таким образом имеет смысл в качестве начальных алгоритмов брать алгоритмы, работающие быстро. Однако в случае, если начальные алгоритмы очень плохие, то есть дают разбиения не лучше случайного --- модулярность разбиений, полученных \emph{CGGC} будет приблизительно равна модулярности разбиений, полученных финальным алгоритмом.
+Схема кластеризации основных групп графа (\emph{CGGC}) была более подробно описана в подразделе \ref{subsec:ens}, однако общая схема работы заключается в том, что сначала $s$ начальных алгоритмов выделяют сообщества, а те узлы, в которых они разошлись по мнению, затем разбивает на сообщества финальный алгоритм. Трудоёмкость таким образом складывается из $s$ трудоёмкостей начальных алгоритмов и трудоёмкости финального алгоритма. Поэтому имеет смысл в качестве начальных алгоритмов брать алгоритмы, работающие быстро. Однако в случае, если начальные алгоритмы очень плохие, то есть дают разбиения не лучше случайного --- модулярность разбиений, полученных \emph{CGGC} будет приблизительно равна модулярности разбиений, полученных финальным алгоритмом.
 
 Далее разбиение, полученное начальными алгоритмами называется \emph{начальным} разбиением, полученное финальным алгоритмом --- \emph{финальным} разбиением. Также  разбиение, равное максимальному перекрытию начальных разбиений далее называется \emph{промежуточным}.
 
-Если промежуточное разбиение состоит из достаточно большого количества сообществ (как минимум в несколько раз больше $2\sigma$) --- на нём разумно использовать в качестве финального алгоритма \emph{ARG}, чтобы получать стабильные результаты. Однако на небольших графах адаптивный алгоритм не имеет смысла.
+Если промежуточное разбиение состоит из достаточно большого количества сообществ (как минимум в несколько раз больше $2\sigma$) --- на нём разумно использовать в качестве финального алгоритма \emph{ARG}, чтобы получать стабильные результаты. Однако на небольшом количестве узлов или сообществ \emph{ARG} не имеет смысла.
 
-Так же, если граф, подающийся на вход, достаточно большой --- в качестве начального алгоритма на нём имеет смысл использовать адаптивный алгоритм.
+Так же, если граф, подающийся на вход, достаточно большой --- в качестве начального алгоритма на нём имеет смысл использовать адаптивный рандомизированный жадный алгоритм.
 
 В таблице \ref{tab:es1-q} сравниваются результаты работы \emph{CGGC} с разными начальными и финальными алгоритмами. В качестве начального алгоритма используюся два рандомизированных жадных алгоритма с параметрами $k = 3$ и $k = 10$ (обозначаются как и выше в работе $RG_k$, со значением параметра $k$ в индексе), и адаптивный рандомизированный жадный алгоритм с параметрами $d = 5,\ f(\mu, k) = -10(\ln \mu - 0.02 \ln k),\ \sigma = 1000,\ \hat{k}_0 = 8$ (обозначается $ARG$). А в качестве финального алгоритма используются только $RG_3$ и $RG_{10}$, так как на рассматриваемых графах промежуточное разбиение состоит из недостаточно большого количества сообществ, чтобы использовать \emph{ARG}.
 
-\emph{CGGC} используется с параметром $s = 10$, начальный алгоритм обозначается как $A_{init}$, а финальный как $A_{final}$. Алгоритмы на графе \emph{cond-mat-2003} запускались 21 раз, на \emph{caidaRouterLevel} и \emph{auto40} --- три раза.
+\emph{CGGC} используется с параметром $s = 10$, начальный алгоритм обозначается как $A_{init}$, а финальный как $A_{final}$. Для повышения точности \emph{CGGC} с разными начальными и финальными алгоритмами запускались на графе \emph{cond-mat-2003} запускались 21 раз, на \emph{caidaRouterLevel} и \emph{auto40} --- три раза.
 
 \begin{table}[H]
 	\caption{Модулярность разбиений, полученных в результате работы \emph{CGGC} с начальным алгоритмом $A_{init}$ и финальным алгоритмом $A_{final}$ на трёх графах}
@@ -43,9 +45,9 @@
 	\end{tabularx}
 \end{table}
 
-Граф \emph{cond-mat-2003} плохо разбивается случайными жадными алгоритмами с маленьким $k$, если обратить внимание на таблицу \ref{tab:es1-q} --- в случаях, когда $RG_3$ используется в качестве начального алгоритма --- модулярность \emph{CGGC} сравнима с модулярностью финального алгоритма на этом графе (можно увидеть в таблице \ref{tab:arg-res-q}). В случаях, когда $RG_3$ используется в качестве финального алгоритма --- модулярность получается сравнительно плохой.
+Граф \emph{cond-mat-2003} плохо разбивается случайными жадными алгоритмами с маленьким $k$, если обратить внимание на таблицу \ref{tab:es1-q} --- в случаях, когда $RG_3$ используется на этом графе в качестве начального алгоритма --- модулярность \emph{CGGC} сравнима с модулярностью финального алгоритма на этом графе (модулярности $RG_3$ и $RG_{10}$ на разных графах можно увидеть в таблице \ref{tab:arg-res-q}). В случаях, когда $RG_3$ используется в качестве финального алгоритма --- модулярность получается сравнительно плохой.
 
-Заранее неизвестно, при каких $k$ алгоритм будет хорошо работать, а при каких плохо, кроме того неизвестно по результату, хорошее ли это разбиение для конкретного графа или нет. Кроме того, \emph{CGGC} работает достаточно долго, поэтому запускать \emph{CGGC} с разными начальными алгоритмами несколько раз для определения хороших параметров не выгодно. Таким образом, выгодно использовать $ARG$ и в качестве начального алгоритма, и в качестве финального, если промежуточное разбиение подходит по размерам.
+Заранее неизвестно, при каких $k$ алгоритм будет хорошо работать, а при каких плохо, кроме того неизвестно по результату, хорошее ли это разбиение для конкретного графа или нет. \emph{CGGC} работает достаточно долго, поэтому запускать \emph{CGGC} с разными начальными алгоритмами несколько раз для определения хороших параметров не выгодно. Таким образом, выгодно использовать $ARG$ и в качестве начального алгоритма, и в качестве финального, если промежуточное разбиение подходит по размерам.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -56,20 +58,20 @@
 Так как адаптивный рандомизированный жадный алгоритм не может работать на графах с маленьким количеством узлов или на разбиениях с маленьким количеством сообществ --- была предложена другая схема адаптивной кластеризации основных групп графа:
 
 \begin{enumerate}
-	\item На вход подаётся граф $G$. Выбор параметров алгоритма: $d \in \mathbb{N}$ --- размер возмущения, $f(Q, k): \mathbb{R} \times \mathbb{N} \rightarrow \mathbb{R}$ --- функция качества, $l \in \mathbb{N}$ --- количество шагов, $r \in (0, 1]$ --- доля лучших начальных разбиений, учавствующих в создании промежуточного разбиения. И наконец $\hat{k}_0 \in \mathbb{N}$ --- начальная центральная точка. Установка счётчика $n = 0$. Установка список начальных разбиений $S = \emptyset$
-	\item Увеличение счётчика $n \rightarrow n + 1$
-	\item \label{item:es-k+} Вычисление следующий параметров рандомизированного жадного алгоритма $k_n^{-} = \max\{1, \hat{k}_{n - 1} - d\}$ и $k_n^{+} = \hat{k}_{n - 1} + d$
-	\item Выделение сообществ в графе $G$ рандомизированным жадным алгоритмом с параметром $k = k_n^{-}$, пара из результирующего разбиения $P_n^{-}$ и его модулярности $Q_n^{-}$ записывается в список $S$
-	\item Выделение сообществ в графе $G$ рандомизированным жадным алгоритмом с параметром $k = k_n^{+}$, пара из результирующего разбиения $P_n^{+}$ и его модулярности $Q_n^{+}$ записывается в список $S$
-	\item Вычисляются функции качества $y_n^{-} = f(Q_n^{-}, k_n^{-}),\ y_n^{+} = f(Q_n^{+}, k_n^{+})$
-	\item Вычисляется следующая центральная точка аналогично \eqref{eq:arg-centre}
+	\item На вход подаётся граф $G$. Выбор параметров алгоритма: $d \in \mathbb{N}$ --- размер возмущения, $f(Q, k): \mathbb{R} \times \mathbb{N} \rightarrow \mathbb{R}$ --- функция качества, $l \in \mathbb{N}$ --- количество шагов, $r \in (0, 1]$ --- параметр, отвечающий за количество лучших начальных разбиений, учавствующих в создании промежуточного разбиения. И наконец $\hat{k}_0 \in \mathbb{N}$ --- начальная центральная точка. Инициализация счётчика $n \leftarrow 0$и списка начальных разбиений $S \leftarrow \emptyset$
+	\item Увеличение счётчика $n \leftarrow n + 1$
+	\item \label{item:es-k+} Вычисление следующих параметров рандомизированного жадного алгоритма $k_n^{-} \leftarrow \max\{1, \hat{k}_{n - 1} - d\}$ и $k_n^{+} \leftarrow \hat{k}_{n - 1} + d$
+	\item Выделение сообществ в графе $G$ рандомизированным жадным алгоритмом с параметром $k = k_n^{-}$, результирующее разбиение $P_n^{-}$ записывается в список $S$
+	\item Выделение сообществ в графе $G$ рандомизированным жадным алгоритмом с параметром $k = k_n^{+}$, результирующее разбиение $P_n^{+}$ записывается в список $S$
+	\item Вычисление функций качества $y_n^{-} \leftarrow f(Q_n^{-}, k_n^{-}),\ y_n^{+} \leftarrow f(Q_n^{+}, k_n^{+})$
+	\item Вычисление следующей центральной точка аналогично \eqref{eq:arg-centre}
 	\begin{equation}\label{eq:aes-centre}
-		\hat{k}_n = \max\left\{1, \left[\hat{k}_{n - 1} - \frac{y_n^{+} - y_n^{-}}{k_n^{+} - k_n^{-}}\right]\right\}
+		\hat{k}_n \leftarrow \max\left\{1, \left[\hat{k}_{n - 1} - \frac{y_n^{+} - y_n^{-}}{k_n^{+} - k_n^{-}}\right]\right\}
 	\end{equation}
 	\item Если $n \ne l$ --- переход на второй пункт, иначе --- на следующий
-	\item Существует два способа выбора лучшие разбиения: пропорциональный выбор, по которой выбирается $\lceil r|S| \rceil = \lceil 2rl \rceil$ лучших разбиений (с наибольшей модулярностью).
+	\item Существует два способа выбора лучшие разбиения: \emph{пропорциональный выбор}, по которому выбираются $\lceil r|S| \rceil = \lceil 2rl \rceil$ лучших разбиений (с наибольшей модулярностью).
 
-	Второй, непропорциональный, выбор заключается в отбрасывании всех разбиений на сообщества с модулярностью $Q \le (1 - r)Q_{best}$, где $Q_{best}$ --- модулярность лучшего разбиения в $S$. Из выбранных разбиений создается максимальное разбиение, которое затем передаётся в финальный алгоритм
+	Второй, \emph{непропорциональный}, выбор заключается в отбрасывании всех разбиений на сообщества с модулярностью $Q \le (1 - r)Q_{best}$, где $Q_{best}$ --- модулярность лучшего разбиения в $S$. Из выбранных разбиений создается максимальное разбиение, которое затем передаётся в финальный алгоритм
 \end{enumerate}
 
 При этом граф $G$ может быть иметь сколь угодно маленькое количество узлов.
@@ -89,7 +91,7 @@
 	\begin{tikzpicture}
 		\begin{semilogxaxis}[
 		    table/col sep = semicolon,
-		    height = 0.165\paperheight, 
+		    height = 0.15\paperheight, 
 		    width = 0.83\columnwidth,
 		    xlabel = {$\alpha$},
 		    ylabel = {$Q$},
@@ -98,7 +100,8 @@
 		    title = {\celegans},
 		    yticklabel style={/pgf/number format/fixed,
                   /pgf/number format/precision=3},
-            y label style={at={(axis description cs:0,.5)}, anchor=south},
+            y label style={at={(axis description cs:-0.1,.5)}, anchor=south},
+		    cycle list name = diploma list,
 		]
 		\addplot table [x={alpha}, y={q}]{data/es/alphad/celegans_1.csv};
 		\addplot table [x={alpha}, y={q}]{data/es/alphad/celegans_2.csv};
@@ -109,7 +112,7 @@
 		\begin{semilogxaxis}[
 		    table/col sep = semicolon,
 		    height = 0.15\paperheight, 
-		    width = 0.825\columnwidth,
+		    width = 0.83\columnwidth,
 		    xlabel = {$\alpha$},
 		    ylabel = {$Q$},
 		    legend pos = outer north east,
@@ -117,7 +120,8 @@
 		    title = {jazz},
 		    yticklabel style={/pgf/number format/fixed,
                   /pgf/number format/precision=4},
-            y label style={at={(axis description cs:-0.005,.5)}, anchor=south},
+            y label style={at={(axis description cs:-0.1,.5)}, anchor=south},
+		    cycle list name = diploma list,
 		]
 		\addplot table [x={alpha}, y={q}]{data/es/alphad/jazz_1.csv};
 		\addplot table [x={alpha}, y={q}]{data/es/alphad/jazz_2.csv};
@@ -136,7 +140,8 @@
 		    title = {as-22july06},
 		    yticklabel style={/pgf/number format/fixed,
                   /pgf/number format/precision=3},
-            y label style={at={(axis description cs:0,.5)}, anchor=south},
+            y label style={at={(axis description cs:-0.1,.5)}, anchor=south},
+		    cycle list name = diploma list,
 		]
 		\addplot table [x={alpha}, y={q}]{data/es/alphad/july_1.csv};
 		\addplot table [x={alpha}, y={q}]{data/es/alphad/july_2.csv};
@@ -147,12 +152,13 @@
 		\begin{semilogxaxis}[
 		    table/col sep = semicolon,
 		    height = 0.15\paperheight, 
-		    width = 0.85\columnwidth,
+		    width = 0.83\columnwidth,
 		    xlabel = {$\alpha$},
 		    ylabel = {$Q$},
 		    legend pos = outer north east,
 		    no marks,
-		    title = {netscience}
+		    title = {netscience},
+		    cycle list name = diploma list,
 		]
 		\addplot table [x={alpha}, y={q}]{data/es/alphad/netscience_1.csv};
 		\addplot table [x={alpha}, y={q}]{data/es/alphad/netscience_2.csv};
@@ -163,7 +169,7 @@
 	\label{fig:es-alpha-d}
 \end{figure}
 
-Значения модулярности колеблются в очень небольшом промежутке и на вышеприведённых четырёх графах $\alpha$, примерно равное $10^3$ даёт в среднем лучшие результаты. При этом на графах \emph{\celegans}, \emph{jazz} и \emph{netscience} зависимости модулярности от $\alpha$ выглядят одинакого для $d = 1$ и $d = 2$, а на \emph{as-22july06} зависимость при параметре $d = 2$ лежит в среднем выше, чем при параметре $d = 1$. Б\'{о}льшие значения параметра $d$ чреваты тем, что алгоритм будет слишком сильно отклоняться от оптимального значения параметра $k_{opt}$ (то есть при котором \emph{RG} в среднем будет получать лучшие результаты).
+Значения модулярности колеблются в очень небольшом промежутке и на вышеприведённых четырёх графах значение $\alpha$, примерно равное $10^3$ даёт в среднем лучшие результаты. При этом на графах \emph{\celegans}, \emph{jazz} и \emph{netscience} зависимости модулярности от $\alpha$ выглядят одинакого для $d = 1$ и $d = 2$, а на графе \emph{as-22july06} зависимость при параметре $d = 2$ лежит в среднем выше, чем при параметре $d = 1$. Б\'{о}льшие значения параметра $d$ чреваты тем, что алгоритм будет слишком сильно отклоняться от оптимального значения параметра $k_{opt}$ (то есть при котором \emph{RG} в среднем будет получать лучшие результаты).
 
 На рисунке \ref{fig:es-alpha-d3} представлено изменение $k^{-}_n$ и $k^{+}_n$ в ходе построения промежуточного разбиения от номера шага при $\alpha = 994$ на графе \emph{as-22july06} и $\alpha = 1020$ на графе \emph{netscience}, в обоих случаях $d = 2$, а остальные параметры те же, что и на рисунке \ref{fig:es-alpha-d}. Отдельно измерено, что наилучшее в среднем значение рандомизированный жадный алгоритм даст при $k = 1$ на графе \emph{as-22july06} и при очень больших $k$ на графе \emph{netscience}.
 
@@ -177,7 +183,8 @@
 		    ylabel = {$k^{\pm}_n$},
 		    legend pos = north east,
 		    no marks,
-		    title = {as-22july06}
+		    title = {as-22july06},
+		    cycle list name = diploma list,
 		]
 		\addplot table [x expr = {\thisrowno{0} / 2}, y={k}]{data/es/alphad/_july994.csv};
 		\end{axis}
@@ -192,7 +199,8 @@
 		    ylabel = {$k^{\pm}_n$},
 		    legend pos = north east,
 		    no marks,
-		    title = {netscience}
+		    title = {netscience},
+		    cycle list name = diploma list,
 		]
 		\addplot table [x expr = {\thisrowno{0} / 2}, y={k}]{data/es/alphad/_netscience1020.csv};
 		\end{axis}
@@ -210,6 +218,10 @@
 
 Начальная центральная точка $\hat{k}_0$ указывает, рядом с какой точкой будут находиться параметры первых двух запусков рандомизированного жадного алгоритма. Очень большим делать начальную центральную точку не имеет смысла, так как довольно много графов имеет небольшой оптимальный параметр.
 
+Однако, как показывает рисунок \ref{fig:es-k0}, на самом деле модулярность очень слабо зависит от начальной центральной точки. Для получения рисунка \emph{ACGGC} запускалась с параметрами $d = 2,\ f(Q, k) = -1000 \ln Q,\ l = 10,\ r = 1$, в качестве финального алгоритма использовался $RG_{10}$.
+
+На графе \emph{as-22july06} при увеличении начальной центральной точки модулярность понижалась, однако изменения были достаточно небольшими, а так же на других графах такой зависимости выявлено не было.
+
 \begin{figure}[H]
 	\begin{tikzpicture}
 		\begin{axis}[
@@ -220,14 +232,14 @@
 		    ylabel = {$Q$},
 		    no marks,
 		    title = {\celegans},
-		    y label style={at={(axis description cs:0,.5)}, anchor=south},
+		    y label style={at={(axis description cs:-0.2,.5)}, anchor=south},
 		    yticklabel style={/pgf/number format/fixed,
                   /pgf/number format/precision=4},
+		    cycle list name = diploma list,
 		]
 		\addplot table [x = {k0}, y={q}]{data/es/k0/celegans_k0.csv};
 		\end{axis}
 	\end{tikzpicture}
-	\hskip 10pt
 	\begin{tikzpicture}
 		\begin{axis}[
 		    table/col sep = semicolon,
@@ -237,9 +249,10 @@
 		    ylabel = {$Q$},
 		    no marks,
 		    title = {jazz},
-		    y label style={at={(axis description cs:0,.5)}, anchor=south},
+		    y label style={at={(axis description cs:-0.22,.5)}, anchor=south},
 		    yticklabel style={/pgf/number format/fixed,
                   /pgf/number format/precision=4},
+		    cycle list name = diploma list,
 		]
 		\addplot table [x = {k0}, y={q}]{data/es/k0/jazz_k0.csv};
 		\end{axis}
@@ -253,14 +266,14 @@
 		    ylabel = {$Q$},
 		    no marks,
 		    title = {as-22july06},
-		    y label style={at={(axis description cs:0,.5)}, anchor=south},
+		    y label style={at={(axis description cs:-0.2,.5)}, anchor=south},
 		    yticklabel style={/pgf/number format/fixed,
                   /pgf/number format/precision=3},
+		    cycle list name = diploma list,
 		]
 		\addplot table [x = {k0}, y={q}]{data/es/k0/july_k0.csv};
 		\end{axis}
 	\end{tikzpicture}
-	\hskip 10pt
 	\begin{tikzpicture}
 		\begin{axis}[
 		    table/col sep = semicolon,
@@ -270,9 +283,10 @@
 		    ylabel = {$Q$},
 		    no marks,
 		    title = {netscience},
-		    y label style={at={(axis description cs:0,.5)}, anchor=south},
+		    y label style={at={(axis description cs:-0.22,.5)}, anchor=south},
 		    yticklabel style={/pgf/number format/fixed,
                   /pgf/number format/precision=4},
+		    cycle list name = diploma list,
 		]
 		\addplot table [x = {k0}, y={q}]{data/es/k0/netscience_k0.csv};
 		\end{axis}
@@ -281,8 +295,6 @@
 	\label{fig:es-k0}
 \end{figure}
 
-Однако, как показывает рисунок \ref{fig:es-k0}, на самом деле модулярность очень слабо зависит от начальной центральной точки. Для получения рисунка \emph{ACGGC} запускалась с параметрами $d = 2,\ f(Q, k) = -1000 \ln Q,\ l = 10,\ r = 1$, в качестве финального алгоритма используется $RG_{10}$.
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -290,39 +302,43 @@
 
 Множество $S$ состоит из $2l$ разбиений, из которых затем выбирается $l_2$ лучших разбиений двумя способами в зависимости от параметра $r$. Пропорциональный выбор заключается в отборе ровно $\lceil 2rl \rceil$ лучших разбиений, а непропорциональный выбор заключается в отборе всех разбиений, у которых модулярность строго больше $(1 - r) Q_{best}$, где $Q_{best}$ --- модулярность лучшего разбиения в множестве $S$.
 
-Затем $l_2$ лучших разбиений учавствуют в создании промежуточного разбиения. Предполагается, что при слишком маленьких $l$ алгоритм не успеет найти оптимальную точку $k$, в то время как при $r \rightarrow 1$ в создании промежуточного разбиения примут участие много плохих разбиений, полученных на первых шагах. При $d = 2,\ f(Q, k) = -1000 \ln Q,\ \hat{k}_0 = 5,\ l = 10$ и финальном алгоритме $RG_{10}$ зависимость модулярности от доли хороших разбиений выглядит следующим образом:
+Затем $l_2$ лучших разбиений учавствуют в создании промежуточного разбиения. Предполагается, что при слишком маленьких $l$ алгоритм не успеет найти оптимальную точку $k$, в то время как при $r \rightarrow 1$ в создании промежуточного разбиения примут участие много плохих разбиений, полученных на первых шагах. Зависимость модулярности от доли хороших разбиений при $d = 2,\ f(Q, k) = -1000 \ln Q,\ \hat{k}_0 = 5,\ l = 10$ и финальном алгоритме $RG_{10}$ изображена на рисунке \ref{fig:es-r}.
+
+Из рисунка видно, что маленькие $r$ в пропорциональном выборе дают плохие разбиения, что логично, так как в этом случае выбирается очень мало разбиений. В то время как в непропорциональном выборе даже при маленьких $r$ (на рисунке \ref{fig:es-r} наименьшее значение $r = 0.05$) значения достаточно хорошие. Это обусловлено тем, что есть достаточно много разбиений, близких к лучшему. Затем на разных графах алгоритмы ведут себя по разному, хотя и разница между модулярностями при разных значениях $r$ небольшия. Однако непропорциональный выбор ведёт себя более предсказумо на разных графах, поэтому такой выбор более рекомендуем и далее в работе будет рассматриваться только непропорциональный выбор лучших разбиений.
 
 \begin{figure}[H]
 	\begin{tikzpicture}
 		\begin{axis}[
 		    table/col sep = semicolon,
 		    height = 0.16\paperheight,
-		    width = 0.42\columnwidth,
+		    width = 0.45\columnwidth,
 		    xlabel = {$r$},
 		    ylabel = {$Q$},
 		    no marks,
 		    title = {\celegans},
-		    y label style={at={(axis description cs:0.05,.5)}, anchor=south},
+		    y label style={at={(axis description cs:-0.2,.5)}, anchor=south},
 		    yticklabel style={/pgf/number format/fixed,
                   /pgf/number format/precision=3},
+		    cycle list name = diploma list,
 		]
 		\addplot table [x = {r}, y={q}]{data/es/r-r1/celegans_r.csv};
 		\addplot table [x expr = {1 - \thisrowno{0}}, y={q}]{data/es/r-r1/celegans_r1.csv};
 		\end{axis}
 	\end{tikzpicture}
-	\hskip 10pt
+	\hskip 5pt
 	\begin{tikzpicture}
 		\begin{axis}[
 		    table/col sep = semicolon,
 		    height = 0.16\paperheight,
-		    width = 0.42\columnwidth,
+		    width = 0.45\columnwidth,
 		    xlabel = {$r$},
 		    ylabel = {$Q$},
 		    no marks,
 		    title = {jazz},
-		    y label style={at={(axis description cs:0.05,.5)}, anchor=south},
+		    y label style={at={(axis description cs:-0.2,.5)}, anchor=south},
 		    yticklabel style={/pgf/number format/fixed,
                   /pgf/number format/precision=3},
+		    cycle list name = diploma list,
 		]
 		\addplot table [x = {r}, y={q}]{data/es/r-r1/jazz_r.csv};
 		\addplot table [x expr = {1 - \thisrowno{0}}, y={q}]{data/es/r-r1/jazz_r1.csv};
@@ -332,73 +348,72 @@
 		\begin{axis}[
 		    table/col sep = semicolon,
 		    height = 0.16\paperheight,
-		    width = 0.42\columnwidth,
+		    width = 0.45\columnwidth,
 		    xlabel = {$r$},
 		    ylabel = {$Q$},
 		    no marks,
 		    title = {as-22july06},
-		    y label style={at={(axis description cs:0.05,.5)}, anchor=south},
+		    y label style={at={(axis description cs:-0.2,.5)}, anchor=south},
 		    yticklabel style={/pgf/number format/fixed,
                   /pgf/number format/precision=3},
+		    cycle list name = diploma list,
 		]
 		\addplot table [x = {r}, y={q}]{data/es/r-r1/july_r.csv};
 		\addplot table [x expr = {1 - \thisrowno{0}}, y={q}]{data/es/r-r1/july_r1.csv};
 		\end{axis}
 	\end{tikzpicture}
-	\hskip 10pt
+	\hskip 17pt
 	\begin{tikzpicture}
 		\begin{axis}[
 		    table/col sep = semicolon,
 		    height = 0.16\paperheight,
-		    width = 0.42\columnwidth,
+		    width = 0.45\columnwidth,
 		    xlabel = {$r$},
 		    ylabel = {$Q$},
 		    no marks,
 		    title = {netscience},
-		    y label style={at={(axis description cs:0.05,.5)}, anchor=south},
+		    y label style={at={(axis description cs:-0.1,.5)}, anchor=south},
 		    yticklabel style={/pgf/number format/fixed,
                   /pgf/number format/precision=3},
+		    cycle list name = diploma list,
 		]
 		\addplot table [x = {r}, y={q}]{data/es/r-r1/netscience_r.csv};
 		\addplot table [x expr = {1 - \thisrowno{0}}, y={q}]{data/es/r-r1/netscience_r1.csv};
 		\end{axis}
 	\end{tikzpicture}
-	\caption{Зависимость модулярности от доли хороших разбиений, учавствующих в создании промежуточного разбиения, в работе \emph{ACGGC} на четырёх графах. Синим цветом отмечена пропорциональный выбор, а красным --- непропорциональный}
+	\caption{Зависимость модулярности от доли хороших разбиений, учавствующих в создании промежуточного разбиения, в работе \emph{ACGGC} на четырёх графах. Сплошной линией отмечен пропорциональный выбор, а прерывистой --- непропорциональный}		% Изменять при изменении цветовой схемы
 	\label{fig:es-r}
 \end{figure}
 
-Видно, что маленькие $r$ в пропорциональной схеме дают плохие разбиения, что логично, так как в этом случае выбирается очень мало разбиений. В то время как в непропорциональной схеме даже при маленьких $r$ (на рисунке \ref{fig:es-r} наименьшее значение $r = 0.05$) значения достаточно хорошие. Это обусловлено тем, что есть достаточно много разбиений, близких к лучшему. Затем на разных графах алгоритмы ведут себя по разному, хотя и разница между модулярностями при разных значениях $r$ небольшия. Однако непропорциональный выбор $r$ ведёт себя более предсказумо на разных графах, поэтому такой выбор более рекомендуем и далее в работе будет рассматриваться только непропорциональный выбор $r$.
 
-На рисунке \ref{fig:es-l-q} изображена зависимость модулярности от количества шагов $l$ при $r = 0.05$ и $r = 1$. Остальные параметры при этом были равны $d = 2,\ f(Q, k) = -1000 \ln Q,\ \hat{k}_0 = 5$. В качестве финального алгоритма, как и в предыдущих примерах, использовался $RG_{10}$.
-
-Стоит отметить, что на графах \emph{jazz}, \emph{as-22july06} модулярности при разных $r$ практически не отличались, а также начиная с некоторого $l$ на этих двух графах и на графе \emph{netscience} модулярность не росла. На графе \emph{\celegans} модулярность достигала некоторого оптимального $l$ и затем падала. При этом время работы растёт практически линейно от $l$, как можно увидеть на рисунке \ref{fig:es-l-t}.
-
-Таким образом, нет смысла брать большое $l$, повышая время работы, но не гарантируя улучшения получившихся разбиений.
+На рисунках \ref{fig:es-l-t} и \ref{fig:es-l-q} изображены зависимость времени работы и модулярности от количества шагов $l$ при $r = 0.05$ и $r = 1$. Остальные параметры при этом были равны $d = 2,\;f(Q, k) = -1000 \ln Q,\;\hat{k}_0 = 5$. В качестве финального алгоритма, как и в предыдущих примерах, использовался $RG_{10}$.
 
 \begin{figure}[H]
 	\begin{tikzpicture}
 		\begin{axis}[
 		    table/col sep = semicolon,
 		    height = 0.16\paperheight,
-		    width = 0.4\columnwidth,
+		    width = 0.43\columnwidth,
 		    xlabel = {$l$},
 		    ylabel = {$t$},
 		    legend pos = north east,
 		    no marks,
 		    title = {\celegans},
-		    y label style={at={(axis description cs:0,.5)}, anchor=south},
+		    y label style={at={(axis description cs:-0.12,.5)}, anchor=south},
 		    yticklabel style={/pgf/number format/fixed,
                   /pgf/number format/precision=4},
+            cycle list name = diploma list,
 		]
 		\addplot table [x = {l}, y={time}]{data/es/l/celegans_l_0.05.csv};
 		\addplot table [x = {l}, y={time}]{data/es/l/celegans_l_1.csv};
 		\end{axis}
 	\end{tikzpicture}
+	\hskip 3pt
 	\begin{tikzpicture}
 		\begin{axis}[
 		    table/col sep = semicolon,
 		    height = 0.16\paperheight,
-		    width = 0.4\columnwidth,
+		    width = 0.43\columnwidth,
 		    xlabel = {$l$},
 		    ylabel = {$t$},
 		    legend style = {
@@ -407,9 +422,10 @@
 		    },
 		    no marks,
 		    title = {jazz},
-		    y label style={at={(axis description cs:0,.5)}, anchor=south},
+		    y label style={at={(axis description cs:-0.12,.5)}, anchor=south},
 		    yticklabel style={/pgf/number format/fixed,
                   /pgf/number format/precision=4},
+            cycle list name = diploma list,
         ]
         \addplot table [x = {l}, y={time}]{data/es/l/jazz_l_0.05.csv};
 		\addplot table [x = {l}, y={time}]{data/es/l/jazz_l_1.csv};
@@ -420,6 +436,8 @@
 	\label{fig:es-l-t}
 \end{figure}
 
+Стоит отметить, что на графах \emph{jazz}, \emph{as-22july06} модулярности при разных $r$ практически не отличались, а также начиная с некоторого $l$ на этих двух графах и на графе \emph{netscience} модулярность не росла. На графе \emph{\celegans} модулярность достигала некоторого оптимального $l$ и затем падала. При этом время работы растёт практически линейно от $l$, как можно увидеть на рисунке \ref{fig:es-l-t}.
+
 \begin{figure}[H]
 	\begin{tikzpicture}
 		\begin{axis}[
@@ -431,9 +449,10 @@
 		    legend pos = north east,
 		    no marks,
 		    title = {\celegans},
-		    y label style={at={(axis description cs:0,.5)}, anchor=south},
+		    y label style={at={(axis description cs:-0.23,.5)}, anchor=south},
 		    yticklabel style={/pgf/number format/fixed,
                   /pgf/number format/precision=4},
+            cycle list name = diploma list,
 		]
 		\addplot table [x = {l}, y={q}]{data/es/l/celegans_l_0.05.csv};
 		\addplot table [x = {l}, y={q}]{data/es/l/celegans_l_1.csv};
@@ -452,9 +471,10 @@
 		    },
 		    no marks,
 		    title = {jazz},
-		    y label style={at={(axis description cs:0,.5)}, anchor=south},
+		    y label style={at={(axis description cs:-0.2,.5)}, anchor=south},
 		    yticklabel style={/pgf/number format/fixed,
                   /pgf/number format/precision=4},
+            cycle list name = diploma list,
 		]	
 		\addplot table [x = {l}, y={q}]{data/es/l/jazz_l_0.05.csv};
 		\addplot table [x = {l}, y={q}]{data/es/l/jazz_l_1.csv};
@@ -471,15 +491,16 @@
 		    legend pos = north east,
 		    no marks,
 		    title = {as-22july06},
-		    y label style={at={(axis description cs:0,.5)}, anchor=south},
+		    y label style={at={(axis description cs:-0.23,.5)}, anchor=south},
 		    yticklabel style={/pgf/number format/fixed,
                   /pgf/number format/precision=3},
+            cycle list name = diploma list,
 		]
 		\addplot table [x = {l}, y={q}]{data/es/l/july_l_0.05.csv};
 		\addplot table [x = {l}, y={q}]{data/es/l/july_l_1.csv};
 		\end{axis}
 	\end{tikzpicture}
-	% \hskip 10pt
+	\hskip 17pt
 	\begin{tikzpicture}
 		\begin{axis}[
 		    table/col sep = semicolon,
@@ -493,7 +514,8 @@
 		    },
 		    no marks,
 		    title = {netscience},
-		    y label style={at={(axis description cs:0,.5)}, anchor=south},
+		    y label style={at={(axis description cs:-0.15,.5)}, anchor=south},
+		    cycle list name = diploma list,
 		    yticklabel style={/pgf/number format/fixed,
                 /pgf/number format/precision=4},
 		]
@@ -506,13 +528,19 @@
 	\label{fig:es-l-q}
 \end{figure}
 
+Таким образом, нет смысла брать большое $l$, повышая время работы, но не гарантируя улучшения получившихся разбиений.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsection{Время работы}
+\label{subsec:acggc_time}
 
-Одним из способов влиять на время работы является увеличения коэффициента $\beta$ в функции качества $f(Q, k) = -\alpha(\ln Q - \beta \ln k)$. Это обусловлено тем, что при наличии хорошего финального алгоритма, или при использовании итеративной схемы кластеризации основных групп графа, время работы начальных алгоритмом очень критично, в то время как увеличение модулярности начальных алгоритмов на сотые доли может не принести большой выгоды глобально. Стоит отметить, что на графах, у которых существует ярко выраженная оптимальная точка $k$, увеличение $\beta$ не сильно повлияет на модулярность, но зато и не будет влиять на время работы. На графах, у которых с увеличением $k$ растёт модулярность, увеличение $\beta$ снижает модулярность и время работы.
+Одним из способов влиять на время работы является увеличение коэффициента $\beta$ в функции качества $f(Q, k) = -\alpha(\ln Q - \beta \ln k)$. Осмысленно сокращать время работы, так как при наличии хорошего финального алгоритма, или при использовании итеративной схемы кластеризации основных групп графа, время работы начальных алгоритмом очень критично, в то время как увеличение модулярности начальных алгоритмов на небольшие значения может не принести большой выгоды глобально. Стоит отметить, что на графах, у которых существует ярко выраженная оптимальная точка $k$, увеличение $\beta$ не сильно повлияет на модулярность, но зато и не будет влиять на время работы. На графах, у которых с увеличением $k$ растёт модулярность, увеличение $\beta$ снижает модулярность и время работы.
 
+Рисунок \ref{fig:es-beta1} был получен при применении \emph{ACGGC} с параметрами $d = 2,\ f(Q, k) = -1000(\ln Q - \beta \ln k),\ \hat{k}_0 = 5,\ l = 6,\ r = 0.05$.
+
+\newpage~\vspace{-3cm}\\~
+\begin{vwcol}[widths={0.99, 0.01}, rule=0pt]
 \begin{figure}[H]
 	\begin{tikzpicture}
 		\begin{semilogxaxis}[
@@ -524,9 +552,10 @@
 		    no marks,
 		    title style = {xshift = 3.8cm, yshift = 0cm},
 		    title = {\celegans},
-		    y label style={at={(axis description cs:0,.5)}, anchor=south},
+		    y label style={at={(axis description cs:-.15,.5)}, anchor=south},
 		    yticklabel style={/pgf/number format/fixed,
                   /pgf/number format/precision=3},
+		    cycle list name = diploma list,
 		]
 		\addplot table [x = {beta}, y = {q}]{data/es/beta/celegans_beta.csv};
 		\end{semilogxaxis}
@@ -539,10 +568,11 @@
 		    width = 0.47\columnwidth,
 		    xlabel = {$\beta$},
 		    ylabel = {$t$},
-		    y label style={at={(axis description cs:0.1,.5)}, anchor=south},
+		    y label style={at={(axis description cs:-.1,.5)}, anchor=south},
 		    no marks,
+		    cycle list name = diploma list,
 		]
-		\addplot[red] table [x = {beta}, y = {time}]{data/es/beta/celegans_beta.csv};
+		\addplot table [x = {beta}, y = {time}]{data/es/beta/celegans_beta.csv};
 		\end{semilogxaxis}
 	\end{tikzpicture}	%%%%%%%%%%%%%%%
 	\begin{tikzpicture}
@@ -555,14 +585,15 @@
 		    no marks,
 		    title style = {xshift = 3.8cm, yshift = 0cm},
 		    title = {jazz},
-		    y label style={at={(axis description cs:0,.5)}, anchor=south},
+		    y label style={at={(axis description cs:-0.15,.5)}, anchor=south},
 		    yticklabel style={/pgf/number format/fixed,
                   /pgf/number format/precision=3},
+		    cycle list name = diploma list,
 		]
 		\addplot table [x = {beta}, y = {q}]{data/es/beta/jazz_beta.csv};
 		\end{semilogxaxis}
 	\end{tikzpicture}
-	\hskip -2.3cm
+	\hskip -0.7cm
 	\begin{tikzpicture}
 		\begin{semilogxaxis}[
 		    table/col sep = semicolon,
@@ -570,10 +601,11 @@
 		    width = 0.47\columnwidth,
 		    xlabel = {$\beta$},
 		    ylabel = {$t$},
-		    y label style={at={(axis description cs:0.1,.5)}, anchor=south},
+		    y label style={at={(axis description cs:-0.1,.5)}, anchor=south},
 		    no marks,
+		    cycle list name = diploma list,
 		]
-		\addplot[red] table [x = {beta}, y = {time}]{data/es/beta/jazz_beta.csv};
+		\addplot table [x = {beta}, y = {time}]{data/es/beta/jazz_beta.csv};
 		\end{semilogxaxis}
 	\end{tikzpicture}	%%%%%%%%%%%%%%%
 	\begin{tikzpicture}
@@ -586,14 +618,15 @@
 		    no marks,
 		    title style = {xshift = 3.8cm, yshift = -0.1cm},
 		    title = {as-22july06},
-		    y label style={at={(axis description cs:0,.5)}, anchor=south},
+		    y label style={at={(axis description cs:-.15,.5)}, anchor=south},
 		    yticklabel style={/pgf/number format/fixed,
                   /pgf/number format/precision=3},
+		    cycle list name = diploma list,
 		]
 		\addplot table [x = {beta}, y = {q}]{data/es/beta/july_beta.csv};
 		\end{semilogxaxis}
 	\end{tikzpicture}
-	\hskip -2.2cm
+	\hskip -1.8cm
 	\begin{tikzpicture}
 		\begin{semilogxaxis}[
 		    table/col sep = semicolon,
@@ -601,10 +634,11 @@
 		    width = 0.47\columnwidth,
 		    xlabel = {$\beta$},
 		    ylabel = {$t$},
-		    y label style={at={(axis description cs:0.03,.5)}, anchor=south},
+		    y label style={at={(axis description cs:-.18,.5)}, anchor=south},
 		    no marks,
+		    cycle list name = diploma list,
 		]
-		\addplot[red] table [x = {beta}, y = {time}]{data/es/beta/july_beta.csv};
+		\addplot table [x = {beta}, y = {time}]{data/es/beta/july_beta.csv};
 		\end{semilogxaxis}
 	\end{tikzpicture}	%%%%%%%%%%%%%%%
 	\begin{tikzpicture}
@@ -617,14 +651,15 @@
 		    no marks,
 		    title style = {xshift = 3.8cm, yshift = 0cm},
 		    title = {netscience},
-		    y label style={at={(axis description cs:0,.5)}, anchor=south},
+		    y label style={at={(axis description cs:-.15,.5)}, anchor=south},
 		    yticklabel style={/pgf/number format/fixed,
                   /pgf/number format/precision=3},
+		    cycle list name = diploma list,
 		]
 		\addplot table [x = {beta}, y = {q}]{data/es/beta/netscience_beta.csv};
 		\end{semilogxaxis}
 	\end{tikzpicture}
-	\hskip -1.4cm
+	\hskip -1.3cm
 	\begin{tikzpicture}
 		\begin{semilogxaxis}[
 		    table/col sep = semicolon,
@@ -632,17 +667,20 @@
 		    width = 0.47\columnwidth,
 		    xlabel = {$\beta$},
 		    ylabel = {$t$},
-		    y label style={at={(axis description cs:0.05,.5)}, anchor=south},
+		    y label style={at={(axis description cs:-.1,.5)}, anchor=south},
 		    no marks,
+		    cycle list name = diploma list,
 		]
-		\addplot[red] table [x = {beta}, y = {time}]{data/es/beta/netscience_beta.csv};
+		\addplot table [x = {beta}, y = {time}]{data/es/beta/netscience_beta.csv};
 		\end{semilogxaxis}
 	\end{tikzpicture}
 	\caption{Зависимость модулярности и времени работы алгоритма от параметра $\beta$ в работе \emph{ACGGC} на четырёх графах}
 	\label{fig:es-beta1}
 \end{figure}
+~\\~\\~\\~\\~\\~\\~\\~\\~\\~\\~\\~\\~\\~\\~\\~\\~\\~\\~\\~\\~\\~\\~\\~\\~\\~\\~\\~\\~\\~\\~\\~\\~\\~\\~\\~\\
+\end{vwcol}
 
-Рисунок \ref{fig:es-beta1} был получен при применении \emph{ACGGC} с параметрами $d = 2,\ f(Q, k) = -1000(\ln Q - \beta \ln k),\ \hat{k}_0 = 5,\ l = 6,\ r = 0.05$. Видно, что на графах \emph{\celegans}, \emph{jazz} и \emph{as-22july06} увеличение $\beta$ довольно сильно влияло на время работы, при этом на графе \emph{\celegans} модулярность росла, на графе \emph{jazz} оставалась неизменной и лишь после некоторого переломного $\beta$ начинала падать в среднем, но сравнительно слабо. На графах \emph{as-22july06} и \emph{netscience} модулярность вела себя непредсказуемо, но принимала небольшой промежуток значений.
+Видно, что на графах \emph{\celegans}, \emph{jazz} и \emph{as-22july06} увеличение $\beta$ довольно сильно влияло на время работы, при этом на графе \emph{\celegans} модулярность росла, на графе \emph{jazz} оставалась неизменной и лишь после некоторого переломного $\beta$ начинала падать в среднем, но сравнительно слабо. На графах \emph{as-22july06} и \emph{netscience} модулярность вела себя непредсказуемо, но принимала небольшой промежуток значений.
 
 Другим подходом к ограничению времени является установка максимального возможного значения $k_n^{+}$ и $\hat{k}_n$ (как $k_n^{-}$ и $\hat{k}_n$ ограничены снизу единицей). Далее в работе ограничение сверху обозначается $k_{max} > 1 \in \mathbb{N}$.
 
@@ -665,6 +703,7 @@
 		    ylabel = {$Q$},
 		    title = {jazz},
 		    no marks,
+		    cycle list name = diploma list,
 		]
 		\addplot table [x = {k}, y = {q}]{data/arg/validity/jazz.csv};
 		\end{axis}
@@ -677,6 +716,7 @@
 		    xlabel = {$k$},
 		    title = {\celegans},
 		    no marks,
+		    cycle list name = diploma list,
 		]
 		\addplot table [x = {k}, y = {q}]{data/arg/validity/celegans_metabolic.csv};
 		\end{axis}
@@ -690,6 +730,7 @@
 		    xlabel = {$k$},
 		    title = {netscience},
 		    no marks,
+		    cycle list name = diploma list,
 		]
 		\addplot table [x = {k}, y = {q}]{data/arg/validity/netscience.csv};
 		\end{axis}
@@ -702,6 +743,7 @@
 		    xlabel = {$k$},
 		    title = {cond-mat-2003},
 		    no marks,
+		    cycle list name = diploma list,
 		]
 		\addplot table [x = {k}, y = {q}]{data/arg/validity/cond-mat-2003.csv};
 		\end{axis}
@@ -729,7 +771,7 @@
 \end{table}
 
 \begin{table}[H]
- 	\caption{Время работы \emph{ACGGCs} при разных $k_{max}$ на четырёх графах}
+ 	\caption{Время работы \emph{ACGGC} при разных $k_{max}$ на четырёх графах}
  	\label{tab:es-kmax-t}
  	\begin{tabularx}{\textwidth}{XR{1.5cm}R{1.5cm}R{1.5cm}R{1.5cm}R{1.5cm}}\hline
  		$k_{max}$		& $+\infty$	& 50		& 20		& 10		& 6 		\\\hline

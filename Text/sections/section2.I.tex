@@ -1,148 +1,165 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Адаптивный рандомизированный жадный алгоритм}
+\label{sec:ARG}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsection{Применимость алгоритма SPSA}
 
-Для того, чтобы алгоритм SPSA был применим --- необходимо иметь выпуклую функцию качества, которую необходимо минимизировать. В большинстве модулярность результатов работы \emph{RG} на разных графах с разными значениями параметра $k$ будет выглядеть следующим образом:
+Для того, чтобы алгоритм SPSA был применим --- необходимо иметь выпуклую функцию качества, которую необходимо минимизировать. В большинстве случаев модулярность результатов работы \emph{RG} на разных графах с разными значениями параметра $k$ будет выглядеть следующим образом:
 
 \begin{figure}[H]
 	\begin{tikzpicture}
 		\begin{axis}[
 		    table/col sep = semicolon,
-		    height = 0.16\paperheight, 
-		    width = 0.495\columnwidth,
+		    height = 0.18\paperheight, 
+		    width = 0.48\columnwidth,
 		    xlabel = {$k$},
 		    ylabel = {$Q$},
 		    legend pos = north east,
-		    no marks
+		    no marks,
+		    title = {karate},
+		    cycle list name = diploma list
 		]
 		\addplot table [x={k}, y={q}]{data/arg/validity/karate.csv};
-		\legend{karate};
 		\end{axis}
 	\end{tikzpicture}
 	\hskip 0.01\columnwidth
 	\begin{tikzpicture}
 		\begin{axis}[
 		    table/col sep = semicolon,
-		    height = 0.16\paperheight, 
-		    width = 0.495\columnwidth,
+		    height = 0.18\paperheight, 
+		    width = 0.48\columnwidth,
 		    xlabel = {$k$},
 		    ylabel = {$Q$},
 		    legend pos = south east,
-		    no marks
+		    no marks,
+		    title = {chesapeake},
+		    cycle list name = diploma list
 		]
 		\addplot table [x={k}, y={q}]{data/arg/validity/chesapeake.csv};
-		\legend{chesapeake};
 		\end{axis}
 	\end{tikzpicture} % 2nd row
 	\begin{tikzpicture}
 		\begin{axis}[
 		    table/col sep = semicolon,
-		    height = 0.16\paperheight, 
-		    width = 0.495\columnwidth,
+		    height = 0.18\paperheight, 
+		    width = 0.48\columnwidth,
 		    xlabel = {$k$},
 		    ylabel = {$Q$},
 		    legend pos = south east,
-		    no marks
+		    no marks,
+		    title = {polbooks},
+		    cycle list name = diploma list
 		]
 		\addplot table [x={k}, y={q}]{data/arg/validity/polbooks.csv};
-		\legend{polbooks};
 		\end{axis}
 	\end{tikzpicture}
 	\hskip 0.01\columnwidth
 	\begin{tikzpicture}
 		\begin{axis}[
 		    table/col sep = semicolon,
-		    height = 0.16\paperheight, 
-		    width = 0.495\columnwidth,
+		    height = 0.18\paperheight, 
+		    width = 0.48\columnwidth,
 		    xlabel = {$k$},
 		    ylabel = {$Q$},
 		    legend pos = south east,
-		    no marks
+		    no marks,
+		    title = {netscience},
+		    cycle list name = diploma list
 		]
 		\addplot table [x={k}, y={q}]{data/arg/validity/netscience.csv};
-		\legend{netscience};
 		\end{axis}
 	\end{tikzpicture} % 3rd row
 	\begin{tikzpicture}
 		\begin{axis}[
 		    table/col sep = semicolon,
-		    height = 0.16\paperheight, 
-		    width = 0.495\columnwidth,
+		    height = 0.18\paperheight, 
+		    width = 0.48\columnwidth,
 		    xlabel = {$k$},
 		    ylabel = {$Q$},
 		    legend pos = north east,
-		    no marks
+		    no marks,
+		    title = {email},
+		    cycle list name = diploma list
 		]
 		\addplot table [x={k}, y={q}]{data/arg/validity/email.csv};
-		\legend{email};
 		\end{axis}
 	\end{tikzpicture}
 	\hskip 0.01\columnwidth
 	\begin{tikzpicture}
 		\begin{axis}[
 		    table/col sep = semicolon,
-		    height = 0.16\paperheight, 
-		    width = 0.495\columnwidth,
+		    height = 0.18\paperheight, 
+		    width = 0.48\columnwidth,
 		    xlabel = {$k$},
 		    ylabel = {$Q$},
 		    legend pos = south east,
-		    no marks
+		    no marks,
+		    title = {cond-mat-2003},
+		    cycle list name = diploma list
 		]
 		\addplot table [x={k}, y={q}]{data/arg/validity/cond-mat-2003.csv};
-		\legend{cond-mat-2003};
 		\end{axis}
-	\end{tikzpicture} % 4rd row
+	\end{tikzpicture}
+	\caption{Зависимость модулярности от $k$ в результатах работы $RG_k$ на шести тестовых графах}
+	\label{fig:rg-k}
+\end{figure}
+\begin{figure}[H] % 4rd row
 	\begin{tikzpicture}
 		\begin{axis}[
 		    table/col sep = semicolon,
-		    height = 0.16\paperheight, 
-		    width = 0.495\columnwidth,
+		    height = 0.18\paperheight, 
+		    width = 0.48\columnwidth,
 		    xlabel = {$k$},
 		    ylabel = {$Q$},
 		    legend pos = south east,
-		    no marks
+		    no marks,
+		    title = {in-2004},
+		    cycle list name = diploma list
 		]
 		\addplot table [x={k}, y={q}]{data/arg/validity/in-2004.csv};
-		\legend{in-2004};
 		\end{axis}
 	\end{tikzpicture}
 	\begin{tikzpicture}
 		\begin{axis}[
 		    table/col sep = semicolon,
-		    height = 0.16\paperheight, 
-		    width = 0.495\columnwidth,
+		    height = 0.18\paperheight, 
+		    width = 0.48\columnwidth,
 		    xlabel = {$k$},
 		    ylabel = {$Q$},
 		    legend pos = north east,
-		    no marks
+		    no marks,
+		    title = {eu-2005},
+		    cycle list name = diploma list
 		]
 		\addplot table [x={k}, y={q}]{data/arg/validity/eu-2005.csv};
-		\legend{eu-2005};
 		\end{axis}
 	\end{tikzpicture}
-	\caption{Зависимость модулярности от $k$ в результатах работы $RG_k$ на разных графах}
+	\caption{Продолжение рисунка \ref{fig:rg-k}. Зависимость модулярности от $k$ в результатах работы $RG_k$ на графах \emph{in-2004} и \emph{eu-2005}}
+	\label{fig:rg-k2}
 \end{figure}
 
-Результаты показывают разделение поведения алгоритма на разных графах на два возможных случая: в первом алгоритм принимает наилучший результат при некотором небольшом, но разном $k_{best}$ (например работа алгоритма на графе \emph{karate}). Во втором результаты алгоритма постепенно возрастают, приближаясь к некоторой асимптоте (хорошим примером будет работа алгоритма на графе \emph{netscience}. К первому случаю так же относится такое поведение, в котором алгоритм быстро (с ростом $k$) достигает своего лучшего значения, и затем его результаты очень несильно падают, и в дальнейшем держатся того же значения (такое выполняется, например, на графе \emph{in-2004}).
+Значение $k$, при которым $RG_k$ будет на графе принимать наилучшее значение, далее в работе называется \emph{оптимальным} $k$ или $k_{opt}$.
 
-Похожее поведение алгоритм показывает на автоматически сгенерированных графах, но в таких графах можно получить более отличающиеся значения $k_{best}$ и предположить, что будет происходить с модулярностью при дальнейшем росте $k$.
+Рисунки \ref{fig:rg-k} и \ref{fig:rg-k2} показывают разделение поведения \emph{RG} на разных графах на два возможных случая: в первом алгоритм принимает наилучший результат при некотором небольшом, но разным для разных графов $k_{opt}$ (например работа алгоритма на графе \emph{karate} и на графе \emph{eu-2005}). Во втором результаты алгоритма постепенно возрастают, приближаясь к некоторой асимптоте (хорошим примером будет работа алгоритма на графе \emph{netscience}). К первому случаю так же относится такое поведение, в котором алгоритм быстро (с ростом $k$) достигает своего лучшего значения, и затем его результаты очень несильно падают, и в дальнейшем держатся того же значения (такое выполняется, например, на графе \emph{in-2004}).
+
+Похожее поведение алгоритм показывает на автоматически сгенерированных графах, но в таких графах можно получить менее предсказуемые значения $k_{opt}$ и можно предположить, что будет происходить с модулярностью при дальнейшем росте $k$.
 
 \begin{figure}[H]
 	\begin{tikzpicture}
 		\begin{axis}[
 		    table/col sep = semicolon,
-		    height = 0.16\paperheight, 
-		    width = \columnwidth,
+		    height = 0.21\paperheight, 
+		    width = 0.95\columnwidth,
 		    xlabel = {$k$},
 		    ylabel = {$Q$},
 		    yticklabel style={/pgf/number format/fixed,
                   /pgf/number format/precision=3},
-		    no marks
+		    no marks,
+		    cycle list name = diploma list
 		]
 		\addplot table [x={k}, y={q}]{data/arg/validity/auto13.csv};
 		\end{axis}
@@ -163,49 +180,51 @@
 	\begin{tikzpicture}
 		\begin{axis}[
 		    table/col sep = semicolon,
-		    height = 0.16\paperheight, 
+		    height = 0.18\paperheight, 
 		    width = 0.495\columnwidth,
 		    xlabel = {$k$},
 		    ylabel = {$t$},
 		    legend pos = south east,
-		    no marks
+		    no marks,
+		    title = {polbooks},
+		    cycle list name = diploma list
 		]
-		\addplot[red] table [x={k}, y={time}]{data/arg/validity/polbooks.csv};
-		\legend{polbooks};
+		\addplot table [x={k}, y={time}]{data/arg/validity/polbooks.csv};
 		\end{axis}
 	\end{tikzpicture}
 	\hskip 0.01\columnwidth
 	\begin{tikzpicture}
 		\begin{axis}[
 		    table/col sep = semicolon,
-		    height = 0.16\paperheight, 
+		    height = 0.18\paperheight, 
 		    width = 0.495\columnwidth,
 		    xlabel = {$k$},
 		    ylabel = {$t$},
 		    legend pos = south east,
-		    no marks
+		    no marks,
+		    title = {\celegans},
+		    cycle list name = diploma list
 		]
-		\addplot[red] table [x={k}, y={time}]{data/arg/validity/celegans_metabolic.csv};
-		\legend{\celegans};
+		\addplot table [x={k}, y={time}]{data/arg/validity/celegans_metabolic.csv};
 		\end{axis}
 	\end{tikzpicture}
 	\caption{Зависимость времени $t$ в миллисекундах от $k$ для результатов работы $RG_k$ на графах \emph{polbooks} и \emph{\celegans}}
 \end{figure}
 
-Таким образом, вместо времени можно использовать значение $k$. Максимальное значение модулярности, которое может быть достигнуто на графе очень сильно отличается, поэтому нет смысла использовать абсолютное значение модулярности, но имеет смысл использовать относительные значения. При вычислении центрального значения \eqref{eq:spsa-central} в алгоритме одновременно возмущаемой стохастической аппроксимации использутся только разность функций качества. Таким образом, если использовать в функции качества логарифмы от модулярности --- разность функций укажет, во сколько раз модулярность изменилась.
+Основываясь на этих данных вместо времени можно использовать значение $k$. Максимальное значение модулярности, которое может быть достигнуто на графе очень сильно отличается, поэтому нет смысла использовать абсолютное значение модулярности, но имеет смысл использовать относительные значения. При вычислении центральной точки \eqref{eq:spsa-central} в алгоритме одновременно возмущаемой стохастической аппроксимации использутся только разность функций качества. Поэтому если использовать в функции качества логарифмы от модулярности --- разность функций укажет, во сколько раз модулярность изменилась.
 
 Так же функция качества должна принимать минимум, а не максимум, поэтому первой версией подобной функции может быть $f(Q) = -\alpha \ln Q,\;\alpha > 0$. Для того, чтобы принимать во внимание время работы, разумно добавить логарифм от $k$: 
 \begin{equation} \label{eq:arg-f}
 f(Q, k) = -\alpha (\ln Q - \beta \ln k),\;\alpha > 0, \beta \ge 0
 \end{equation}
-Коэффициент $\beta$ в таком случае можно рассматривать в следующем виде $\beta = \frac{\ln \gamma}{\ln 2}$, где коэффициент $\beta$ указывает, во сколько раз необходимо увеличиться модулярности для того, чтобы покрыть увеличение времени (то есть $k$) вдвое. Если время не имеет значение коэффициент $\gamma$ принимает значение 1, а следовательно коэффициент $\beta$ принимает значение 0. Коэффициент $\alpha$ же играет роль размера шага при выборе следующей центральной точки.
+Коэффициент $\beta$ в таком случае можно рассматривать в следующем виде $\beta = \frac{\ln \gamma}{\ln 2}$, где коэффициент $\gamma$ указывает, во сколько раз необходимо увеличиться модулярности для того, чтобы покрыть увеличение времени (то есть $k$) вдвое. Если время не имеет значение коэффициент $\gamma$ принимает значение 1, а следовательно коэффициент $\beta$ принимает значение 0. Коэффициент $\alpha$ же играет роль размера шага при выборе следующей центральной точки.
 
 \begin{figure}[H]
 	\begin{tikzpicture}
 		\begin{axis}[
 		    table/col sep = semicolon,
-		    height = 0.182\paperheight, 
-		    width = 0.73\columnwidth,
+		    height = 0.2\paperheight, 
+		    width = 0.7\columnwidth,
 		    xlabel = {$k$},
 		    ylabel = {$F(Q, k)$},
 		    legend style = {
@@ -213,8 +232,8 @@ f(Q, k) = -\alpha (\ln Q - \beta \ln k),\;\alpha > 0, \beta \ge 0
 		    	legend pos = outer north east
 		    },
 		    title = {karate},
-		    no marks
-		]
+		    cycle list name = diploma list
+		 ]
 		\addplot table [x={k}, y expr={-ln(\thisrowno{1})}]{data/arg/validity/karate.csv};
 		\addplot table [x={k}, y expr={-ln(\thisrowno{1}) + 0.01 * ln(\thisrowno{0})}]{data/arg/validity/karate.csv};
 		\addplot table [x={k}, y expr={-ln(\thisrowno{1}) + 0.02 * ln(\thisrowno{0})}]{data/arg/validity/karate.csv};
@@ -224,8 +243,8 @@ f(Q, k) = -\alpha (\ln Q - \beta \ln k),\;\alpha > 0, \beta \ge 0
 	\begin{tikzpicture}
 		\begin{axis}[
 		    table/col sep = semicolon,
-		    height = 0.182\paperheight, 
-		    width = 0.73\columnwidth,
+		    height = 0.2\paperheight, 
+		    width = 0.7\columnwidth,
 		    xlabel = {$k$},
 		    ylabel = {$F(Q, k)$},
 		    legend style = {
@@ -233,7 +252,8 @@ f(Q, k) = -\alpha (\ln Q - \beta \ln k),\;\alpha > 0, \beta \ge 0
 		    	legend pos = outer north east
 		    },
 		    title = {jazz},
-		    no marks
+		    no marks,
+		    cycle list name = diploma list
 		]
 		\addplot table [x={k}, y expr={-ln(\thisrowno{1})}]{data/arg/validity/jazz.csv};
 		\addplot table [x={k}, y expr={-ln(\thisrowno{1}) + 0.01 * ln(\thisrowno{0})}]{data/arg/validity/jazz.csv};
@@ -241,15 +261,11 @@ f(Q, k) = -\alpha (\ln Q - \beta \ln k),\;\alpha > 0, \beta \ge 0
 		\legend{{$-\ln Q$}, {$-(\ln Q - 0.01 \ln k)$}, {$-(\ln Q - 0.02 \ln k)$}}
 		\end{axis}
 	\end{tikzpicture}
-	\caption{Функции качества с разными коэффициентами $\beta$ для графов \emph{karate} и \emph{jazz}}
-	\label{fig:qua1}
-\end{figure}
-\begin{figure}[H]
 	\begin{tikzpicture}
 		\begin{axis}[
 		    table/col sep = semicolon,
 		    height = 0.2\paperheight, 
-		    width = 0.73\columnwidth,
+		    width = 0.7\columnwidth,
 		    xlabel = {$k$},
 		    ylabel = {$F(Q, k)$},
 		    legend style = {
@@ -257,37 +273,41 @@ f(Q, k) = -\alpha (\ln Q - \beta \ln k),\;\alpha > 0, \beta \ge 0
 		    	legend pos = outer north east
 		    },
 		    title = {netscience},
-		    no marks
+		    no marks,
+		    cycle list name = diploma list,
+		    y label style={at={(axis description cs:-0.1,.5)}, anchor=south}
 		]
 		\addplot table [x={k}, y expr={-ln(\thisrowno{1})}]{data/arg/validity/netscience.csv};
-		\addplot[violet] table [x={k}, y expr={-ln(\thisrowno{1}) + 0.1 * ln(\thisrowno{0})}]{data/arg/validity/netscience.csv};
-		\addplot[purple] table [x={k}, y expr={-ln(\thisrowno{1}) + 0.2 * ln(\thisrowno{0})}]{data/arg/validity/netscience.csv};
+		\addplot table [x={k}, y expr={-ln(\thisrowno{1}) + 0.1 * ln(\thisrowno{0})}]{data/arg/validity/netscience.csv};
+		\addplot table [x={k}, y expr={-ln(\thisrowno{1}) + 0.2 * ln(\thisrowno{0})}]{data/arg/validity/netscience.csv};
 		\legend{{$-\ln Q$}, {$-(\ln Q - 0.1 \ln k)$}, {$-(\ln Q - 0.2 \ln k)$}}
 		\end{axis}
 	\end{tikzpicture}
-	\caption{Продолжение Рис. \ref{fig:qua1}. Функции качества с разными коэффициентами $\beta$ для графа \emph{netscience}}
-	\label{fig:qua2}
+	\caption{Функции качества с разными коэффициентами $\beta$ для графов \emph{karate}, \emph{jazz} и \emph{netscience}}
+	\label{fig:qua}
 \end{figure}
 
-Как видно из рисунка \ref{fig:qua2}, иногда для того, чтобы функция качества имела минимум на небольших $k$, надо задавать довольно большое значение коэффициента $\beta$. Однако это логично, на данном графе если нас устраивает время работы --- выгоднее всё время увеличивать значение $k$.
+Как видно из функций качества с разными коэффициентами $\beta$ для графа \emph{netscience} на рисунке \ref{fig:qua}, иногда для того, чтобы функция качества имела минимум на небольших $k$, надо задавать довольно большое значение коэффициента $\beta$. Однако это логично, на данном графе если нас устраивает время работы --- выгоднее всё время увеличивать значение $k$.
+
+Так же заметно, что при хорошо подобранных $\beta$ функция качества выпукла и имеет минимум.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsection{Адаптивный алгоритм}
 
-При использовании алгоритма SPSA в рандомизированном жадном алгоритме предлагается разбить действие алгоритма на шаги длиной в $\sigma$ итераций. В течении каждого шага используется одно значение $k$. После каждого шага можно считать прирост модулярности, но вместо этого имеет смысл считать медиану прироста модулярности за $\sigma$ итераций --- так как алгоритм рандомизированный, время от времени будут появляться очень хорошие соединения сообществ, которые будут портить функцию качества, такой большой прирост может появиться даже при очень плохом $k$. В таком случае схема алгоритма будет выглядеть следующим образом:
+Для использования алгоритма \emph{SPSA} в рандомизированном жадном алгоритме предлагается разбить действие алгоритма на шаги длиной в $\sigma$ итераций. В течении каждого шага используется одно значение $k$. После каждого шага можно считать прирост модулярности, но вместо этого имеет смысл считать медиану прироста модулярности за $\sigma$ итераций --- так как алгоритм рандомизированный, время от времени будут появляться очень хорошие соединения сообществ, которые будут портить функцию качества, такой большой прирост может появиться даже при очень плохом $k$. В таком случае схема алгоритма будет выглядеть следующим образом:
 
 \begin{enumerate}
-	\item Выбор начальной центральной точки $\hat{k}_0 \in \mathbb{N}$, счётчик $n = 0$, выбор размера возбуждения $d \in \mathbb{N}$, коэффициентов функции качества $\alpha, \beta \in \mathbb{R},\; \alpha > 0,\;\beta \ge 0$, и $\sigma \in \mathbb{N}$ --- количество итераций в одном шаге
-	\item Увеличение счётчика $n \rightarrow n + 1$
-	\item Определение новых аргументов функции $k_{n}^{-} = \max\{\hat{k}_{n - 1} - d, 1\}$ и $k_{n}^{+}=\hat{k}_{n - 1} + d$
+	\item Выбор начальной центральной точки $\hat{k}_0 \in \mathbb{N}$, счётчик $n \leftarrow 0$, выбор размера возбуждения $d \in \mathbb{N}$, коэффициентов функции качества $\alpha, \beta \in \mathbb{R},\; \alpha > 0,\;\beta \ge 0$, и $\sigma \in \mathbb{N}$ --- количество итераций в одном шаге
+	\item Увеличение счётчика $n \leftarrow n + 1$
+	\item Определение новых аргументов функции $k_{n}^{-} \leftarrow \max\{\hat{k}_{n - 1} - d, 1\}$ и $k_{n}^{+} \leftarrow \hat{k}_{n - 1} + d$
 	\item Выполнение $\sigma$ итераций с параметром $k_{n}^{-}$, вычисление медианы прироста модулярности $\mu_n^{-}$
 	\item Выполнение $\sigma$ итераций с параметром $k_{n}^{+}$, вычисление медианы прироста модулярности $\mu_n^{+}$
-	\item Вычисление функций качества $y_n^{-} = -\alpha (\ln \mu_n^{-} - \beta \ln k_n^{-})$, $y_n^{+} = -\alpha (\ln \mu_n^{+} - \beta \ln k_n^{+})$
+	\item Вычисление функций качества $y_n^{-} \leftarrow -\alpha (\ln \mu_n^{-} - \beta \ln k_n^{-})$, $y_n^{+} \leftarrow -\alpha (\ln \mu_n^{+} - \beta \ln k_n^{+})$
 	\item Вычисление следующей центральной точки
 	\begin{equation} \label{eq:arg-centre}
-		\hat{k}_n = \max\left\{1, \left[\hat{k}_{n - 1} - \frac{y_n^{+} - y_n^{-}}{k_n^{+} - k_n^{-}}\right]\right\}
+		\hat{k}_n \leftarrow \max\left\{1, \left[\hat{k}_{n - 1} - \frac{y_n^{+} - y_n^{-}}{k_n^{+} - k_n^{-}}\right]\right\}
 	\end{equation}
 	\item Далее происходит переход на второй пункт
 \end{enumerate}
@@ -306,7 +326,7 @@ f(Q, k) = -\alpha (\ln Q - \beta \ln k),\;\alpha > 0, \beta \ge 0
 		\begin{axis}[
 		    table/col sep = semicolon,
 		    height = 0.14\paperheight, 
-		    width = \columnwidth,
+		    width = 0.95\columnwidth,
 		    xlabel = {$\alpha$},
 		    ylabel = {$Q$},
 		    legend style = {
@@ -314,7 +334,8 @@ f(Q, k) = -\alpha (\ln Q - \beta \ln k),\;\alpha > 0, \beta \ge 0
 		    	legend pos = outer north east
 		    },
 		    title = {cond-mat-2003},
-		    no marks
+		    no marks,
+		    cycle list name = diploma list
 		]
 		\addplot table [x={alpha}, y={q}]{data/arg/alpha/cond/cond_alpha.csv};
 		\end{axis}
@@ -323,7 +344,7 @@ f(Q, k) = -\alpha (\ln Q - \beta \ln k),\;\alpha > 0, \beta \ge 0
 		\begin{axis}[
 		    table/col sep = semicolon,
 		    height = 0.14\paperheight, 
-		    width = \columnwidth,
+		    width = 0.95\columnwidth,
 		    xlabel = {$\alpha$},
 		    ylabel = {$Q$},
 		    legend style = {
@@ -331,7 +352,8 @@ f(Q, k) = -\alpha (\ln Q - \beta \ln k),\;\alpha > 0, \beta \ge 0
 		    	legend pos = outer north east
 		    },
 		    title = {caidaRouterLevel},
-		    no marks
+		    no marks,
+		    cycle list name = diploma list
 		]
 		\addplot table [x={alpha}, y={q}]{data/arg/alpha/caida/caida_alpha.csv};
 		\end{axis}
@@ -340,7 +362,7 @@ f(Q, k) = -\alpha (\ln Q - \beta \ln k),\;\alpha > 0, \beta \ge 0
 		\begin{axis}[
 		    table/col sep = semicolon,
 		    height = 0.14\paperheight, 
-		    width = 0.98\columnwidth,
+		    width = 0.94\columnwidth,
 		    xlabel = {$\alpha$},
 		    ylabel = {$Q$},
 		    legend style = {
@@ -351,7 +373,8 @@ f(Q, k) = -\alpha (\ln Q - \beta \ln k),\;\alpha > 0, \beta \ge 0
 		    no marks,
 		    yticklabel style={/pgf/number format/fixed,
                   /pgf/number format/precision=3},
-            y label style={at={(axis description cs:0,.5)}, anchor=south},
+            y label style={at={(axis description cs:-0.08,.5)}, anchor=south},
+		    cycle list name = diploma list
 		]
 		\addplot table [x={alpha}, y={q}]{data/arg/alpha/cnr/cnr_alpha.csv};
 		\end{axis}
@@ -360,7 +383,7 @@ f(Q, k) = -\alpha (\ln Q - \beta \ln k),\;\alpha > 0, \beta \ge 0
 	\label{fig:alpha}
 \end{figure}
 
-Из рисунка \ref{fig:alpha} видно, что результат не очень стабильный, хотя значение модулярности и колеблется на небольшом промежутке. Так же на третьем графе заметно, что увеличение параметра $\alpha$ влечёт за собой уменьшение модулярности в среднем.
+Из рисунка \ref{fig:alpha} видно, что результат не очень стабильный, хотя значение модулярности и колеблется на небольшом промежутке. Так же на графе \emph{cnr-2000} заметно, что увеличение параметра $\alpha$ влечёт за собой уменьшение модулярности в среднем.
 
 \begin{figure}[H]
 	\begin{tikzpicture}
@@ -370,17 +393,18 @@ f(Q, k) = -\alpha (\ln Q - \beta \ln k),\;\alpha > 0, \beta \ge 0
 		    width = 0.44\columnwidth,
 		    xlabel = {$n$},
 		    ylabel = {$k$},
-		    y label style={at={(axis description cs:0.15,.5)}, anchor=south},
+		    y label style={at={(axis description cs:-0.1,.5)}, anchor=south},
 		    title = {cond-mat-2003},
 		    title style = {xshift = 3.5cm, yshift = 0.3cm},
-		    no marks
+		    no marks,
+		    cycle list name = diploma list
 		]
 		\addplot table [x expr = {\thisrowno{0} / 1000}, y={k}]{data/arg/alpha/cond/cond10.csv};
 		\addplot table [x expr = {\thisrowno{0} / 1000}, y={k}]{data/arg/alpha/cond/cond50.csv};
 		\addplot table [x expr = {\thisrowno{0} / 1000}, y={k}]{data/arg/alpha/cond/cond100.csv};
 		\end{axis}
 	\end{tikzpicture}
-	\hskip -3cm
+	\hskip -2cm
 	\begin{tikzpicture}
 		\begin{axis}[
 		    table/col sep = semicolon,
@@ -389,8 +413,9 @@ f(Q, k) = -\alpha (\ln Q - \beta \ln k),\;\alpha > 0, \beta \ge 0
 		    xlabel = {$n$},
 		    ylabel = {$\mu$},
 		    legend pos = outer north east,
-		    y label style={at={(axis description cs:0.15,.5)}, anchor=south},
-		    no marks
+		    y label style={at={(axis description cs:-0.1,.5)}, anchor=south},
+		    no marks,
+		    cycle list name = diploma list
 		]
 		\addplot table [x expr = {\thisrowno{0} / 1000}, y={mu}]{data/arg/alpha/cond/cond10.csv};
 		\addplot table [x expr = {\thisrowno{0} / 1000}, y={mu}]{data/arg/alpha/cond/cond50.csv};
@@ -398,6 +423,12 @@ f(Q, k) = -\alpha (\ln Q - \beta \ln k),\;\alpha > 0, \beta \ge 0
 		\legend{{$\alpha = 10$}, {$\alpha = 50$}, {$\alpha = 100$}};
 		\end{axis}
 	\end{tikzpicture}
+	\caption{Изменения параметра $k$ и медианы приросты модулярности со временем для разных параметров $\alpha$ на графе \emph{cond-mat-2003}}
+	\label{fig:alpha1}
+\end{figure}
+
+
+\begin{figure}[H]
 	\begin{tikzpicture}
 		\begin{axis}[
 		    table/col sep = semicolon,
@@ -405,17 +436,18 @@ f(Q, k) = -\alpha (\ln Q - \beta \ln k),\;\alpha > 0, \beta \ge 0
 		    width = 0.44\columnwidth,
 		    xlabel = {$n$},
 		    ylabel = {$k$},
-		    y label style={at={(axis description cs:0.15,.5)}, anchor=south},
+		    y label style={at={(axis description cs:-0.13,.5)}, anchor=south},
 		    title = {caidaRouterLevel},
 		    title style = {xshift = 3.5cm, yshift = 0.3cm},
-		    no marks
+		    no marks,
+		    cycle list name = diploma list
 		]
 		\addplot table [x expr = {\thisrowno{0} / 1000}, y={k}]{data/arg/alpha/caida/caida10s.csv};
 		\addplot table [x expr = {\thisrowno{0} / 1000}, y={k}]{data/arg/alpha/caida/caida50s.csv};
 		\addplot table [x expr = {\thisrowno{0} / 1000}, y={k}]{data/arg/alpha/caida/caida100s.csv};
 		\end{axis}
 	\end{tikzpicture}
-	\hskip -3cm
+	\hskip -2.5cm
 	\begin{tikzpicture}
 		\begin{axis}[
 		    table/col sep = semicolon,
@@ -424,8 +456,9 @@ f(Q, k) = -\alpha (\ln Q - \beta \ln k),\;\alpha > 0, \beta \ge 0
 		    xlabel = {$n$},
 		    ylabel = {$\mu$},
 		    legend pos = outer north east,
-		    y label style={at={(axis description cs:0.1,.5)}, anchor=south},
-		    no marks
+		    y label style={at={(axis description cs:-0.13,.5)}, anchor=south},
+		    no marks,
+		    cycle list name = diploma list
 		]
 		\addplot table [x expr = {\thisrowno{0} / 1000}, y={mu}]{data/arg/alpha/caida/caida10s.csv};
 		\addplot table [x expr = {\thisrowno{0} / 1000}, y={mu}]{data/arg/alpha/caida/caida50s.csv};
@@ -440,17 +473,18 @@ f(Q, k) = -\alpha (\ln Q - \beta \ln k),\;\alpha > 0, \beta \ge 0
 		    width = 0.44\columnwidth,
 		    xlabel = {$n$},
 		    ylabel = {$k$},
-		    y label style={at={(axis description cs:0.1,.5)}, anchor=south},
+		    y label style={at={(axis description cs:-0.13,.5)}, anchor=south},
 		    title = {cnr-2000},
 		    title style = {xshift = 3.5cm, yshift = 0.3cm},
-		    no marks
+		    no marks,
+		    cycle list name = diploma list
 		]
 		\addplot table [x expr = {\thisrowno{0} / 1000}, y={k}]{data/arg/alpha/cnr/cnr5s.csv};
 		\addplot table [x expr = {\thisrowno{0} / 1000}, y={k}]{data/arg/alpha/cnr/cnr50s.csv};
 		\addplot table [x expr = {\thisrowno{0} / 1000}, y={k}]{data/arg/alpha/cnr/cnr100s.csv};
 		\end{axis}
 	\end{tikzpicture}
-	\hskip -1.5cm
+	\hskip -1.7cm
 	\begin{tikzpicture}
 		\begin{axis}[
 		    table/col sep = semicolon,
@@ -459,8 +493,9 @@ f(Q, k) = -\alpha (\ln Q - \beta \ln k),\;\alpha > 0, \beta \ge 0
 		    xlabel = {$n$},
 		    ylabel = {$\mu$},
 		    legend pos = outer north east,
-		    y label style={at={(axis description cs:0.1,.5)}, anchor=south},
-		    no marks
+		    y label style={at={(axis description cs:-0.12,.5)}, anchor=south},
+		    no marks,
+		    cycle list name = diploma list
 		]
 		\addplot table [x expr = {\thisrowno{0} / 1000}, y={mu}]{data/arg/alpha/cnr/cnr5s.csv};
 		\addplot table [x expr = {\thisrowno{0} / 1000}, y={mu}]{data/arg/alpha/cnr/cnr50s.csv};
@@ -468,7 +503,8 @@ f(Q, k) = -\alpha (\ln Q - \beta \ln k),\;\alpha > 0, \beta \ge 0
 		\legend{{$\alpha = 5$}, {$\alpha = 50$}, {$\alpha = 100$}};
 		\end{axis}
 	\end{tikzpicture}
-	\caption{Изменения параметра $k$ и медианы приросты модулярности со временем для разных параметров $\alpha$ на трёх графах. Графики для второго и третьего графа смазаны для повышения читаемости}
+	\caption{Продолжение рисунка \ref{fig:alpha1}. Изменения параметра $k$ и медианы приросты модулярности со временем для разных параметров $\alpha$ на графах \emph{caidaRouterLevel} и \emph{cnr-2000}. Графики смазаны для повышения читаемости}
+	\label{fig:alpha2}
 \end{figure}
 
-Из рисунков видно, что в зависимости от $\alpha$ параметр $k$, с которым прогоняются шаги по $\sigma$ шагов, и который поочередно принимает значения $k_n^{-}$ и $k_n^{+}$, меняется с разной интенсивностью, но результаты при этом получаются приблизительно одинаковые.
+Из рисунков \ref{fig:alpha1} и \ref{fig:alpha2} видно, что в зависимости от $\alpha$ параметр $k$, с которым прогоняются шаги по $\sigma$ шагов, и который поочередно принимает значения $k_n^{-}$ и $k_n^{+}$, меняется с разной интенсивностью, но прирост модулярности при этом изменяется примерно одинаково.

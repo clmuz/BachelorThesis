@@ -20,6 +20,9 @@
 \usepackage{setspace}				% Spacing between lines
 \usepackage{multicol}
 \usepackage[normalem]{ulem}
+\usepackage{vwcol}
+
+\pgfplotsset{compat=1.12}
 
 % ------------------- Русский для algorithm2e
 \SetKwInput{KwData}{Исходные параметры}
@@ -38,6 +41,18 @@
 % ------------------- Tabular cells
 
 \newcommand{\celegans}{celegans\textunderscore metabolic}
+
+
+% section3.I 384
+% section3.II 102
+\pgfplotscreateplotcyclelist{diploma list}{%
+	solid\\%
+	densely dashed\\%
+	densely dashdotted\\%
+	dashed\\%
+	dashdotted\\%
+	densely dashdotdotted\\%
+}
 
 \begin{document}
 \filltitle{ru}{
@@ -79,11 +94,13 @@
 \maketitle
 \tableofcontents
 
-% \input{section1/section1}
-% \input{section2/section2.I}
-% \input{section2/section2.II}
-% \input{section3/section3.I}
-\input{section3/section3.II}
+\input{sections/section0}
+\input{sections/section1}
+\input{sections/section2.I}
+\input{sections/section2.II}
+\input{sections/section3.I}
+\input{sections/section3.II}
+\input{sections/section4}
 
 \bibliographystyle{unsrt}
 \bibliography{diploma}

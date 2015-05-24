@@ -5,18 +5,6 @@ Stefano Boccaletti, Vito Latora, Yamir Moreno, Martin Chavez, and D-U Hwang.
 \newblock Complex networks: Structure and dynamics.
 \newblock {\em Physics reports}, 424(4):175--308, 2006.
 
-\bibitem{Faloutsos&al:1999}
-Michalis Faloutsos, Petros Faloutsos, and Christos Faloutsos.
-\newblock On power-law relationships of the internet topology.
-\newblock In {\em ACM SIGCOMM Computer Communication Review}, volume~29, pages
-  251--262. ACM, 1999.
-
-\bibitem{Broder&al:2000}
-Andrei Broder, Ravi Kumar, Farzin Maghoul, Prabhakar Raghavan, Sridhar
-  Rajagopalan, Raymie Stata, Andrew Tomkins, and Janet Wiener.
-\newblock Graph structure in the web.
-\newblock {\em Computer networks}, 33(1):309--320, 2000.
-
 \bibitem{Moore&Newman:2000}
 Cristopher Moore and Mark~EJ Newman.
 \newblock Epidemics and percolation in small-world networks.
@@ -37,6 +25,18 @@ Wang Hong, Wang Zhao-wen, Li~Jian-bo, and Qiu-hong Wei.
 John Scott.
 \newblock {\em Social network analysis}.
 \newblock Sage, 2012.
+
+\bibitem{Faloutsos&al:1999}
+Michalis Faloutsos, Petros Faloutsos, and Christos Faloutsos.
+\newblock On power-law relationships of the internet topology.
+\newblock In {\em ACM SIGCOMM Computer Communication Review}, volume~29, pages
+  251--262. ACM, 1999.
+
+\bibitem{Broder&al:2000}
+Andrei Broder, Ravi Kumar, Farzin Maghoul, Prabhakar Raghavan, Sridhar
+  Rajagopalan, Raymie Stata, Andrew Tomkins, and Janet Wiener.
+\newblock Graph structure in the web.
+\newblock {\em Computer networks}, 33(1):309--320, 2000.
 
 \bibitem{Wasserman:1994}
 Stanley Wasserman.
@@ -132,17 +132,17 @@ Wayne~W Zachary.
 \newblock An information flow model for conflict and fission in small groups.
 \newblock {\em Journal of anthropological research}, pages 452--473, 1977.
 
+\bibitem{Baird&Ulanowicz:1989}
+Daniel Baird and Robert~E Ulanowicz.
+\newblock The seasonal dynamics of the {Chesapeake Bay} ecosystem.
+\newblock {\em Ecological Monographs}, pages 329--364, 1989.
+
 \bibitem{Lusseau&al:2003}
 David Lusseau, Karsten Schneider, Oliver~J Boisseau, Patti Haase, Elisabeth
   Slooten, and Steve~M Dawson.
 \newblock The bottlenose dolphin community of doubtful sound features a large
   proportion of long-lasting associations.
 \newblock {\em Behavioral Ecology and Sociobiology}, 54(4):396--405, 2003.
-
-\bibitem{Baird&Ulanowicz:1989}
-Daniel Baird and Robert~E Ulanowicz.
-\newblock The seasonal dynamics of the {Chesapeake Bay} ecosystem.
-\newblock {\em Ecological Monographs}, pages 329--364, 1989.
 
 \bibitem{Newman:2006}
 Mark~EJ Newman.
@@ -156,15 +156,15 @@ Michelle Girvan and Mark~EJ Newman.
 \newblock {\em Proceedings of the National Academy of Sciences},
   99(12):7821--7826, 2002.
 
-\bibitem{Duch&Arenas:2005}
-Jordi Duch and Alex Arenas.
-\newblock Community detection in complex networks using extremal optimization.
-\newblock {\em Physical review E}, 72(2):027104, 2005.
-
 \bibitem{Gleiser&Danon:2003}
 Pablo~M. Gleiser and Leon Danon.
 \newblock Community structure in jazz.
 \newblock {\em Advances in complex systems}, 6(04):565--573, 2003.
+
+\bibitem{Duch&Arenas:2005}
+Jordi Duch and Alex Arenas.
+\newblock Community detection in complex networks using extremal optimization.
+\newblock {\em Physical review E}, 72(2):027104, 2005.
 
 \bibitem{Guimera&al:2003}
 Roger Guimer{\`a}~Manrique, L~Danon, Albert D{\'\i}az~Guilera, Francesc Giralt,
