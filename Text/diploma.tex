@@ -21,6 +21,16 @@
 \usepackage{multicol}
 \usepackage[normalem]{ulem}
 \usepackage{vwcol}
+\usepackage{cite}
+\usepackage{titlesec}
+
+\newcommand{\sectionbreak}{\clearpage}
+
+\setmonofont{CMU Typewriter Text}
+
+\makeatletter
+% Insert [short title] for \section in ToC
+\patchcmd{\@section}{{#2}{\the\c@page}}{{#1}{\the\c@page}}{}{}
 
 \pgfplotsset{compat=1.12}
 
@@ -49,13 +59,17 @@
 	solid\\%
 	densely dashed\\%
 	densely dashdotted\\%
-	dashed\\%
-	dashdotted\\%
-	densely dashdotdotted\\%
 }
+
+% \pgfplotscreateplotcyclelist{diploma list}{%
+% 	blue\\%
+% 	red\\%
+% 	teal\\%
+% }
 
 \begin{document}
 \filltitle{ru}{
+	university = {\normalsize Правительство Российской Федерации\\Федеральное государственное бюджетное образовательное учреждение \\ высшего профессионального образования\\ \large САНКТ-ПЕТЕРБУРГСКИЙ ГОСУДАРСТВЕННЫЙ УНИВЕРСИТЕТ},
     chair              = {Кафедра Информатики},
     title              = {Адаптивный рандомизированный алгоритм выделения сообществ в графах},
     % Здесь указывается тип работы. Возможные значения:
@@ -67,12 +81,12 @@
     position           = {студента},
     group              = 442,
     author             = {Проданов Тимофей Петрович},
-    supervisorPosition = {д. ф.-м. н., профессор},
-    supervisor         = {О.Н. Граничин},
+    supervisorPosition = {д.ф.-м.н., профессор},
+    supervisor         = {Граничин О.\,Н.},
     reviewerPosition   = {},
-    reviewer           = {В.А. Ерофеева},
-    chairHeadPosition  = {},
-    chairHead          = {},
+    reviewer           = {Ерофеева В.\,А.},
+    chairHeadPosition  = {д.ф.-м.н., профессор},
+    chairHead          = {Косовский Н.\,К.},
 %   university         = {Санкт-Петербургский Государственный Университет},
 %   faculty            = {Математико-механический факультет},
 %   city               = {Санкт-Петербург},
@@ -87,8 +101,8 @@
     supervisor         = {Oleg Granichin},
     reviewerPosition   = {},
     reviewer           = {Victoria Erofeeva},
-    chairHeadPosition  = {},
-    chairHead          = {},
+    chairHeadPosition  = {Professor},
+    chairHead          = {Nikolai Kossovski},
 }
 
 \maketitle
@@ -102,6 +116,7 @@
 \input{sections/section3.II}
 \input{sections/section4}
 
+\newpage
 \bibliographystyle{unsrt}
 \bibliography{diploma}
 

@@ -1,9 +1,22 @@
 \begin{thebibliography}{10}
 
-\bibitem{Boccaletti&al:2006}
-Stefano Boccaletti, Vito Latora, Yamir Moreno, Martin Chavez, and D-U Hwang.
-\newblock Complex networks: Structure and dynamics.
-\newblock {\em Physics reports}, 424(4):175--308, 2006.
+\bibitem{Euler:1741}
+Leonhard Euler.
+\newblock Solutio problematis ad geometriam situs pertinentis.
+\newblock {\em Commentarii academiae scientiarum Petropolitanae}, 8:128--140,
+  1741.
+
+\bibitem{Weber:1978}
+Max Weber.
+\newblock {\em Economy and society: An outline of interpretive sociology},
+  volume~1.
+\newblock Univ of California Press, 1978.
+
+\bibitem{Erlang:1917}
+Agner~Krarup Erlang.
+\newblock Solution of some problems in the theory of probabilities of
+  significance in automatic telephone exchanges.
+\newblock {\em Elektrotkeknikeren}, 13:5--13, 1917.
 
 \bibitem{Moore&Newman:2000}
 Cristopher Moore and Mark~EJ Newman.
@@ -38,10 +51,43 @@ Andrei Broder, Ravi Kumar, Farzin Maghoul, Prabhakar Raghavan, Sridhar
 \newblock Graph structure in the web.
 \newblock {\em Computer networks}, 33(1):309--320, 2000.
 
+\bibitem{Boccaletti&al:2006}
+Stefano Boccaletti, Vito Latora, Yamir Moreno, Martin Chavez, and D-U Hwang.
+\newblock Complex networks: Structure and dynamics.
+\newblock {\em Physics reports}, 424(4):175--308, 2006.
+
+\bibitem{Dejori&al:2004}
+Math{\"a}us Dejori, Anton Schwaighofer, Volker Tresp, and Martin Stetter.
+\newblock Mining functional modules in genetic networks with decomposable
+  graphical models.
+\newblock {\em Omics: a journal of integrative biology}, 8(2):176--188, 2004.
+
+\bibitem{Ovelgoenne&Geyer-Schulz:2010}
+Michael Ovelg{\"o}nne and Andreas Geyer-Schulz.
+\newblock Cluster cores and modularity maximization.
+\newblock In {\em Data Mining Workshops (ICDMW), 2010 IEEE International
+  Conference on}, pages 1204--1213. IEEE, 2010.
+
+\bibitem{Ovelgoenne&Geyer-Schulz:2012b}
+Michael Ovelg{\"o}nne and Andreas Geyer-Schulz.
+\newblock An ensemble learning strategy for graph clustering.
+\newblock {\em Graph Partitioning and Graph Clustering}, 588:187, 2012.
+
 \bibitem{Wasserman:1994}
 Stanley Wasserman.
 \newblock {\em Social network analysis: Methods and applications}, volume~8.
 \newblock Cambridge university press, 1994.
+
+\bibitem{Kvrivanek&Moravek:1986}
+Mirko K{\v{r}}iv{\'a}nek and Jaroslav Mor{\'a}vek.
+\newblock Np-hard problems in hierarchical-tree clustering.
+\newblock {\em Acta Informatica}, 23(3):311--323, 1986.
+
+\bibitem{Brucker:1978}
+Peter Brucker.
+\newblock On the complexity of clustering problems.
+\newblock In {\em Optimization and operations research}, pages 45--54.
+  Springer, 1978.
 
 \bibitem{Newman&Girvan:2004}
 Mark E.~J. Newman and Michelle Girvan.
@@ -78,17 +124,6 @@ Michael Ovelg{\"o}nne and Andreas Geyer-Schulz.
 \newblock In {\em Challenges at the Interface of Data Analysis, Computer
   Science, and Optimization}, pages 225--232. Springer, 2012.
 
-\bibitem{Ovelgoenne&Geyer-Schulz:2010}
-Michael Ovelg{\"o}nne and Andreas Geyer-Schulz.
-\newblock Cluster cores and modularity maximization.
-\newblock In {\em Data Mining Workshops (ICDMW), 2010 IEEE International
-  Conference on}, pages 1204--1213. IEEE, 2010.
-
-\bibitem{Ovelgoenne&Geyer-Schulz:2012b}
-Michael Ovelg{\"o}nne and Andreas Geyer-Schulz.
-\newblock An ensemble learning strategy for graph clustering.
-\newblock {\em Graph Partitioning and Graph Clustering}, 588:187, 2012.
-
 \bibitem{Robbins&Monro:1951}
 Herbert Robbins and Sutton Monro.
 \newblock A stochastic approximation method.
@@ -103,6 +138,24 @@ Jack Kiefer and Jacob Wolfowitz.
 Julius~R Blum.
 \newblock Multidimensional stochastic approximation methods.
 \newblock {\em The Annals of Mathematical Statistics}, pages 737--744, 1954.
+
+\bibitem{Граничин:1989}
+Олег~Николаевич Граничин.
+\newblock Об одной стохастической рекуррентной
+  процедуре при зависимых помехах в
+  наблюдении, использующей на входе пробные
+  возмущения.
+\newblock {\em Вестник Ленингр. ун-та, сер}, 1:19--21,
+  1989.
+
+\bibitem{Поляк&Цыбаков:1990}
+Борис Теодорович Поляк и
+  Александр~Борисович Цыбаков.
+\newblock Оптимальные порядки точности
+  поисковых алгоритмов стохастической
+  оптимизации.
+\newblock {\em Проблемы передачи информации},
+  26(2):45--53, 1990.
 
 \bibitem{Spall:1992}
 James~C Spall.
@@ -120,6 +173,17 @@ James~C. Spall.
 Boris~T. Polyak.
 \newblock {\em Introduction to optimization}.
 \newblock Optimization Software New York, 1987.
+
+\bibitem{Kushner&Yin:2003}
+Harold~J Kushner and George Yin.
+\newblock {\em Stochastic approximation and recursive algorithms and
+  applications}, volume~35.
+\newblock Springer Science \& Business Media, 2003.
+
+\bibitem{Borkar:2008}
+Vivek~S Borkar et~al.
+\newblock Stochastic approximation.
+\newblock {\em Cambridge Books}, 2008.
 
 \bibitem{Granichin&Amelina:2015}
 Oleg Granichin and Natalia Amelina.

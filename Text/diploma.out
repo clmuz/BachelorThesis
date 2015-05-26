@@ -1,31 +1,30 @@
-\BOOKMARK [1][-]{section*.2}{Введение}{}% 1
+\BOOKMARK [1][-]{Doc-Start}{Введение}{}% 1
 \BOOKMARK [1][-]{section.1}{Предварительные сведения}{}% 2
-\BOOKMARK [2][-]{subsection.1.1}{Определения и обозначения}{section.1}% 3
+\BOOKMARK [2][-]{subsection.1.1}{Определения и обозначения. Сообщества в графах}{section.1}% 3
 \BOOKMARK [2][-]{subsection.1.2}{Модулярность}{section.1}% 4
-\BOOKMARK [2][-]{subsection.1.3}{Рандомизированный жадный алгоритм}{section.1}% 5
-\BOOKMARK [2][-]{subsection.1.4}{Схема кластеризации основных групп графа}{section.1}% 6
-\BOOKMARK [2][-]{subsection.1.5}{Одновременно возмущаемая стохастическая аппроксимация}{section.1}% 7
-\BOOKMARK [2][-]{subsection.1.6}{Постановка задачи}{section.1}% 8
+\BOOKMARK [2][-]{subsection.1.3}{Рандомизированный жадный алгоритм \(RG\)}{section.1}% 5
+\BOOKMARK [2][-]{subsection.1.4}{Схема кластеризации основных групп графа \(CGGC\)}{section.1}% 6
+\BOOKMARK [2][-]{subsection.1.5}{Одновременно возмущаемая стохастическая аппроксимация \(SPSA\)}{section.1}% 7
+\BOOKMARK [2][-]{subsection.1.6}{Постановка задачи адаптации параметров алгоритма}{section.1}% 8
 \BOOKMARK [2][-]{subsection.1.7}{Тестовые графы}{section.1}% 9
 \BOOKMARK [1][-]{section.2}{Адаптивный рандомизированный жадный алгоритм}{}% 10
 \BOOKMARK [2][-]{subsection.2.1}{Применимость алгоритма SPSA}{section.2}% 11
 \BOOKMARK [2][-]{subsection.2.2}{Функция качества}{section.2}% 12
-\BOOKMARK [2][-]{subsection.2.3}{Адаптивный алгоритм}{section.2}% 13
+\BOOKMARK [2][-]{subsection.2.3}{Адаптивный алгоритм \(ARG\)}{section.2}% 13
 \BOOKMARK [2][-]{subsection.2.4}{Чувствительность к перепадам функции качества}{section.2}% 14
 \BOOKMARK [2][-]{subsection.2.5}{Размер возмущения}{section.2}% 15
 \BOOKMARK [2][-]{subsection.2.6}{Количество итераций в одном шаге}{section.2}% 16
-\BOOKMARK [2][-]{subsection.2.7}{Начальная центральная точка}{section.2}% 17
+\BOOKMARK [2][-]{subsection.2.7}{Начальное приближение}{section.2}% 17
 \BOOKMARK [2][-]{subsection.2.8}{Коэффициент  функции качества}{section.2}% 18
-\BOOKMARK [2][-]{subsection.2.9}{Сравнение}{section.2}% 19
+\BOOKMARK [2][-]{subsection.2.9}{Сравнение ARG и RG}{section.2}% 19
 \BOOKMARK [1][-]{section.3}{Адаптивная схема кластеризации основных групп графа}{}% 20
 \BOOKMARK [2][-]{subsection.3.1}{ARG в схеме кластеризации основных групп графа}{section.3}% 21
 \BOOKMARK [2][-]{subsection.3.2}{Адаптивное построение промежуточного разбиения}{section.3}% 22
 \BOOKMARK [2][-]{subsection.3.3}{Размер возмущения и чувствительность к перепадам функции качества}{section.3}% 23
-\BOOKMARK [2][-]{subsection.3.4}{Начальная центральная точка}{section.3}% 24
+\BOOKMARK [2][-]{subsection.3.4}{Начальное приближение}{section.3}% 24
 \BOOKMARK [2][-]{subsection.3.5}{Количество шагов и доля хороших разбиений}{section.3}% 25
 \BOOKMARK [2][-]{subsection.3.6}{Время работы}{section.3}% 26
 \BOOKMARK [2][-]{subsection.3.7}{Итеративная схема}{section.3}% 27
 \BOOKMARK [2][-]{subsection.3.8}{CGGC и ACGGC в качестве финального алгоритма}{section.3}% 28
-\BOOKMARK [2][-]{subsection.3.9}{Сравнение}{section.3}% 29
-\BOOKMARK [1][-]{section*.45}{Заключение}{}% 30
-\BOOKMARK [1][-]{section*.46}{Список литературы}{}% 31
+\BOOKMARK [2][-]{subsection.3.9}{Сравнение ACGGC и CGGC}{section.3}% 29
+\BOOKMARK [1][-]{table.caption.40}{Заключение}{}% 30

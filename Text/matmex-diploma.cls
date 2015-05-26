@@ -152,7 +152,8 @@
     \fancyhf{}  % clear all header and footer fields
     \renewcommand{\headrulewidth}{0pt}  % remove head ruler
     %% В верхнем колонтитуле будет университет и кафедра
-    \chead{\large \my@title@university@ru \\ \my@title@faculty@ru \\ \vskip 1em{\large \my@title@chair@ru \\}}
+    %\chead{\large \my@title@university@ru \\ \my@title@faculty@ru \\ \vskip 1em{\large \my@title@chair@ru \\}}
+    \chead{\large \my@title@university@ru \\ \vskip 1em{\large \my@title@chair@ru \\}}
     %% В нижнем колонтитуле город и год
     \cfoot{\large\parbox[b]{\textwidth}{\centering \my@title@city@ru\\ \my@title@year@ru}}
 }
@@ -205,7 +206,8 @@
     \fancyhf{}  % clear all header and footer fields
     \renewcommand{\headrulewidth}{0pt}  % remove head ruler
     %% В верхнем колонтитуле будет университет и кафедра
-    \chead{\large \my@title@university@en \\ \my@title@faculty@en \\ \vskip 1em{\large \my@title@chair@en \\}}
+    %\chead{\large \my@title@university@en \\ \my@title@faculty@en \\ \vskip 1em{\large \my@title@chair@en \\}}
+    \chead{\large \my@title@university@en \\ \vskip 1em{\large \my@title@chair@en \\}}
     %% В нижнем колонтитуле город и год
     \cfoot{\large\parbox[b]{\textwidth}{\centering \my@title@city@en\\ \my@title@year@en}}
 }
@@ -287,14 +289,14 @@
 
 %% Каждая глава начинается с новой страницы, введение и заключение не
 %% нумеруются, но в оглавление входят. А само оглавление в оглавление не входит
-\let\old@section\section
-\def\section{\@ifstar\@section\@@section}
-\def\@section#1{\newpage\old@section*{#1}%
-        \ifthenelse{\equal{#1}{\contentsname}}%
-           {}%
-           {\addcontentsline{toc}{section}{#1}}%
-}
-\def\@@section#1{\newpage\old@section{#1}}
+%\let\old@section\section
+%\def\section{\@ifstar\@section\@@section}
+%\def\@section#1{\newpage\old@section*{#1}%
+        %\ifthenelse{\equal{#1}{\contentsname}}%
+           %{}%
+           %{\addcontentsline{toc}{section}{#1}}%
+%}
+%\def\@@section#1{\newpage\old@section{#1}}
 
 %% Полуторный интервал
 \usepackage[nodisplayskipstretch]{setspace}
