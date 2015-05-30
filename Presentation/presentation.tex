@@ -1,8 +1,9 @@
-\documentclass[unicode, notheorems]{beamer}
+\documentclass[unicode, notheorems, usenames, dvipsnames, table]{beamer}
 
 \usepackage[T2A]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage[russian]{babel}
+\usepackage{xcolor}
 \usepackage{graphicx}
 \usepackage{amssymb}
 \usepackage{amsthm}
@@ -15,6 +16,9 @@
 \usepackage{pgfplots}
 \usepackage[font=small,skip=0pt]{caption} % Distance to caption
 \usepackage{multicol}
+\usepackage{tabularx}
+
+% \setbeamertemplate{caption}[numbered]
 
 \pgfplotsset{compat=1.12}
 \pgfplotsset{every axis/.append style={thick}}
@@ -55,6 +59,11 @@
 
 \setbeamertemplate{itemize item}[circle]%{\small\raise0pt\hbox{\textbullet}}
 \setbeamertemplate{enumerate items}[default]
+\setbeamercovered{invisible}
+
+\newcommand{\cgold}[0]{\cellcolor{Goldenrod}}
+\newcommand{\csilver}[0]{\cellcolor{black!20!white}}
+\newcommand{\cred}[0]{\cellcolor{red!40!white}}
 
 \title[Адаптивный рандомизированный алгоритм выделения сообществ в графах]{Адаптивный рандомизированный алгоритм выделения сообществ в графах}
 
@@ -78,7 +87,7 @@
     \titlepage
 \end{frame}
 
-% \input{ps/p1}
+\input{ps/p1}
 \input{ps/p2}
 
 

@@ -4,6 +4,8 @@
 	\bluetext{Сообщества} --- тесно связанные группы узлов в графах.
 	\bluetext{Разбиение} на сообщества --- разбиение множества узлов графа.\vspace{1em}
 
+	\pause
+
 	Целевая функция \bluetext{модулярность}:
 	$$Q(G, P) = \sum_{i \in 1..K}{\left(e_{ii} - a_i^2\right)},$$
 	где
@@ -29,15 +31,19 @@
 		\item Соединяется лучшая пара соседей
 	\end{itemize}\vspace{0.5em}
 
+	\pause
+
 	Схема кластеризации основных групп графа $CGGC$:
 	\begin{enumerate}
-		\item $s$ \bluetext{начальных алгоритмов} создают множество $S$ разбиений на сообщества
+		\item $s$ \bluetext{начальных алгоритмов} создают множество разбиений на сообщества $S$
 		\item Создаётся разбиение $\widetilde{P}$ --- максимальное перекрытие $S$
 		\item \bluetext{Финальный алгоритм} выделяет сообщества на основе разбиения $\widetilde{P}$
 	\end{enumerate}
 
+	\pause
+
 	Итеративная схема $CGGCi$ повторяет шаги \bluetext{1} и \bluetext{2}, пока это увеличивает модулярность.\\
-	В качестве начальных и финальных алгоритмов можно использовать $RG_k$.
+	В качестве \bluetext{начальных} и \bluetext{финального} алгоритмов можно использовать $RG_k$.
 \end{frame}
 
 
@@ -46,12 +52,14 @@
 	Одновременно возмущаемая стохастическая аппроксимация $SPSA$:
 	На каждой итерации алгоритма
 	\begin{enumerate}
-		\item Выбирается вектора возмущения $\Delta_n$, каждая координата равна $1$ или $-1$ с вероятностью $\frac{1}{2}$
-		\item Высчитываются новые аргументы функциона 
+		\item Выбирается \bluetext{вектор возмущения} $\Delta_n$, каждая координата которого равна $1$ или $-1$ с вероятностью $\frac{1}{2}$
+		\item Рассчитываются новые аргументы функционала
 		$\theta_{n}^{-} \leftarrow \hat{\theta}_{n - 1} - d\Delta_{n},\ \theta_{n}^{+} \leftarrow \hat{\theta}_{n - 1} + d\Delta_{n}$
-		\item Вычисляются значений функционала $y_n^{-} \leftarrow f(\theta_{n}^{-}),\ y_n^{+} \leftarrow f(\theta_{n}^{+})$
-		\item Вычислется следующей оценки $\hat{\theta}_n \leftarrow \hat{\theta}_{n - 1} - \alpha_n \Delta_{n} \frac{y_n^{+} - y_n^{-}}{2d}$
+		\item Вычисляются значения функционала $y_n^{-} \leftarrow f(\theta_{n}^{-}),\ y_n^{+} \leftarrow f(\theta_{n}^{+})$
+		\item Вычисляется следующая \bluetext{оценка} $\hat{\theta}_n \leftarrow \hat{\theta}_{n - 1} - \alpha_n \Delta_{n} \frac{y_n^{+} - y_n^{-}}{2d}$
 	\end{enumerate}
+
+	\pause
 
 	От выбора параметров $RG_k$ и $CGGC$ зависит качество их работы.\\
 	Остаётся открытым вопрос об адаптивных версиях алгоритмов, работоспособных на большем количестве задач.\vspace{.5em}
@@ -61,7 +69,7 @@
 
 
 \begin{frame}
-	\frametitle{Применимось $SPSA$. Функция качества}
+	\frametitle{Применимось \emph{SPSA}. Функция качества}
 	Применимость $SPSA$ обоснована теоретически для выпуклой усреднённой функции качества. Зависимость модулярности от параметра $k$ в работе $RG_k$ выглядит так:\vspace{-1em}\\
 	
 	\begin{figure}[H]
@@ -105,14 +113,15 @@
 \begin{frame}
 	\frametitle{Адаптивный рандомизированный жадный алгоритм}
 
-	Предлагается адапивный рандомизированный жадный алгоритм $ARG$. Два его шага при текущей оценке $\hat{k}_{n - 1}$:
+	Предлагается адапивный рандомизированный жадный алгоритм $ARG$. Два его последовательных шага при текущей оценке $\hat{k}_{n - 1}$ выглядят следующих образом:
 	\begin{enumerate}
-		\item Аргументы функции $k_{n}^{-} \leftarrow \max\{\hat{k}_{n - 1} - d, 1\}$ и $k_{n}^{+} \leftarrow \hat{k}_{n - 1} + d$
-		\item $\sigma$ итераций $RG_k$ с параметром $k = k_{n}^{-}$, медиана прироста модулярности $\mu_n^{-}$
-		\item $\sigma$ итераций $RG_k$ с параметром $k = k_{n}^{+}$, медиана прироста модулярности $\mu_n^{+}$
-		\item Значения функционала\\
+		\item Вычисляются аргументы функционала\\
+		$k_{n}^{-} \leftarrow \max\{\hat{k}_{n - 1} - d, 1\}$ и $k_{n}^{+} \leftarrow \hat{k}_{n - 1} + d$
+		\item Выполняется $\sigma$ итераций $RG_k$ с параметром $k = k_{n}^{-}$, медиана прироста модулярности $\mu_n^{-}$
+		\item Выполняется $\sigma$ итераций $RG_k$ с параметром $k = k_{n}^{+}$, медиана прироста модулярности $\mu_n^{+}$
+		\item Вычисляются значения функционала\\
 		$y_n^{-} \leftarrow -\alpha (\ln \mu_n^{-} - \beta \ln k_n^{-}),\ y_n^{+} \leftarrow -\alpha (\ln \mu_n^{+} - \beta \ln k_n^{+})$
-		\item Вычисление следующей оценки
+		\item Подсчитывается следующая оценка
 		$$\hat{k}_n \leftarrow \max\left\{1, \left[\hat{k}_{n - 1} - \frac{y_n^{+} - y_n^{-}}{k_n^{+} - k_n^{-}}\right]\right\}$$
 	\end{enumerate}
 \end{frame}
@@ -124,7 +133,7 @@
 	$ARG$ имеет пять параметров:
 
 	\begin{multicols}{2}
-	\bluetext{\textbullet} $\alpha > 0 \in \mathbb{R}$
+	\bluetext{\textbullet} $\alpha > 0 \in \mathbb{R}$ \vspace{-0.8em}
 	\begin{figure}[H]
 		\begin{tikzpicture}
 			\begin{axis}[
@@ -137,7 +146,7 @@
 			    	cells = {anchor = west},
 			    	legend pos = outer north east
 			    },
-			    x label style={at={(axis description cs:.3,-.4)}, anchor=south},
+			    x label style={at={(axis description cs:.3,-.6)}, anchor=south},
 			    no marks,
 			]
 			\addplot table [x={alpha}, y={q}]{../Text/data/arg/alpha/caida/caida_alpha.csv};
@@ -145,7 +154,9 @@
 		\end{tikzpicture}
 	\end{figure}
 
-	\vspace{-2em} \bluetext{\textbullet} $d \in \mathbb{N}$
+	\pause
+
+	\vspace{-2em} \bluetext{\textbullet} $d \in \mathbb{N}$ \vspace{-0.8em}
 	\begin{figure}[H]
 		\begin{tikzpicture}
 			\begin{axis}[
@@ -157,14 +168,16 @@
 			    legend pos = north east,
 			    no marks,
 			    %y label style={at={(axis description cs:-0.4,.5)}, anchor=south},
-			    x label style={at={(axis description cs:.3,-.4)}, anchor=south},
+			    x label style={at={(axis description cs:.3,-.6)}, anchor=south},
 			]
 			\addplot table [x={d}, y={q}]{../Text/data/arg/d/cond_d.csv};
 			\end{axis}
 		\end{tikzpicture}
 	\end{figure}
 
-	\vspace{-2em} \bluetext{\textbullet} $\sigma \in \mathbb{N}$
+	\pause
+
+	\vspace{-2em} \bluetext{\textbullet} $\sigma \in \mathbb{N}$ \vspace{-0.8em}
 	\begin{figure}[H]
 		\begin{tikzpicture}
 			\begin{axis}[
@@ -175,14 +188,16 @@
 			    ylabel = {$Q$},
 			    legend pos = north east,
 			    no marks,
-			    x label style={at={(axis description cs:.3,-.4)}, anchor=south},
+			    x label style={at={(axis description cs:.3,-.6)}, anchor=south},
 			]
 			\addplot table [x={sigma}, y={q}]{../Text/data/arg/sigma/cond_sigma.csv};
 			\end{axis}
 		\end{tikzpicture}
 	\end{figure}
 
-	\newpage \bluetext{\textbullet} $\hat{k}_0 \in \mathbb{N}$
+	\pause
+
+	\newpage \bluetext{\textbullet} $\hat{k}_0 \in \mathbb{N}$ \vspace{-0.8em}
 	\begin{figure}[H]
 		\begin{tikzpicture}
 			\begin{axis}[
@@ -193,14 +208,16 @@
 			    ylabel = {$Q$},
 			    legend pos = north east,
 			    no marks,
-			    x label style={at={(axis description cs:.45,-.45)}, anchor=south},
+			    x label style={at={(axis description cs:.45,-.6)}, anchor=south},
 			]
 			\addplot table [x={k0}, y={q}]{../Text/data/arg/k0/cond_k0.csv};
 			\end{axis}
 		\end{tikzpicture}
 	\end{figure}
 
-	\vspace{-2em} \bluetext{\textbullet} $\beta \ge 0 \in \mathbb{R}$
+	\pause
+
+	\vspace{-2em} \bluetext{\textbullet} $\beta \ge 0 \in \mathbb{R}$ \vspace{-0.8em}
 	\begin{figure}[H]
 		\begin{tikzpicture}
 			\begin{axis}[
@@ -211,7 +228,7 @@
 			    ylabel = {$Q$},
 			    legend pos = north east,
 			    no marks,
-			    x label style={at={(axis description cs:.6,-.45)}, anchor=south},
+			    x label style={at={(axis description cs:.6,-.6)}, anchor=south},
 			]
 			\addplot table [x={beta}, y={q}]{../Text/data/arg/beta/cond_beta.csv};
 			\end{axis}
@@ -225,9 +242,9 @@
 			    ylabel = {$t$},
 			    legend pos = north east,
 			    no marks,
-			    x label style={at={(axis description cs:.6,-.45)}, anchor=south},
+			    x label style={at={(axis description cs:.6,-.6)}, anchor=south},
 			]
-			\addplot table [x={beta}, y={time}]{../Text/data/arg/beta/cond_beta.csv};
+			\addplot[red] table [x={beta}, y={time}]{../Text/data/arg/beta/cond_beta.csv};
 			\end{axis}
 		\end{tikzpicture}
 	\end{figure}\vspace{-1.5em}~
@@ -239,9 +256,10 @@
 	\frametitle{Сравнение \emph{RG} и \emph{ARG}}
 
 	\begin{figure}[H]
-		\begin{tikzpicture}
+		\begin{tikzpicture}	% max(0, 1 + (rgs1[y, x] - max(rgs1[y, ]))/(.04 * max(rgs1[y, ])))
 			\begin{axis}[
 				view={0}{90},
+				width = 0.7\columnwidth,
 				% grid=minor,
 	 		    % grid style={dotted},
 			    colormap = {redgreen}{rgb255(0cm)=(255,0,0); rgb255(1cm)=(255,255,255); rgb255(2cm)=(0,255,0)},
@@ -253,11 +271,250 @@
     			xticklabels={$RG_1$, $RG_3$, $RG_{10}$, $RG_{50}$, $ARG_0$, $ARG_{0.01}$, $ARG_{0.05}$, $ARG_{0.1}$, $ARG_{0.2}$},
     			x tick label style = {align = center, rotate = 50, anchor = north east},
     			ytick = {1.5,2.5,3.5,4.5,5.5,6.5,7.5},
-    			yticklabels = {{as-22july06}, {cond-mat-2003}, {auto40}, {caidaRouterLevel}, {cnr-2000}, {eu-2005}, {in-2004}},
+    			yticklabels = {in-2004, eu-2005, cnr-2000, caidaRouterLevel, auto40, cond-mat-2003, as-22july06},
+    			colorbar style = {
+    				ytick = {0, 0.2, 0.4, 0.6, 0.8, 1},
+    				yticklabels = {$\le 0.96$, $0.968$, $0.976$, $0.984$, $0.992$, $1\ \cdot Q_{max}$}
+    			},
 			 ]
 			\addplot3[surf,shader=flat corner] table{../Text/data/arg/results/results1.csv};
 			\addplot3[no marks, black, dashed] coordinates {(5, 1, 1) (5, 8, 1)};
 			\end{axis}
 		\end{tikzpicture}
 	\end{figure}
+\end{frame}
+
+\begin{frame}
+	\frametitle{\emph{ARG} как начальный алгоритм \emph{CGGC}}
+	Если начальные алгоритмы дают плохой результат в схеме $CGGC$, то и окончательный результат будет плохим. По модулярности одного разбиения нельзя сказать, хорошее разбиение или плохое. Запускать $RG_k$ с разными параметрами для проверки качества разбиения не выгодно. Поэтому имеет смысл запускать более стабильный $ARG$.
+
+	\small
+	\begin{table}[H]
+		\caption{Модулярность разбиений, полученных в результате работы $CGGC$ с начальным алгоритмом $A_{init}$ и финальным алгоритмом $A_{final}$ на трёх графах}
+		\begin{tabularx}{\textwidth}{Xrrrrrr} \hline
+		$A_{init}$	& \multicolumn{2}{c}{$RG_3$} & \multicolumn{2}{c}{$RG_{10}$} & \multicolumn{2}{c}{$ARG$} \\
+		$A_{final}$ & \multicolumn{1}{c}{$RG_3$} & \multicolumn{1}{c}{$RG_{10}$} & \multicolumn{1}{c}{$RG_3$} & \multicolumn{1}{c}{$RG_{10}$} & \multicolumn{1}{c}{$RG_3$} & \multicolumn{1}{c}{$RG_{10}$} \\\hline
+		$G_1$ 		& \cred 0.16840	& 0.71155	& \cred 0.44934	& \csilver 0.74794	& 0.42708	& \cgold 0.74872	\\
+		$G_2$				& 0.80628	& \csilver 0.80645	& 0.80633	& \csilver 0.80645	& 0.80628	& \cgold 0.80647	\\
+		$G_3$	& 0.84078	& \cgold 0.85372	& 0.84031	& 0.84448	& 0.83671	& \csilver 0.85279	\\\hline
+		\end{tabularx}
+	\end{table}
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{Адаптивная схема кластеризации основных групп графа}
+
+	Схема $ACGGC$:
+	\begin{enumerate}
+		\item $n \leftarrow n + 1$
+		\item Вычисляются аргументы функционала\\
+		$k_n^{-} \leftarrow \max\{1, \hat{k}_{n - 1} - d\}$ и $k_n^{+} \leftarrow \hat{k}_{n - 1} + d$
+		\item $RG_{k_n^{-}}$ и $RG_{k_n^{+}}$ создают разбиения $P_n^{-}$ и $P_n^{+}$, они записываются в множество $S$, их модулярности $Q_n^{-}$ и $Q_n^{+}$
+		\item Вычисляются значения функционала\\
+		$y_n^{-} \leftarrow f(Q_n^{-}, k_n^{-}),\ y_n^{+} \leftarrow f(Q_n^{+}, k_n^{+})$
+		\item Рассчитывается следующая оценка:
+		$$\hat{k}_n \leftarrow \max\left\{1, \left[\hat{k}_{n - 1} - \frac{y_n^{+} - y_n^{-}}{k_n^{+} - k_n^{-}}\right]\right\}$$
+		\item При $n \ne l$ --- переход на \bluetext{1} шаг, иначе переход на \bluetext{7} шаг
+		\item В зависимости от $r \in (0, 1]$ выбирается несколько хороших разбиений из $S$, которые формируют максимальное перекрытие $\widetilde{P}$
+		\item Финальный алгоритм выделяет сообщества на основе $\widetilde{P}$
+	\end{enumerate}
+\end{frame}
+
+
+\begin{frame}
+	\frametitle{Параметры CGGC}
+
+	\begin{multicols}{2}
+
+	\bluetext{\textbullet} $d \in \mathbb{N},\ \alpha > 0 \in \mathbb{R}$
+	\begin{figure}[H]
+		\begin{tikzpicture}
+			\begin{semilogxaxis}[
+			    table/col sep = semicolon,
+			    height = 0.4\paperheight, 
+			    width = 0.99\columnwidth,
+			    xlabel = {$\alpha$},
+			    ylabel = {$Q$},
+			    legend columns = -1,
+			    legend style={
+					at={(1,-.4)},
+					anchor=north east},
+			    no marks,
+			    ymin = 0.665,
+			    yticklabel style={/pgf/number format/fixed,
+	                  /pgf/number format/precision=3},
+	            x label style={at={(axis description cs:.28,-.35)}, anchor=south},
+	            y label style={at={(axis description cs:-.15,.35)}, anchor=south},
+			]
+			\addplot table [x={alpha}, y={q}]{../Text/data/es/alphad/july_1.csv};
+			\addplot table [x={alpha}, y={q}]{../Text/data/es/alphad/july_2.csv};
+			\legend{{\scriptsize $d = 1$}, {\scriptsize $d = 2$}};
+			\end{semilogxaxis}
+		\end{tikzpicture}
+	\end{figure}
+
+	\pause
+
+	\vspace{-.4em} \bluetext{\textbullet} $\hat{k}_0 \in \mathbb{N}$
+	\begin{figure}[H]
+		\begin{tikzpicture}
+			\begin{axis}[
+			    table/col sep = semicolon,
+			    height = 0.35\paperheight,
+			    width = 0.99\columnwidth,
+			    xlabel = {$\hat{k}_0$},
+			    ylabel = {$Q$},
+			    no marks,
+			    y label style={at={(axis description cs:-0.2,.5)}, anchor=south},
+	            x label style={at={(axis description cs:.28,-.38)}, anchor=south},
+			    yticklabel style={/pgf/number format/fixed,
+	                  /pgf/number format/precision=3},
+			]
+			\addplot table [x = {k0}, y={q}]{../Text/data/es/k0/july_k0.csv};
+			\end{axis}
+		\end{tikzpicture}
+	\end{figure}
+
+	\pause
+
+	\newpage \bluetext{\textbullet} $r \in (0, 1]$ \vspace{-1em}
+	\begin{figure}[H]
+		\begin{tikzpicture}
+			\begin{axis}[
+			    table/col sep = semicolon,
+			    height = 0.4\paperheight,
+			    width = 0.99\columnwidth,
+			    xlabel = {$r$},
+			    ylabel = {$Q$},
+			    no marks,
+			    y label style={at={(axis description cs:-0.2,.5)}, anchor=south},
+	            x label style={at={(axis description cs:.28,-.3)}, anchor=south},
+			    yticklabel style={/pgf/number format/fixed,
+	                  /pgf/number format/precision=3},
+			]
+			\addplot table [x = {r}, y={q}]{../Text/data/es/r-r1/july_r.csv};
+			\addplot table [x expr = {1 - \thisrowno{0}}, y={q}]{../Text/data/es/r-r1/july_r1.csv};
+			\end{axis}
+		\end{tikzpicture}
+	\end{figure}
+
+	\pause
+
+	\vspace{0em} \bluetext{\textbullet} $l \in \mathbb{N}$ \vspace{-1em}
+	\begin{figure}[H]
+		\begin{tikzpicture}
+			\begin{axis}[
+			    table/col sep = semicolon,
+			    height = 0.4\paperheight,
+			    width = 0.99\columnwidth,
+			    xlabel = {$l$},
+			    ylabel = {$Q$},
+			    legend pos = south east,
+			    no marks,
+			    y label style={at={(axis description cs:-0.23,.5)}, anchor=south},
+	            x label style={at={(axis description cs:.28,-.3)}, anchor=south},
+			    yticklabel style={/pgf/number format/fixed,
+	                  /pgf/number format/precision=3},
+			]
+			\addplot table [x = {l}, y={q}]{../Text/data/es/l/july_l_0.05.csv};
+			\addplot table [x = {l}, y={q}]{../Text/data/es/l/july_l_1.csv};
+			\legend{{\scriptsize $r = 0.05$}, {\scriptsize $r = 1$}};
+			\end{axis}
+		\end{tikzpicture}
+	\end{figure} \vspace{-2.1em}~
+
+	\end{multicols}
+\end{frame}
+
+
+\begin{frame}
+	\frametitle{Время работы}
+	Два механизма снижения времени работы:
+
+	\begin{figure}[H]
+		\begin{tikzpicture}
+			\begin{semilogxaxis}[
+			    table/col sep = semicolon,
+			    height = 0.45\paperheight,
+			    width = 0.49\columnwidth,
+			    xlabel = {$\beta$},
+			    ylabel = {$Q$},
+			    no marks,
+			    y label style={at={(axis description cs:-0.25,.5)}, anchor=south},
+			    yticklabel style={/pgf/number format/fixed,
+	                  /pgf/number format/precision=3},
+	            x label style={at={(axis description cs:.5,-.3)}, anchor=south},
+			]
+			\addplot table [x = {beta}, y = {q}]{../Text/data/es/beta/jazz_beta.csv};
+			\end{semilogxaxis}
+		\end{tikzpicture}
+		\hskip 0.01\columnwidth
+		\begin{tikzpicture}
+			\begin{semilogxaxis}[
+			    table/col sep = semicolon,
+			    height = 0.45\paperheight,
+			    width = 0.49\columnwidth,
+			    xlabel = {$\beta$},
+			    ylabel = {$t$},
+			    y label style={at={(axis description cs:-0.2,.5)}, anchor=south},
+			    no marks,
+			    x label style={at={(axis description cs:.5,-.3)}, anchor=south},
+			]
+			\addplot[red] table [x = {beta}, y = {time}]{../Text/data/es/beta/jazz_beta.csv};
+			\end{semilogxaxis}
+		\end{tikzpicture}
+	\end{figure}\vspace{-1em}
+
+	\pause
+
+	\begin{figure}[H]
+	\hskip 0.02\columnwidth
+		\begin{tikzpicture} %max(0, 1 + (rgs1[y, x] - max(rgs1[y, ]))/(.003 * max(rgs1[y, ])))
+			\begin{axis}[
+				height = 0.45\paperheight,
+			    width = 0.49\columnwidth,
+				view={0}{90},
+				% grid=minor,
+	 		    % grid style={dotted},
+			    colormap = {redgreen}{rgb255(0cm)=(255,0,0); rgb255(1cm)=(255,255,255); rgb255(2cm)=(0,255,0)},
+			    mesh/ordering=y varies,
+			    mesh/cols=6,
+			    mesh/rows=9,
+			    xtick={1.5,2.5,3.5,4.5,5.5},
+    			xticklabels={\scriptsize $+\infty$, \scriptsize $50$, \scriptsize $20$, \scriptsize $10$, \scriptsize $6$},
+    			xlabel = {$k_{max}$},
+    			ylabel = {Graphs},
+    			ytick={1.5,2.5,3.5,4.5,5.5,6.5,7.5,8.5},
+    			yticklabels = {\scriptsize $G_8$, \scriptsize $G_7$, \scriptsize $G_6$, \scriptsize $G_5$, \scriptsize $G_4$, \scriptsize $G_3$, \scriptsize $G_2$, \scriptsize $G_1$},
+    			% x tick label style = {align = center, rotate = 50, anchor = north east},
+			 ]
+			\addplot3[surf,shader=flat corner] table{../Text/data/es/kmax/kmax1.csv};
+			\end{axis}
+		\end{tikzpicture}
+		\hskip 0.01\columnwidth
+		\begin{tikzpicture} %min(rgs1[y, ]) / rgs[y, x]
+			\begin{axis}[
+				height = 0.45\paperheight,
+			    width = 0.49\columnwidth,
+				view={0}{90},
+				% grid=minor,
+	 		    % grid style={dotted},
+			    colormap = {redgreen}{rgb255(0cm)=(255,0,0); rgb255(1cm)=(255,255,255); rgb255(2cm)=(0,255,0)},
+			    mesh/ordering=y varies,
+			    mesh/cols=6,
+			    mesh/rows=9,
+			    xtick={1.5,2.5,3.5,4.5,5.5},
+    			xticklabels={\scriptsize $+\infty$, \scriptsize $50$, \scriptsize $20$, \scriptsize $10$, \scriptsize $6$},
+    			xlabel = {$k_{max}$},
+    			ylabel = {Graphs},
+    			ytick={1.5,2.5,3.5,4.5,5.5,6.5,7.5,8.5},
+    			yticklabels = {\scriptsize $G_8$, \scriptsize $G_7$, \scriptsize $G_6$, \scriptsize $G_5$, \scriptsize $G_4$, \scriptsize $G_3$, \scriptsize $G_2$, \scriptsize $G_1$},
+    			% x tick label style = {align = center, rotate = 50, anchor = north east},
+			 ]
+			\addplot3[surf,shader=flat corner] table{../Text/data/es/kmax/kmax_t1.csv};
+			\end{axis}
+		\end{tikzpicture}
+	\end{figure}
+
 \end{frame}
