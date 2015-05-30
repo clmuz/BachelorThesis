@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.1415926-2.4-0.9998 (MiKTeX 2.9) (preloaded format=xelatex 2015.3.30)  26 MAY 2015 05:13
+This is XeTeX, Version 3.1415926-2.4-0.9998 (MiKTeX 2.9) (preloaded format=xelatex 2015.3.30)  26 MAY 2015 05:26
 entering extended mode
 **diploma
 ("D:\9. Диплом\BachelorThesis\Text\diploma.tex"
@@ -11503,12 +11503,6 @@ Overfull \hbox (1.32886pt too wide) in paragraph at lines 3--3
 . 
 . This font family consists of the following shapes:
 .................................................
-
-Overfull \hbox (7.39978pt too wide) in paragraph at lines 84--84
- |[]\EU1/CMUSerif(1)/bx/n/14.4 Размер возмущения и чувст�
-�ительность к перепадам функ-
- []
-
 .................................................
 . fontspec info: "defining-font"
 . 
@@ -11525,7 +11519,7 @@ Overfull \hbox (7.39978pt too wide) in paragraph at lines 84--84
 . 
 . This font family consists of the following shapes:
 .................................................
-[28]
+ [28]
 .................................................
 . fontspec info: "defining-font"
 . 
@@ -18871,15 +18865,11 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 123.
 )
 Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 123.
 Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 123.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
  ) 
 Here is how much of TeX's memory you used:
  44927 strings out of 429035
  931025 string characters out of 3166907
- 1387053 words of memory out of 3000000
+ 1387077 words of memory out of 3000000
  47386 multiletter control sequences out of 15000+200000
  15270 words of font info for 113 fonts, out of 3000000 for 9000
  912 hyphenation exceptions out of 8191

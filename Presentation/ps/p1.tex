@@ -1,0 +1,263 @@
+\begin{frame}
+	\frametitle{Выделение сообществ в графах}
+	Рассматриваются только невзвешенные неориентированные графы.
+	\bluetext{Сообщества} --- тесно связанные группы узлов в графах.
+	\bluetext{Разбиение} на сообщества --- разбиение множества узлов графа.\vspace{1em}
+
+	Целевая функция \bluetext{модулярность}:
+	$$Q(G, P) = \sum_{i \in 1..K}{\left(e_{ii} - a_i^2\right)},$$
+	где
+	\begin{itemize} 
+		\item $G$ --- граф
+		\item $P$ --- разбиение на сообщества
+		\item $K$ --- количество сообществ
+		\item $e$ --- нормированная матрица смежности сообществ
+		\item $a$ --- вектор нормированных степеней сообществ
+	\end{itemize}
+
+	Задача выделения сообществ соответствует задаче максимизации модулярности.
+\end{frame}
+
+
+\begin{frame}
+	\frametitle{Алгоритмы выделения сообществ}
+
+	Рандомизированный жадный алгоритм $RG_k$:
+	\begin{itemize}
+		\item Каждую итерацию рассматриваются $k$ случайных сообществ
+		\item У каждого из $k$ сообществ исследуются все соседи
+		\item Соединяется лучшая пара соседей
+	\end{itemize}\vspace{0.5em}
+
+	Схема кластеризации основных групп графа $CGGC$:
+	\begin{enumerate}
+		\item $s$ \bluetext{начальных алгоритмов} создают множество $S$ разбиений на сообщества
+		\item Создаётся разбиение $\widetilde{P}$ --- максимальное перекрытие $S$
+		\item \bluetext{Финальный алгоритм} выделяет сообщества на основе разбиения $\widetilde{P}$
+	\end{enumerate}
+
+	Итеративная схема $CGGCi$ повторяет шаги \bluetext{1} и \bluetext{2}, пока это увеличивает модулярность.\\
+	В качестве начальных и финальных алгоритмов можно использовать $RG_k$.
+\end{frame}
+
+
+\begin{frame}
+	\frametitle{Стохастическая аппроксимация. Постановка задачи}
+	Одновременно возмущаемая стохастическая аппроксимация $SPSA$:
+	На каждой итерации алгоритма
+	\begin{enumerate}
+		\item Выбирается вектора возмущения $\Delta_n$, каждая координата равна $1$ или $-1$ с вероятностью $\frac{1}{2}$
+		\item Высчитываются новые аргументы функциона 
+		$\theta_{n}^{-} \leftarrow \hat{\theta}_{n - 1} - d\Delta_{n},\ \theta_{n}^{+} \leftarrow \hat{\theta}_{n - 1} + d\Delta_{n}$
+		\item Вычисляются значений функционала $y_n^{-} \leftarrow f(\theta_{n}^{-}),\ y_n^{+} \leftarrow f(\theta_{n}^{+})$
+		\item Вычислется следующей оценки $\hat{\theta}_n \leftarrow \hat{\theta}_{n - 1} - \alpha_n \Delta_{n} \frac{y_n^{+} - y_n^{-}}{2d}$
+	\end{enumerate}
+
+	От выбора параметров $RG_k$ и $CGGC$ зависит качество их работы.\\
+	Остаётся открытым вопрос об адаптивных версиях алгоритмов, работоспособных на большем количестве задач.\vspace{.5em}
+
+	В работе рассматривается применение алгоритма $SPSA$ к $RG$ и $CGGC$ для решения этого вопроса.
+\end{frame}
+
+
+\begin{frame}
+	\frametitle{Применимось $SPSA$. Функция качества}
+	Применимость $SPSA$ обоснована теоретически для выпуклой усреднённой функции качества. Зависимость модулярности от параметра $k$ в работе $RG_k$ выглядит так:\vspace{-1em}\\
+	
+	\begin{figure}[H]
+		\begin{tikzpicture}
+			\begin{axis}[
+			    table/col sep = semicolon,
+			    height = 0.45\paperheight, 
+			    width = 0.49\columnwidth,
+			    xlabel = {$k$},
+			    ylabel = {$Q$},
+			    legend pos = north east,
+			    no marks,
+			    title = {karate},
+			    y label style={at={(axis description cs:-.2,.5)}, anchor=south},
+			]
+			\addplot table [x={k}, y={q}]{../Text/data/arg/validity/karate.csv};
+			\end{axis}
+		\end{tikzpicture}
+		\hskip 0.01\columnwidth
+		\begin{tikzpicture}
+			\begin{axis}[
+			    table/col sep = semicolon,
+			    height = 0.45\paperheight, 
+			    width = 0.49\columnwidth,
+			    xlabel = {$k$},
+			    ylabel = {$Q$},
+			    legend pos = south east,
+			    no marks,
+			    title = {netscience},
+			    y label style={at={(axis description cs:-.18,.5)}, anchor=south},
+			]
+			\addplot table [x={k}, y={q}]{../Text/data/arg/validity/netscience.csv};
+			\end{axis}
+		\end{tikzpicture}
+	\end{figure}~\vspace{-2.5em}\\
+
+	Время растёт линейно от $k$, поэтому можно использовать функцию качества $f(Q, k) = -\alpha (\ln Q - \beta \ln k)$
+\end{frame}
+
+
+\begin{frame}
+	\frametitle{Адаптивный рандомизированный жадный алгоритм}
+
+	Предлагается адапивный рандомизированный жадный алгоритм $ARG$. Два его шага при текущей оценке $\hat{k}_{n - 1}$:
+	\begin{enumerate}
+		\item Аргументы функции $k_{n}^{-} \leftarrow \max\{\hat{k}_{n - 1} - d, 1\}$ и $k_{n}^{+} \leftarrow \hat{k}_{n - 1} + d$
+		\item $\sigma$ итераций $RG_k$ с параметром $k = k_{n}^{-}$, медиана прироста модулярности $\mu_n^{-}$
+		\item $\sigma$ итераций $RG_k$ с параметром $k = k_{n}^{+}$, медиана прироста модулярности $\mu_n^{+}$
+		\item Значения функционала\\
+		$y_n^{-} \leftarrow -\alpha (\ln \mu_n^{-} - \beta \ln k_n^{-}),\ y_n^{+} \leftarrow -\alpha (\ln \mu_n^{+} - \beta \ln k_n^{+})$
+		\item Вычисление следующей оценки
+		$$\hat{k}_n \leftarrow \max\left\{1, \left[\hat{k}_{n - 1} - \frac{y_n^{+} - y_n^{-}}{k_n^{+} - k_n^{-}}\right]\right\}$$
+	\end{enumerate}
+\end{frame}
+
+
+\begin{frame}
+	\frametitle{Параметры \emph{ARG}}
+	\small
+	$ARG$ имеет пять параметров:
+
+	\begin{multicols}{2}
+	\bluetext{\textbullet} $\alpha > 0 \in \mathbb{R}$
+	\begin{figure}[H]
+		\begin{tikzpicture}
+			\begin{axis}[
+			    table/col sep = semicolon,
+			    height = 0.3\paperheight, 
+			    width = 0.9\columnwidth,
+			    xlabel = {$\alpha$},
+			    ylabel = {$Q$},
+			    legend style = {
+			    	cells = {anchor = west},
+			    	legend pos = outer north east
+			    },
+			    x label style={at={(axis description cs:.3,-.4)}, anchor=south},
+			    no marks,
+			]
+			\addplot table [x={alpha}, y={q}]{../Text/data/arg/alpha/caida/caida_alpha.csv};
+			\end{axis}
+		\end{tikzpicture}
+	\end{figure}
+
+	\vspace{-2em} \bluetext{\textbullet} $d \in \mathbb{N}$
+	\begin{figure}[H]
+		\begin{tikzpicture}
+			\begin{axis}[
+			    table/col sep = semicolon,
+			    height = 0.3\paperheight, 
+			    width = 0.9\columnwidth,
+			    xlabel = {$d$},
+			    ylabel = {$Q$},
+			    legend pos = north east,
+			    no marks,
+			    %y label style={at={(axis description cs:-0.4,.5)}, anchor=south},
+			    x label style={at={(axis description cs:.3,-.4)}, anchor=south},
+			]
+			\addplot table [x={d}, y={q}]{../Text/data/arg/d/cond_d.csv};
+			\end{axis}
+		\end{tikzpicture}
+	\end{figure}
+
+	\vspace{-2em} \bluetext{\textbullet} $\sigma \in \mathbb{N}$
+	\begin{figure}[H]
+		\begin{tikzpicture}
+			\begin{axis}[
+			    table/col sep = semicolon,
+			    height = 0.3\paperheight, 
+			    width = 0.9\columnwidth,
+			    xlabel = {$\sigma$},
+			    ylabel = {$Q$},
+			    legend pos = north east,
+			    no marks,
+			    x label style={at={(axis description cs:.3,-.4)}, anchor=south},
+			]
+			\addplot table [x={sigma}, y={q}]{../Text/data/arg/sigma/cond_sigma.csv};
+			\end{axis}
+		\end{tikzpicture}
+	\end{figure}
+
+	\newpage \bluetext{\textbullet} $\hat{k}_0 \in \mathbb{N}$
+	\begin{figure}[H]
+		\begin{tikzpicture}
+			\begin{axis}[
+			    table/col sep = semicolon,
+			    height = 0.3\paperheight, 
+			    width = 0.9\columnwidth,
+			    xlabel = {$\hat{k}_0$},
+			    ylabel = {$Q$},
+			    legend pos = north east,
+			    no marks,
+			    x label style={at={(axis description cs:.45,-.45)}, anchor=south},
+			]
+			\addplot table [x={k0}, y={q}]{../Text/data/arg/k0/cond_k0.csv};
+			\end{axis}
+		\end{tikzpicture}
+	\end{figure}
+
+	\vspace{-2em} \bluetext{\textbullet} $\beta \ge 0 \in \mathbb{R}$
+	\begin{figure}[H]
+		\begin{tikzpicture}
+			\begin{axis}[
+			    table/col sep = semicolon,
+			    height = 0.3\paperheight, 
+			    width = 0.9\columnwidth,
+			    xlabel = {$\beta$},
+			    ylabel = {$Q$},
+			    legend pos = north east,
+			    no marks,
+			    x label style={at={(axis description cs:.6,-.45)}, anchor=south},
+			]
+			\addplot table [x={beta}, y={q}]{../Text/data/arg/beta/cond_beta.csv};
+			\end{axis}
+		\end{tikzpicture}
+		\begin{tikzpicture}
+			\begin{axis}[
+			    table/col sep = semicolon,
+			    height = 0.3\paperheight, 
+			    width = 0.9\columnwidth,
+			    xlabel = {$\beta$},
+			    ylabel = {$t$},
+			    legend pos = north east,
+			    no marks,
+			    x label style={at={(axis description cs:.6,-.45)}, anchor=south},
+			]
+			\addplot table [x={beta}, y={time}]{../Text/data/arg/beta/cond_beta.csv};
+			\end{axis}
+		\end{tikzpicture}
+	\end{figure}\vspace{-1.5em}~
+	\end{multicols}
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{Сравнение \emph{RG} и \emph{ARG}}
+
+	\begin{figure}[H]
+		\begin{tikzpicture}
+			\begin{axis}[
+				view={0}{90},
+				% grid=minor,
+	 		    % grid style={dotted},
+			    colormap = {redgreen}{rgb255(0cm)=(255,0,0); rgb255(1cm)=(255,255,255); rgb255(2cm)=(0,255,0)},
+			    colorbar,
+			    mesh/ordering=x varies,
+			    mesh/cols=8,
+			    mesh/rows=10,
+			    xtick={1.5,2.5,3.5,4.5,5.5,6.5,7.5,8.5,9.5},
+    			xticklabels={$RG_1$, $RG_3$, $RG_{10}$, $RG_{50}$, $ARG_0$, $ARG_{0.01}$, $ARG_{0.05}$, $ARG_{0.1}$, $ARG_{0.2}$},
+    			x tick label style = {align = center, rotate = 50, anchor = north east},
+    			ytick = {1.5,2.5,3.5,4.5,5.5,6.5,7.5},
+    			yticklabels = {{as-22july06}, {cond-mat-2003}, {auto40}, {caidaRouterLevel}, {cnr-2000}, {eu-2005}, {in-2004}},
+			 ]
+			\addplot3[surf,shader=flat corner] table{../Text/data/arg/results/results1.csv};
+			\addplot3[no marks, black, dashed] coordinates {(5, 1, 1) (5, 8, 1)};
+			\end{axis}
+		\end{tikzpicture}
+	\end{figure}
+\end{frame}

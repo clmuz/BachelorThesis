@@ -1,0 +1,85 @@
+\documentclass[unicode, notheorems]{beamer}
+
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{tabularx}
+\usepackage{multicol}
+\usepackage{multirow}
+\usepackage{dsfont}
+\usepackage{etex}
+\usepackage{pgfplots}
+\usepackage[font=small,skip=0pt]{caption} % Distance to caption
+\usepackage{multicol}
+
+\pgfplotsset{compat=1.12}
+\pgfplotsset{every axis/.append style={thick}}
+\pgfplotsset{try min ticks=3}
+\usepgfplotslibrary{patchplots}
+
+\usefonttheme[onlymath]{serif}
+\usepackage{beamerthemesplit}
+\beamertemplatenavigationsymbolsempty % Remove useless navigation bar
+
+\usetheme[numbers, totalnumbers, minimal, nologo]{Statmod}
+\setbeamerfont{institute}{size=\normalsize}
+\setbeamercolor{bluetext_color}{fg=blue}
+\newcommand{\bluetext}[1]{{\usebeamercolor[fg]{bluetext_color}#1}}
+\setbeamercovered{transparent}
+\setbeamerfont{normal text}{size=\Large}
+
+% \newtheorem{theorem}{Теорема}
+% \newtheorem{proposition}{Предложение}
+% \newtheorem{example}{Пример}
+% \newtheorem{definition}{Определение}
+
+\makeatother
+\setbeamertemplate{footline}
+{%
+    \leavevmode%
+    \hbox{%
+        \begin{beamercolorbox}[wd=.3\paperwidth,ht=2.5ex,dp=1.125ex,leftskip=.3cm,rightskip=.3cm]{author in head/foot}%
+            \usebeamerfont{author in head/foot}\insertframenumber{}%
+            /\inserttotalframenumber
+            \hfill\insertshortauthor
+        \end{beamercolorbox}%
+        \begin{beamercolorbox}[wd=.7\paperwidth,ht=2.5ex,dp=1.125ex,leftskip=.3cm,rightskip=.3cm plus1fil]{title in head/foot}%
+            \usebeamerfont{title in head/foot}\insertshorttitle
+        \end{beamercolorbox}}%
+    \vskip0pt%
+}
+
+\setbeamertemplate{itemize item}[circle]%{\small\raise0pt\hbox{\textbullet}}
+\setbeamertemplate{enumerate items}[default]
+
+\title[Адаптивный рандомизированный алгоритм выделения сообществ в графах]{Адаптивный рандомизированный алгоритм выделения сообществ в графах}
+
+\author{Тимофей Проданов}
+\institute[СПбГУ]{Санкт-Петербургский государственный университет \\
+    Кафедра информатики \\
+    \vspace{0.4cm}
+    Научный руководитель: д.ф.-м.н., проф. Граничин О.\,Н. \\
+    Рецензент: Ерофеева В.\,А.\\
+    \vspace{0.7cm}
+}
+\date{
+    Санкт-Петербург\\
+    2015
+}
+
+\subject{Beamer}
+\begin{document}
+
+\begin{frame}
+    \titlepage
+\end{frame}
+
+% \input{ps/p1}
+\input{ps/p2}
+
+
+\end{document}
