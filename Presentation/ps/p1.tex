@@ -1,12 +1,8 @@
 \begin{frame}
 	\frametitle{Выделение сообществ в графах}
-	Рассматриваются только невзвешенные неориентированные графы.
-	\bluetext{Сообщества} --- тесно связанные группы узлов в графах.
-	\bluetext{Разбиение} на сообщества --- разбиение множества узлов графа.\vspace{1em}
+	\bluetext{Сообщества} --- тесно связанные группы узлов в графах
 
-	\pause
-
-	Целевая функция \bluetext{модулярность}:
+	2004 г. \bluetext{Модулярность}:
 	$$Q(G, P) = \sum_{i \in 1..K}{\left(e_{ii} - a_i^2\right)},$$
 	где
 	\begin{itemize} 
@@ -16,62 +12,55 @@
 		\item $e$ --- нормированная матрица смежности сообществ
 		\item $a$ --- вектор нормированных степеней сообществ
 	\end{itemize}
-
-	Задача выделения сообществ соответствует задаче максимизации модулярности.
 \end{frame}
 
 
 \begin{frame}
 	\frametitle{Алгоритмы выделения сообществ}
 
-	Рандомизированный жадный алгоритм $RG_k$:
+
+	2010 г. Рандомизированный жадный алгоритм $RG$%
+	\footnote{\scriptsize Ovelg{\"o}nne and Geyer-Schulz. \bluetext{Cluster cores and modularity maximization.} ICDMW'10. IEEE International Conference on Data Mining Workshops. pp. 1204–1213 (2010)}:
 	\begin{itemize}
-		\item Каждую итерацию рассматриваются $k$ случайных сообществ
-		\item У каждого из $k$ сообществ исследуются все соседи
-		\item Соединяется лучшая пара соседей
-	\end{itemize}\vspace{0.5em}
+		\item $k$ случайных сообществ и их соседи
+		\item Лучшая пара соседей
+	\end{itemize}\vspace{.5em}
 
-	\pause
-
-	Схема кластеризации основных групп графа $CGGC$:
+	2012 г. Схема кластеризации основных групп графа $CGGC$%
+	\footnote{\scriptsize Ovelg{\"o}nne and Geyer-Schulz. \bluetext{A comparison of agglomerative hierarchical algorithms for modularity clustering.} Graph Partitioning and Graph Clustering. 588:187, 2012}:
 	\begin{enumerate}
-		\item $s$ \bluetext{начальных алгоритмов} создают множество разбиений на сообщества $S$
-		\item Создаётся разбиение $\widetilde{P}$ --- максимальное перекрытие $S$
-		\item \bluetext{Финальный алгоритм} выделяет сообщества на основе разбиения $\widetilde{P}$
-	\end{enumerate}
+		\item $s$ \bluetext{начальных алгоритмов}
+		\item \bluetext{Финальный алгоритм} распределяет неопределившиеся узлы
+	\end{enumerate}\vspace{.5em}
 
-	\pause
+	Итеративная схема $CGGCi$ \vspace{.5em}
 
-	Итеративная схема $CGGCi$ повторяет шаги \bluetext{1} и \bluetext{2}, пока это увеличивает модулярность.\\
-	В качестве \bluetext{начальных} и \bluetext{финального} алгоритмов можно использовать $RG_k$.
+	$RG$ как начальный и финальный алгоритм
 \end{frame}
 
 
 \begin{frame}
 	\frametitle{Стохастическая аппроксимация. Постановка задачи}
+	Качество работы $RG$ и $CGGC$ зависит от их параметров \vspace{.5em}
+
 	Одновременно возмущаемая стохастическая аппроксимация $SPSA$:
-	На каждой итерации алгоритма
-	\begin{enumerate}
-		\item Выбирается \bluetext{вектор возмущения} $\Delta_n$, каждая координата которого равна $1$ или $-1$ с вероятностью $\frac{1}{2}$
-		\item Рассчитываются новые аргументы функционала
-		$\theta_{n}^{-} \leftarrow \hat{\theta}_{n - 1} - d\Delta_{n},\ \theta_{n}^{+} \leftarrow \hat{\theta}_{n - 1} + d\Delta_{n}$
-		\item Вычисляются значения функционала $y_n^{-} \leftarrow f(\theta_{n}^{-}),\ y_n^{+} \leftarrow f(\theta_{n}^{+})$
-		\item Вычисляется следующая \bluetext{оценка} $\hat{\theta}_n \leftarrow \hat{\theta}_{n - 1} - \alpha_n \Delta_{n} \frac{y_n^{+} - y_n^{-}}{2d}$
-	\end{enumerate}
+	\begin{itemize}
+		\item Разбиение алгоритма на $2n$ шагов
+		\item Каждый шаг новый параметр
+		\item Каждые два шага вычисляются следующие два значения параметра
+	\end{itemize} \vspace{.5em}
 
-	\pause
+	Хорошие результаты на большем количестве входных данных \vspace{.5em}
 
-	От выбора параметров $RG_k$ и $CGGC$ зависит качество их работы.\\
-	Остаётся открытым вопрос об адаптивных версиях алгоритмов, работоспособных на большем количестве задач.\vspace{.5em}
-
-	В работе рассматривается применение алгоритма $SPSA$ к $RG$ и $CGGC$ для решения этого вопроса.
+	Применение $SPSA$ к $RG$ и $CGGC$
 \end{frame}
 
 
 \begin{frame}
 	\frametitle{Применимось \emph{SPSA}. Функция качества}
-	Применимость $SPSA$ обоснована теоретически для выпуклой усреднённой функции качества. Зависимость модулярности от параметра $k$ в работе $RG_k$ выглядит так:\vspace{-1em}\\
+	Выпуклая усреднённая функция качества\vspace{.5em}
 	
+	Рандомизированный жадный алгоритм $RG$:\vspace{-1em}
 	\begin{figure}[H]
 		\begin{tikzpicture}
 			\begin{axis}[
@@ -106,24 +95,25 @@
 		\end{tikzpicture}
 	\end{figure}~\vspace{-2.5em}\\
 
-	Время растёт линейно от $k$, поэтому можно использовать функцию качества $f(Q, k) = -\alpha (\ln Q - \beta \ln k)$
+	Время растёт линейно от $k$\vspace{.5em}
+
+	Функция качества:\vspace{-.5em} $$f(Q, k) = -\alpha (\ln Q - \beta \ln k),\ \alpha > 0,\ \beta \ge 0$$
 \end{frame}
 
 
 \begin{frame}
 	\frametitle{Адаптивный рандомизированный жадный алгоритм}
 
-	Предлагается адапивный рандомизированный жадный алгоритм $ARG$. Два его последовательных шага при текущей оценке $\hat{k}_{n - 1}$ выглядят следующих образом:
-	\begin{enumerate}
-		\item Вычисляются аргументы функционала\\
-		$k_{n}^{-} \leftarrow \max\{\hat{k}_{n - 1} - d, 1\}$ и $k_{n}^{+} \leftarrow \hat{k}_{n - 1} + d$
-		\item Выполняется $\sigma$ итераций $RG_k$ с параметром $k = k_{n}^{-}$, медиана прироста модулярности равна $\mu_n^{-}$
-		\item Выполняется $\sigma$ итераций $RG_k$ с параметром $k = k_{n}^{+}$, медиана прироста модулярности равна $\mu_n^{+}$
-		\item Вычисляются значения функционала\\
-		$y_n^{-} \leftarrow -\alpha (\ln \mu_n^{-} - \beta \ln k_n^{-}),\ y_n^{+} \leftarrow -\alpha (\ln \mu_n^{+} - \beta \ln k_n^{+})$
-		\item Подсчитывается следующая оценка
-		$$\hat{k}_n \leftarrow \max\left\{1, \left[\hat{k}_{n - 1} - \frac{y_n^{+} - y_n^{-}}{k_n^{+} - k_n^{-}}\right]\right\}$$
-	\end{enumerate}
+	Адапивный рандомизированный жадный алгоритм $ARG$:
+	\begin{itemize}
+		\item Шаги по $\sigma$ итераций
+		\item После окончания шага $k$ меняется
+		\item Функция качества $f(\mu, k) = -\alpha (\ln \mu_n^{-} - \beta \ln k_n^{-}),$\\ $\mu$ --- медиана прироста модулярности
+		\item $\hat{k}_{n - 1}$ --- текущая оценка, её возмущение:\\
+		$k_{n}^{-} = \max\{\hat{k}_{n - 1} - d, 1\}$ и $k_{n}^{+} = \hat{k}_{n - 1} + d$
+		\item Следующая оценка:
+		$$\hat{k}_n \leftarrow \max\left\{1, \left[\hat{k}_{n - 1} - \frac{f_n^{+} - f_n^{-}}{k_n^{+} - k_n^{-}}\right]\right\}$$
+	\end{itemize}
 \end{frame}
 
 
