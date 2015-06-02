@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9) (preloaded format=pdflatex 2013.12.12)  1 JUN 2015 02:08
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9) (preloaded format=pdflatex 2013.12.12)  3 JUN 2015 02:07
 entering extended mode
 **presentation
 ("D:\9. Диплом\BachelorThesis\Presentation\presentation.tex"
@@ -1725,49 +1725,49 @@ LaTeX Font Warning: Font shape `T2A/cmss/m/n' in size <4> not available
 
 {C:/Users/Timo/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
 ("D:\9. Диплом\BachelorThesis\Presentation\ps/p1.tex"
-LaTeX Font Info:    Try loading font information for U+msa on input line 15.
+<Blondel.png, id=34, 2040.12187pt x 2211.01031pt>
+File: Blondel.png Graphic file (type png)
+ <use Blondel.png>
+Package pdftex.def Info: Blondel.png used on input line 6.
+(pdftex.def)             Requested size: 204.17978pt x 221.30527pt.
+
+Overfull \vbox (0.21335pt too high) detected at line 6
+ []
+
+[2
+
+ <D:/9. Диплом/BachelorThesis/Presentation/Blondel.png>]
+LaTeX Font Info:    Try loading font information for U+msa on input line 22.
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 15.
+LaTeX Font Info:    Try loading font information for U+msb on input line 22.
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd"
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Try loading font information for OMS+cmss on input line 15.
+LaTeX Font Info:    Try loading font information for OMS+cmss on input line 22.
 
-LaTeX Font Info:    No file OMScmss.fd. on input line 15.
+LaTeX Font Info:    No file OMScmss.fd. on input line 22.
 
 
 LaTeX Font Warning: Font shape `OMS/cmss/m/n' undefined
 (Font)              using `OMS/cmsy/m/n' instead
-(Font)              for symbol `textbullet' on input line 15.
+(Font)              for symbol `textbullet' on input line 22.
 
-[2
-
-] [3
+[3
 
 ] [4
+
+] [5
 
 ]
 PGFPlots: reading {../Text/data/arg/validity/karate.csv}
 PGFPlots: reading {../Text/data/arg/validity/netscience.csv}
- [5
+ [6
 
-] [6
-
-]
-PGFPlots: reading {../Text/data/arg/alpha/caida/caida_alpha.csv}
-PGFPlots: reading {../Text/data/arg/d/cond_d.csv}
-PGFPlots: reading {../Text/data/arg/sigma/cond_sigma.csv}
-PGFPlots: reading {../Text/data/arg/k0/cond_k0.csv}
-PGFPlots: reading {../Text/data/arg/beta/cond_beta.csv}
-PGFPlots: reading {../Text/data/arg/beta/cond_beta.csv}
-
-Overfull \vbox (16.90808pt too high) detected at line 243
- []
-
+]) ("D:\9. Диплом\BachelorThesis\Presentation\ps/p2.tex"
 [7
 
 ]
@@ -1778,191 +1778,98 @@ PGFPlots: reading {../Text/data/arg/k0/cond_k0.csv}
 PGFPlots: reading {../Text/data/arg/beta/cond_beta.csv}
 PGFPlots: reading {../Text/data/arg/beta/cond_beta.csv}
 
-Overfull \vbox (16.90808pt too high) detected at line 243
+Overfull \vbox (16.90808pt too high) detected at line 132
  []
 
 [8
 
 ]
-PGFPlots: reading {../Text/data/arg/alpha/caida/caida_alpha.csv}
-PGFPlots: reading {../Text/data/arg/d/cond_d.csv}
-PGFPlots: reading {../Text/data/arg/sigma/cond_sigma.csv}
-PGFPlots: reading {../Text/data/arg/k0/cond_k0.csv}
-PGFPlots: reading {../Text/data/arg/beta/cond_beta.csv}
-PGFPlots: reading {../Text/data/arg/beta/cond_beta.csv}
+PGFPlots: reading {../Text/data/arg/results/results1.csv}
 
-Overfull \vbox (16.90808pt too high) detected at line 243
+Overfull \hbox (24.05333pt too wide) in paragraph at lines 164--164
+ [] 
  []
 
 [9
 
-]
-PGFPlots: reading {../Text/data/arg/alpha/caida/caida_alpha.csv}
-PGFPlots: reading {../Text/data/arg/d/cond_d.csv}
-PGFPlots: reading {../Text/data/arg/sigma/cond_sigma.csv}
-PGFPlots: reading {../Text/data/arg/k0/cond_k0.csv}
-PGFPlots: reading {../Text/data/arg/beta/cond_beta.csv}
-PGFPlots: reading {../Text/data/arg/beta/cond_beta.csv}
-
-Overfull \vbox (16.90808pt too high) detected at line 243
+]) ("D:\9. Диплом\BachelorThesis\Presentation\ps/p3.tex"
+Overfull \hbox (0.6926pt too wide) in paragraph at lines 19--19
+[]|$\OML/cmm/m/it/10 A[]$| 
  []
 
 [10
 
-]
-PGFPlots: reading {../Text/data/arg/alpha/caida/caida_alpha.csv}
-PGFPlots: reading {../Text/data/arg/d/cond_d.csv}
-PGFPlots: reading {../Text/data/arg/sigma/cond_sigma.csv}
-PGFPlots: reading {../Text/data/arg/k0/cond_k0.csv}
-PGFPlots: reading {../Text/data/arg/beta/cond_beta.csv}
-PGFPlots: reading {../Text/data/arg/beta/cond_beta.csv}
-
-Overfull \vbox (16.90808pt too high) detected at line 243
- []
-
-[11
+] [11
 
 ]
-PGFPlots: reading {../Text/data/arg/results/results1.csv}
+Package pgfplots info on input line 138: Using 'lua backend=false' for axis: xm
+ode=log unsupported (yet).
+PGFPlots: reading {../Text/data/es/alphad/july_1.csv}
+PGFPlots: reading {../Text/data/es/alphad/july_2.csv}
+Missing character: There is no ; in font nullfont!
+PGFPlots: reading {../Text/data/es/k0/july_k0.csv}
+PGFPlots: reading {../Text/data/es/r-r1/july_r.csv}
+PGFPlots: reading {../Text/data/es/r-r1/july_r1.csv}
+PGFPlots: reading {../Text/data/es/l/july_l_0.05.csv}
+PGFPlots: reading {../Text/data/es/l/july_l_1.csv}
+Missing character: There is no ; in font nullfont!
 
-Overfull \hbox (24.05333pt too wide) in paragraph at lines 275--275
- [] 
+Overfull \vbox (15.10818pt too high) detected at line 138
  []
 
 [12
 
 ]
-Overfull \hbox (0.6926pt too wide) in paragraph at lines 293--293
-[]|$\OML/cmm/m/it/10 A[]$| 
+Package pgfplots info on input line 230: Using 'lua backend=false' for axis: xm
+ode=log unsupported (yet).
+PGFPlots: reading {../Text/data/es/beta/jazz_beta.csv}
+Package pgfplots info on input line 230: Using 'lua backend=false' for axis: xm
+ode=log unsupported (yet).
+PGFPlots: reading {../Text/data/es/beta/jazz_beta.csv}
+PGFPlots: reading {../Text/data/es/kmax/kmax1.csv}
+PGFPlots: reading {../Text/data/es/kmax/kmax_t1.csv}
+
+Overfull \vbox (8.22963pt too high) detected at line 230
  []
 
 [13
 
-] [14
+]
+Package pgfplots info on input line 230: Using 'lua backend=false' for axis: xm
+ode=log unsupported (yet).
+PGFPlots: reading {../Text/data/es/beta/jazz_beta.csv}
+Package pgfplots info on input line 230: Using 'lua backend=false' for axis: xm
+ode=log unsupported (yet).
+PGFPlots: reading {../Text/data/es/beta/jazz_beta.csv}
+PGFPlots: reading {../Text/data/es/kmax/kmax1.csv}
+PGFPlots: reading {../Text/data/es/kmax/kmax_t1.csv}
+
+Overfull \vbox (8.22963pt too high) detected at line 230
+ []
+
+[14
 
 ]
-Package pgfplots info on input line 418: Using 'lua backend=false' for axis: xm
-ode=log unsupported (yet).
-PGFPlots: reading {../Text/data/es/alphad/july_1.csv}
-PGFPlots: reading {../Text/data/es/alphad/july_2.csv}
-Missing character: There is no ; in font nullfont!
-PGFPlots: reading {../Text/data/es/k0/july_k0.csv}
-PGFPlots: reading {../Text/data/es/r-r1/july_r.csv}
-PGFPlots: reading {../Text/data/es/r-r1/july_r1.csv}
-PGFPlots: reading {../Text/data/es/l/july_l_0.05.csv}
-PGFPlots: reading {../Text/data/es/l/july_l_1.csv}
-Missing character: There is no ; in font nullfont!
-
-Overfull \vbox (15.10818pt too high) detected at line 418
+Overfull \hbox (5.45647pt too wide) in alignment at lines 260--260
+[][][][][][] 
  []
 
 [15
 
-]
-Package pgfplots info on input line 418: Using 'lua backend=false' for axis: xm
-ode=log unsupported (yet).
-PGFPlots: reading {../Text/data/es/alphad/july_1.csv}
-PGFPlots: reading {../Text/data/es/alphad/july_2.csv}
-Missing character: There is no ; in font nullfont!
-PGFPlots: reading {../Text/data/es/k0/july_k0.csv}
-PGFPlots: reading {../Text/data/es/r-r1/july_r.csv}
-PGFPlots: reading {../Text/data/es/r-r1/july_r1.csv}
-PGFPlots: reading {../Text/data/es/l/july_l_0.05.csv}
-PGFPlots: reading {../Text/data/es/l/july_l_1.csv}
-Missing character: There is no ; in font nullfont!
+] [16
 
-Overfull \vbox (15.10818pt too high) detected at line 418
- []
-
-[16
-
-]
-Package pgfplots info on input line 418: Using 'lua backend=false' for axis: xm
-ode=log unsupported (yet).
-PGFPlots: reading {../Text/data/es/alphad/july_1.csv}
-PGFPlots: reading {../Text/data/es/alphad/july_2.csv}
-Missing character: There is no ; in font nullfont!
-PGFPlots: reading {../Text/data/es/k0/july_k0.csv}
-PGFPlots: reading {../Text/data/es/r-r1/july_r.csv}
-PGFPlots: reading {../Text/data/es/r-r1/july_r1.csv}
-PGFPlots: reading {../Text/data/es/l/july_l_0.05.csv}
-PGFPlots: reading {../Text/data/es/l/july_l_1.csv}
-Missing character: There is no ; in font nullfont!
-
-Overfull \vbox (15.10818pt too high) detected at line 418
- []
-
-[17
-
-]
-Package pgfplots info on input line 418: Using 'lua backend=false' for axis: xm
-ode=log unsupported (yet).
-PGFPlots: reading {../Text/data/es/alphad/july_1.csv}
-PGFPlots: reading {../Text/data/es/alphad/july_2.csv}
-Missing character: There is no ; in font nullfont!
-PGFPlots: reading {../Text/data/es/k0/july_k0.csv}
-PGFPlots: reading {../Text/data/es/r-r1/july_r.csv}
-PGFPlots: reading {../Text/data/es/r-r1/july_r1.csv}
-PGFPlots: reading {../Text/data/es/l/july_l_0.05.csv}
-PGFPlots: reading {../Text/data/es/l/july_l_1.csv}
-Missing character: There is no ; in font nullfont!
-
-Overfull \vbox (15.10818pt too high) detected at line 418
- []
-
-[18
-
-]
-Package pgfplots info on input line 510: Using 'lua backend=false' for axis: xm
-ode=log unsupported (yet).
-PGFPlots: reading {../Text/data/es/beta/jazz_beta.csv}
-Package pgfplots info on input line 510: Using 'lua backend=false' for axis: xm
-ode=log unsupported (yet).
-PGFPlots: reading {../Text/data/es/beta/jazz_beta.csv}
-PGFPlots: reading {../Text/data/es/kmax/kmax1.csv}
-PGFPlots: reading {../Text/data/es/kmax/kmax_t1.csv}
-
-Overfull \vbox (8.22963pt too high) detected at line 510
- []
-
-[19
-
-]
-Package pgfplots info on input line 510: Using 'lua backend=false' for axis: xm
-ode=log unsupported (yet).
-PGFPlots: reading {../Text/data/es/beta/jazz_beta.csv}
-Package pgfplots info on input line 510: Using 'lua backend=false' for axis: xm
-ode=log unsupported (yet).
-PGFPlots: reading {../Text/data/es/beta/jazz_beta.csv}
-PGFPlots: reading {../Text/data/es/kmax/kmax1.csv}
-PGFPlots: reading {../Text/data/es/kmax/kmax_t1.csv}
-
-Overfull \vbox (8.22963pt too high) detected at line 510
- []
-
-[20
-
-]) ("D:\9. Диплом\BachelorThesis\Presentation\ps/p2.tex"
-Overfull \hbox (5.45647pt too wide) in alignment at lines 29--29
-[][][][][][] 
- []
-
-[21
-
-] [22
-
-] [23
+] [17
 
 ])
 \tf@nav=\write6
 \tf@toc=\write7
 \tf@snm=\write8
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 96.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 96.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 97.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 97.
 
 ("D:\9. Диплом\BachelorThesis\Presentation\presentation.aux")
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 96.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 96.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 97.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 97.
 Package rerunfilecheck Info: File `presentation.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
 
@@ -1973,13 +1880,13 @@ LaTeX Font Warning: Size substitutions with differences
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 96.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 97.
  ) 
 Here is how much of TeX's memory you used:
- 33039 strings out of 493921
- 720918 string characters out of 3144878
- 930983 words of memory out of 3000000
- 35537 multiletter control sequences out of 15000+200000
+ 32736 strings out of 493921
+ 715089 string characters out of 3144878
+ 916755 words of memory out of 3000000
+ 35241 multiletter control sequences out of 15000+200000
  20955 words of font info for 58 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
  67i,19n,99p,768b,2337s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -2005,9 +1912,9 @@ ype1/public/cm-super/sfss0800.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type
 ublic/cm-super/sfss1095.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/publ
 ic/cm-super/sfss1440.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/
 cm-super/sfsx0600.pfb>
-Output written on presentation.pdf (23 pages, 328988 bytes).
+Output written on presentation.pdf (17 pages, 7004126 bytes).
 PDF statistics:
- 267 PDF objects out of 1000 (max. 8388607)
- 47 named destinations out of 1000 (max. 500000)
- 84 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 227 PDF objects out of 1000 (max. 8388607)
+ 35 named destinations out of 1000 (max. 500000)
+ 89 words of extra memory for PDF output out of 10000 (max. 10000000)
 

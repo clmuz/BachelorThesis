@@ -1,0 +1,298 @@
+
+
+\begin{frame}
+	\frametitle{\emph{ARG} как начальный алгоритм \emph{CGGC}}
+	Если начальные алгоритмы дают плохой результат в схеме $CGGC$, то и окончательный результат будет плохим. По модулярности одного разбиения нельзя сказать, хорошее разбиение или плохое. Запускать $RG_k$ с разными параметрами для проверки качества разбиения не выгодно. Поэтому имеет смысл запускать более стабильный $ARG$.
+
+	\small
+	\begin{table}[H]
+		\caption{Модулярность разбиений, полученных в результате работы $CGGC$ с начальным алгоритмом $A_{init}$ и финальным алгоритмом $A_{final}$ на трёх графах}
+		\begin{tabularx}{\textwidth}{Xrrrrrr} \hline
+		$A_{init}$	& \multicolumn{2}{c}{$RG_3$} & \multicolumn{2}{c}{$RG_{10}$} & \multicolumn{2}{c}{$ARG$} \\
+		$A_{final}$ & \multicolumn{1}{c}{$RG_3$} & \multicolumn{1}{c}{$RG_{10}$} & \multicolumn{1}{c}{$RG_3$} & \multicolumn{1}{c}{$RG_{10}$} & \multicolumn{1}{c}{$RG_3$} & \multicolumn{1}{c}{$RG_{10}$} \\\hline
+		$G_1$ 		& \cred 0.16840	& 0.71155	& \cred 0.44934	& \csilver 0.74794	& 0.42708	& \cgold 0.74872	\\
+		$G_2$				& 0.80628	& \csilver 0.80645	& 0.80633	& \csilver 0.80645	& 0.80628	& \cgold 0.80647	\\
+		$G_3$	& 0.84078	& \cgold 0.85372	& 0.84031	& 0.84448	& 0.83671	& \csilver 0.85279	\\\hline
+		\end{tabularx}
+	\end{table}
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{Адаптивная схема кластеризации основных групп графа}
+
+	Схема $ACGGC$:
+	\begin{enumerate}
+		\item $n \leftarrow n + 1$
+		\item Вычисляются аргументы функционала\\
+		$k_n^{-} \leftarrow \max\{1, \hat{k}_{n - 1} - d\}$ и $k_n^{+} \leftarrow \hat{k}_{n - 1} + d$
+		\item $RG_{k_n^{-}}$ и $RG_{k_n^{+}}$ создают разбиения $P_n^{-}$ и $P_n^{+}$, они записываются в множество $S$, их модулярности $Q_n^{-}$ и $Q_n^{+}$
+		\item Вычисляются значения функционала\\
+		$y_n^{-} \leftarrow f(Q_n^{-}, k_n^{-}),\ y_n^{+} \leftarrow f(Q_n^{+}, k_n^{+})$
+		\item Рассчитывается следующая оценка:
+		$$\hat{k}_n \leftarrow \max\left\{1, \left[\hat{k}_{n - 1} - \frac{y_n^{+} - y_n^{-}}{k_n^{+} - k_n^{-}}\right]\right\}$$
+		\item При $n \ne l$ --- переход на \bluetext{1} шаг, иначе переход на \bluetext{7} шаг
+		\item В зависимости от $r \in (0, 1]$ выбирается несколько хороших разбиений из $S$, которые формируют максимальное перекрытие $\widetilde{P}$
+		\item Финальный алгоритм выделяет сообщества на основе $\widetilde{P}$
+	\end{enumerate}
+\end{frame}
+
+
+\begin{frame}
+	\frametitle{Параметры \emph{CGGC}}
+
+	\begin{multicols}{2}
+
+	\bluetext{\textbullet} $d \in \mathbb{N},\ \alpha > 0 \in \mathbb{R}$
+	\begin{figure}[H]
+		\begin{tikzpicture}
+			\begin{semilogxaxis}[
+			    table/col sep = semicolon,
+			    height = 0.4\paperheight, 
+			    width = 0.99\columnwidth,
+			    xlabel = {$\alpha$},
+			    ylabel = {$Q$},
+			    legend columns = -1,
+			    legend style={
+					at={(1,-.4)},
+					anchor=north east},
+			    no marks,
+			    ymin = 0.665,
+			    yticklabel style={/pgf/number format/fixed,
+	                  /pgf/number format/precision=3},
+	            x label style={at={(axis description cs:.28,-.35)}, anchor=south},
+	            y label style={at={(axis description cs:-.15,.35)}, anchor=south},
+			]
+			\addplot table [x={alpha}, y={q}]{../Text/data/es/alphad/july_1.csv};
+			\addplot table [x={alpha}, y={q}]{../Text/data/es/alphad/july_2.csv};
+			\legend{{\scriptsize $d = 1$}, {\scriptsize $d = 2$}};
+			\end{semilogxaxis}
+		\end{tikzpicture}
+	\end{figure}
+
+	\vspace{-.4em} \bluetext{\textbullet} $\hat{k}_0 \in \mathbb{N}$
+	\begin{figure}[H]
+		\begin{tikzpicture}
+			\begin{axis}[
+			    table/col sep = semicolon,
+			    height = 0.35\paperheight,
+			    width = 0.99\columnwidth,
+			    xlabel = {$\hat{k}_0$},
+			    ylabel = {$Q$},
+			    no marks,
+			    y label style={at={(axis description cs:-0.2,.5)}, anchor=south},
+	            x label style={at={(axis description cs:.28,-.38)}, anchor=south},
+			    yticklabel style={/pgf/number format/fixed,
+	                  /pgf/number format/precision=3},
+			]
+			\addplot table [x = {k0}, y={q}]{../Text/data/es/k0/july_k0.csv};
+			\end{axis}
+		\end{tikzpicture}
+	\end{figure}
+
+	\newpage \bluetext{\textbullet} $r \in (0, 1]$ \vspace{-1em}
+	\begin{figure}[H]
+		\begin{tikzpicture}
+			\begin{axis}[
+			    table/col sep = semicolon,
+			    height = 0.4\paperheight,
+			    width = 0.99\columnwidth,
+			    xlabel = {$r$},
+			    ylabel = {$Q$},
+			    no marks,
+			    y label style={at={(axis description cs:-0.2,.5)}, anchor=south},
+	            x label style={at={(axis description cs:.28,-.3)}, anchor=south},
+			    yticklabel style={/pgf/number format/fixed,
+	                  /pgf/number format/precision=3},
+			]
+			\addplot table [x = {r}, y={q}]{../Text/data/es/r-r1/july_r.csv};
+			\addplot table [x expr = {1 - \thisrowno{0}}, y={q}]{../Text/data/es/r-r1/july_r1.csv};
+			\end{axis}
+		\end{tikzpicture}
+	\end{figure}
+
+	\vspace{0em} \bluetext{\textbullet} $l \in \mathbb{N}$ \vspace{-1em}
+	\begin{figure}[H]
+		\begin{tikzpicture}
+			\begin{axis}[
+			    table/col sep = semicolon,
+			    height = 0.4\paperheight,
+			    width = 0.99\columnwidth,
+			    xlabel = {$l$},
+			    ylabel = {$Q$},
+			    legend pos = south east,
+			    no marks,
+			    y label style={at={(axis description cs:-0.23,.5)}, anchor=south},
+	            x label style={at={(axis description cs:.28,-.3)}, anchor=south},
+			    yticklabel style={/pgf/number format/fixed,
+	                  /pgf/number format/precision=3},
+			]
+			\addplot table [x = {l}, y={q}]{../Text/data/es/l/july_l_0.05.csv};
+			\addplot table [x = {l}, y={q}]{../Text/data/es/l/july_l_1.csv};
+			\legend{{\scriptsize $r = 0.05$}, {\scriptsize $r = 1$}};
+			\end{axis}
+		\end{tikzpicture}
+	\end{figure} \vspace{-2.1em}~
+
+	\end{multicols}
+\end{frame}
+
+
+\begin{frame}
+	\frametitle{Время работы}
+	Два механизма снижения времени работы:
+
+	\begin{figure}[H]
+		\begin{tikzpicture}
+			\begin{semilogxaxis}[
+			    table/col sep = semicolon,
+			    height = 0.45\paperheight,
+			    width = 0.49\columnwidth,
+			    xlabel = {$\beta$},
+			    ylabel = {$Q$},
+			    no marks,
+			    y label style={at={(axis description cs:-0.25,.5)}, anchor=south},
+			    yticklabel style={/pgf/number format/fixed,
+	                  /pgf/number format/precision=3},
+	            x label style={at={(axis description cs:.5,-.3)}, anchor=south},
+			]
+			\addplot table [x = {beta}, y = {q}]{../Text/data/es/beta/jazz_beta.csv};
+			\end{semilogxaxis}
+		\end{tikzpicture}
+		\hskip 0.01\columnwidth
+		\begin{tikzpicture}
+			\begin{semilogxaxis}[
+			    table/col sep = semicolon,
+			    height = 0.45\paperheight,
+			    width = 0.49\columnwidth,
+			    xlabel = {$\beta$},
+			    ylabel = {$t$},
+			    y label style={at={(axis description cs:-0.2,.5)}, anchor=south},
+			    no marks,
+			    x label style={at={(axis description cs:.5,-.3)}, anchor=south},
+			]
+			\addplot[red] table [x = {beta}, y = {time}]{../Text/data/es/beta/jazz_beta.csv};
+			\end{semilogxaxis}
+		\end{tikzpicture}
+	\end{figure}\vspace{-1em}
+
+	\pause
+
+	\begin{figure}[H]
+	\hskip 0.02\columnwidth
+		\begin{tikzpicture} %max(0, 1 + (rgs1[y, x] - max(rgs1[y, ]))/(.003 * max(rgs1[y, ])))
+			\begin{axis}[
+				height = 0.45\paperheight,
+			    width = 0.49\columnwidth,
+				view={0}{90},
+				% grid=minor,
+	 		    % grid style={dotted},
+			    colormap = {redgreen}{rgb255(0cm)=(255,0,0); rgb255(1cm)=(255,255,255); rgb255(2cm)=(0,255,0)},
+			    mesh/ordering=y varies,
+			    mesh/cols=6,
+			    mesh/rows=9,
+			    xtick={1.5,2.5,3.5,4.5,5.5},
+    			xticklabels={\scriptsize $+\infty$, \scriptsize $50$, \scriptsize $20$, \scriptsize $10$, \scriptsize $6$},
+    			xlabel = {$k_{max}$},
+    			ylabel = {Graphs},
+    			ytick={1.5,2.5,3.5,4.5,5.5,6.5,7.5,8.5},
+    			yticklabels = {\scriptsize $G_8$, \scriptsize $G_7$, \scriptsize $G_6$, \scriptsize $G_5$, \scriptsize $G_4$, \scriptsize $G_3$, \scriptsize $G_2$, \scriptsize $G_1$},
+    			% x tick label style = {align = center, rotate = 50, anchor = north east},
+			 ]
+			\addplot3[surf,shader=flat corner] table{../Text/data/es/kmax/kmax1.csv};
+			\end{axis}
+		\end{tikzpicture}
+		\hskip 0.01\columnwidth
+		\begin{tikzpicture} %min(rgs1[y, ]) / rgs[y, x]
+			\begin{axis}[
+				height = 0.45\paperheight,
+			    width = 0.49\columnwidth,
+				view={0}{90},
+				% grid=minor,
+	 		    % grid style={dotted},
+			    colormap = {redgreen}{rgb255(0cm)=(255,0,0); rgb255(1cm)=(255,255,255); rgb255(2cm)=(0,255,0)},
+			    mesh/ordering=y varies,
+			    mesh/cols=6,
+			    mesh/rows=9,
+			    xtick={1.5,2.5,3.5,4.5,5.5},
+    			xticklabels={\scriptsize $+\infty$, \scriptsize $50$, \scriptsize $20$, \scriptsize $10$, \scriptsize $6$},
+    			xlabel = {$k_{max}$},
+    			ylabel = {Graphs},
+    			ytick={1.5,2.5,3.5,4.5,5.5,6.5,7.5,8.5},
+    			yticklabels = {\scriptsize $G_8$, \scriptsize $G_7$, \scriptsize $G_6$, \scriptsize $G_5$, \scriptsize $G_4$, \scriptsize $G_3$, \scriptsize $G_2$, \scriptsize $G_1$},
+    			% x tick label style = {align = center, rotate = 50, anchor = north east},
+			 ]
+			\addplot3[surf,shader=flat corner] table{../Text/data/es/kmax/kmax_t1.csv};
+			\end{axis}
+		\end{tikzpicture}
+	\end{figure}
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{Сравнение \emph{CGGC} и \emph{ACGGC}}
+	\scriptsize
+	\begin{table}[H]
+		\caption{Модулярность разбиений, полученных \emph{ACGGC} и \emph{CGGC} на тестовых графах}
+		\begin{tabularx}{\textwidth}{lrrrrr} \hline
+					& $ACGGC^{I}$ & $ACGGC^{II}$ & $CGGC_{10}^{10}$	& $CGGC_{3}^{10}$ & $CGGC_{10}^{3}$ \\ \hline
+		karate 			& \csilver 0.417242 	& \cgold 0.417406 	& 0.415598 	& 0.396532	& 0.405243	\\
+		dolphins		& \cgold{0.524109}	& \csilver{0.523338}	& 0.521399	& 0.523338	& 0.522428	\\
+		chesapeake		& \csilver{0.262439}	& \csilver{0.262439}	& \csilver{0.262439}	& \csilver{0.262439}	& 0.262370	\\
+		adjnoun			& \cgold{0.299704}	& \csilver{0.299197}	& 0.295015	& 0.292703	& 0.290638	\\
+		polbooks		& \csilver{0.527237}	& \csilver{0.527237}	& \csilver{0.527237}	& 0.526938	& 0.526784	\\
+		football		& 0.603324	& \csilver{0.604266}	& \csilver{0.604266}	& 0.599537	& 0.599026	\\
+		celegans 		& \cgold{0.439604}	& \csilver{0.438584} 	& 0.435819	& 0.436066	& 0.432261	\\
+		jazz			& 0.444739	& \csilver{0.444848}	& \cgold{0.444871} 	& 0.444206 	& 0.444206	\\
+		netscience		& \cgold{0.907229}	& \csilver{0.835267}	& \cred 0.724015 	& \cred 0.708812 	& \cred 0.331957	\\
+		email			& \csilver{0.573333}	& \cgold{0.573409}	& 0.571018 	& 0.572667 	& 0.567423	\\
+		polblogs		& \cgold{0.424107} 	& \csilver{0.423208}	& 0.422901 	& 0.421361 	& 0.390395	\\
+		pgpGiantCompo	& \cgold{0.883115} 	& \csilver{0.883085}	& 0.882237 	& 0.882532	& 0.880340	\\
+		as-22july06		& \cgold{0.671249}	& \csilver{0.670677}	& 0.666766	& 0.669847	& 0.665260	\\
+		cond-mat-2003	& 0.744533 	& \csilver{0.750367}	& \cgold{0.751109} 	& \cred 0.708775	& \cred 0.413719	\\
+		caidaRouterLevel& 0.846312	& \csilver{0.855651}	& 0.851622 	& \cgold{0.858955} 	& 0.843835	\\
+		cnr-2000		& 0.912762 	& \cgold{0.912783}	& 0.912500 	& \csilver{0.912777}	& 0.912496	\\
+		eu-2005			& \cgold{0.938292}  & \csilver{0.936984}	& 0.935510 	& 0.936515	& 0.936420	\\
+		in-2004			& \csilver{0.979844}	& 0.979771	& \cgold{0.979883}	& 			& 			\\
+		\hline
+		\end{tabularx}
+	\end{table}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Сравнение \emph{CGGCi} и \emph{ACGGCi}}
+	\begin{table}[H]
+	\caption{Модулярность работы четырёх итеративных алгоритмов на небольших тестовых графах}
+	\begin{tabularx}{\textwidth}{Xrrrr} \hline
+					& $ACGGCi^{I}$ & $ACGGCi^{II}$ & $CGGCi$	& combined \\ \hline
+	karate			& 0.417242	& \cgold{0.417406}	& 0.417242	& 0.417242	\\
+	dolphins		& 0.525869	& 0.525869	& 0.525869	& 0.525869	\\
+	chesapeake		& 0.262439	& 0.262439	& 0.262439	& 0.262439	\\
+	adjnoun			& 0.303731	& 0.303504	& 0.303571	& \cgold{0.303970}	\\
+	polbooks		& 0.527237	& 0.527237	& 0.527237	& 0.527237	\\
+	football		& 0.604266	& 0.604407	& \cgold{0.604429}	& 0.604407	\\
+	celegans 		& 0.446964	& 0.446836	& 0.445442	& \cgold{0.447234}	\\
+	jazz			& 0.444871	& 0.444871	& 0.444871	& 0.444871	\\
+	netscience		& \cgold{0.908845}	& 0.888422	& \cred 0.725781	& 0.907443	\\
+	email			& 0.576778	& 0.577000	& 0.576749	& \cgold{0.577110}	\\
+	polblogs		& \cgold{0.424025}	& 0.422920	& 0.423281	& 0.423996	\\
+	\hline
+	\end{tabularx}
+\end{table}
+\end{frame}
+
+
+\begin{frame}
+	\frametitle{Заключение}
+
+	В рамках работы
+	\begin{itemize}
+		\item Проанализированы современные методы выделения сообществ
+		\item Предложен алгоритм $ARG$, дающий более стабильные результаты, чем $RG$
+		\item Описано возможное применение $ARG$
+		\item Представлены схемы $ACGGC$ и $ACGGCi$, показывающие более хорошие и стабильные результаты, чем $CGGC$ и $CGGCi$
+		\item Описан механизм снижения времени работы $ACGGC$
+	\end{itemize}
+
+	\vspace{2em}\centeringВопросы?
+\end{frame}
