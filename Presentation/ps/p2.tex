@@ -15,12 +15,10 @@
 
 
 \begin{frame}
-	\frametitle{Параметры \emph{ARG}}
+	\frametitle{Исследование работоспособности при разных параметрах}
 	\small
-	$ARG$ имеет пять параметров:
-
 	\begin{multicols}{2}
-	\bluetext{\textbullet} $\alpha > 0 \in \mathbb{R}$ \vspace{-0.8em}
+	\bluetext{\textbullet} Чувствительность $\alpha$ \vspace{-0.8em}
 	\begin{figure}[H]
 		\begin{tikzpicture}
 			\begin{axis}[
@@ -33,7 +31,7 @@
 			    	cells = {anchor = west},
 			    	legend pos = outer north east
 			    },
-			    x label style={at={(axis description cs:.3,-.6)}, anchor=south},
+			    x label style={at={(axis description cs:.3,-.5)}, anchor=south},
 			    no marks,
 			]
 			\addplot table [x={alpha}, y={q}]{../Text/data/arg/alpha/caida/caida_alpha.csv};
@@ -41,7 +39,7 @@
 		\end{tikzpicture}
 	\end{figure}
 
-	\vspace{-2em} \bluetext{\textbullet} $d \in \mathbb{N}$ \vspace{-0.8em}
+	\vspace{-1.5em} \bluetext{\textbullet} Размер возмущения $d$ \vspace{-0.8em}
 	\begin{figure}[H]
 		\begin{tikzpicture}
 			\begin{axis}[
@@ -60,7 +58,26 @@
 		\end{tikzpicture}
 	\end{figure}
 
-	\vspace{-2em} \bluetext{\textbullet} $\sigma \in \mathbb{N}$ \vspace{-0.8em}
+	\vspace{-1.5em} \bluetext{\textbullet} Значимость времени $\beta$:\\ Модулярность: \vspace{-0.8em}
+	\begin{figure}[H]
+		\begin{tikzpicture}
+			\begin{axis}[
+			    table/col sep = semicolon,
+			    height = 0.3\paperheight, 
+			    width = 0.9\columnwidth,
+			    xlabel = {$\beta$},
+			    ylabel = {$Q$},
+			    legend pos = north east,
+			    no marks,
+			    x label style={at={(axis description cs:.6,-.6)}, anchor=south},
+			]
+			\addplot table [x={beta}, y={q}]{../Text/data/arg/beta/cond_beta.csv};
+			\end{axis}
+		\end{tikzpicture}
+	\end{figure}
+
+	\newpage
+	\bluetext{\textbullet} Количество итераций в шаге $\sigma$ \vspace{-0.8em}
 	\begin{figure}[H]
 		\begin{tikzpicture}
 			\begin{axis}[
@@ -71,14 +88,14 @@
 			    ylabel = {$Q$},
 			    legend pos = north east,
 			    no marks,
-			    x label style={at={(axis description cs:.3,-.6)}, anchor=south},
+			    x label style={at={(axis description cs:.3,-.5)}, anchor=south},
 			]
 			\addplot table [x={sigma}, y={q}]{../Text/data/arg/sigma/cond_sigma.csv};
 			\end{axis}
 		\end{tikzpicture}
 	\end{figure}
 
-	\newpage \bluetext{\textbullet} $\hat{k}_0 \in \mathbb{N}$ \vspace{-0.8em}
+	\vspace{-1.8em} \bluetext{\textbullet} Начальная оценка $\hat{k}_0$ \vspace{-1.2em}
 	\begin{figure}[H]
 		\begin{tikzpicture}
 			\begin{axis}[
@@ -96,22 +113,8 @@
 		\end{tikzpicture}
 	\end{figure}
 
-	\vspace{-2em} \bluetext{\textbullet} $\beta \ge 0 \in \mathbb{R}$ \vspace{-0.8em}
+	\vspace{-0.8em} Время: \vspace{-1.2em}
 	\begin{figure}[H]
-		\begin{tikzpicture}
-			\begin{axis}[
-			    table/col sep = semicolon,
-			    height = 0.3\paperheight, 
-			    width = 0.9\columnwidth,
-			    xlabel = {$\beta$},
-			    ylabel = {$Q$},
-			    legend pos = north east,
-			    no marks,
-			    x label style={at={(axis description cs:.6,-.6)}, anchor=south},
-			]
-			\addplot table [x={beta}, y={q}]{../Text/data/arg/beta/cond_beta.csv};
-			\end{axis}
-		\end{tikzpicture}
 		\begin{tikzpicture}
 			\begin{axis}[
 			    table/col sep = semicolon,
@@ -128,7 +131,7 @@
 		\end{tikzpicture}
 	\end{figure}\vspace{-1.5em}~
 	\end{multicols}
-
+	\Large
 \end{frame}
 
 \begin{frame}

@@ -1,110 +1,84 @@
 \begin{frame}
-	\frametitle{Пример разбиения на сообщества}
-	\begin{center}
-		\includegraphics[height = 0.86\textheight]{Blondel.png}
-	\end{center}
+	\frametitle{Сложные сети}
+
+	1998 г. Воттс, Строгатц --- начало изучения сложных сетей%
+	\footnote{Watts and Strogatz. \bluetext{Collective dynamics of ``small-world'' networks.}} \vspace{.5em}
+
+	Графы с неправильной, сложной структурой \vspace{.5em}
+
+	Применение:
+	\begin{itemize}
+		\item эпидемиология
+		\item биоинформатика
+		\item поиск преступников
+		\item социология
+		\item изучение структуры и топологии интернета
+	\end{itemize} \vspace{.5em}
+
+	Усложнён анализ теорией графов или статистический анализ \vspace{.5em}
+
+	\bluetext{Сообщества} --- тесно связанные группы узлов \vspace{.5em}
+
+	Поиск таких групп --- выделение сообществ, кластеризация
 \end{frame}
 
 \begin{frame}
-	\frametitle{Выделение сообществ в графах}
-	\bluetext{Сообщества} --- тесно связанные группы узлов в графах
-
-	2004 г. \bluetext{Модулярность}:
-	$$Q(G, P) = \sum_{i \in 1..K}{\left(e_{ii} - a_i^2\right)},$$
-	где
-	\begin{itemize} 
-		\item $G$ --- граф
-		\item $P$ --- разбиение на сообщества
-		\item $K$ --- количество сообществ
-		\item $e$ --- нормированная матрица смежности сообществ
-		\item $a$ --- вектор нормированных степеней сообществ
-	\end{itemize}
+	\frametitle{Пример разбиения на сообщества}
+	\begin{center}
+		\includegraphics[height = 0.8\textheight]{Blondel.png}
+	\end{center}
+	\scriptsize Blondel et al. \bluetext{Fast unfolding of communities in large networks.}
 \end{frame}
-
 
 \begin{frame}
 	\frametitle{Алгоритмы выделения сообществ}
 
+	2004 г. Модулярность%
+	\footnote{\scriptsize Newman and Girvan. \bluetext{Finding and evaluating community structure in networks.}}
+	 $Q$
+	\vspace{.5em}
 
-	2010 г. Рандомизированный жадный алгоритм $RG$%
-	\footnote{\scriptsize Ovelg{\"o}nne and Geyer-Schulz. \bluetext{Cluster cores and modularity maximization.} ICDMW'10. IEEE International Conference on Data Mining Workshops. pp. 1204–1213 (2010)}:
+	2010 г. Рандомизированный жадный алгоритм%
+	\footnote{\scriptsize Ovelg{\"o}nne and Geyer-Schulz. \bluetext{Cluster cores and modularity maximization.}} $RG$:
 	\begin{itemize}
 		\item $k$ случайных сообществ и их соседи
 		\item Лучшая пара соседей
 	\end{itemize}\vspace{.5em}
 
-	2012 г. Схема кластеризации основных групп графа $CGGC$%
-	\footnote{\scriptsize Ovelg{\"o}nne and Geyer-Schulz. \bluetext{A comparison of agglomerative hierarchical algorithms for modularity clustering.} Graph Partitioning and Graph Clustering. 588:187, 2012}:
+	2012 г. Схема кластеризации основных групп графа%
+	\footnote{\scriptsize Ovelg{\"o}nne and Geyer-Schulz. \bluetext{A comparison of agglomerative hierarchical algorithms for modularity clustering.}} $CGGC$:
 	\begin{enumerate}
 		\item $s$ \bluetext{начальных алгоритмов}
 		\item \bluetext{Финальный алгоритм} распределяет неопределившиеся узлы
 	\end{enumerate}\vspace{.5em}
 
-	Итеративная схема $CGGCi$ \vspace{.5em}
+	% Итеративная схема $CGGCi$ \vspace{.5em}
 
 	$RG$ как начальный и финальный алгоритм
 \end{frame}
 
 
 \begin{frame}
-	\frametitle{Стохастическая аппроксимация. Постановка задачи}
-	Качество работы $RG$ и $CGGC$ зависит от их параметров \vspace{.5em}
+	\frametitle{Постановка задачи адаптации параметров}
+	Качество работы $RG$ и $CGGC$ зависит от их параметров\\
+	Для каждого графа --- свои хорошие параметры \vspace{2em}
 
-	Одновременно возмущаемая стохастическая аппроксимация $SPSA$:
+	Адаптивные алгоритмы, приспосабливающиеся к входным данным \vspace{2em}
+
+	Цель:\\
+	Хорошие результаты на большем количестве графов
+\end{frame}
+
+\begin{frame}
+	\frametitle{Стохастический градиентный спуск}
+	Применение стохастического градиентного спуска $SPSA$ к $RG$ и $CGGC$ \vspace{1em}
+
+	Стохастический градиентный спуск $SPSA$:
 	\begin{itemize}
 		\item Разбиение алгоритма на $2n$ шагов
 		\item Каждый шаг новый параметр
-		\item Каждые два шага вычисляются следующие два значения параметра
-	\end{itemize} \vspace{.5em}
+		\item Новые значения параметра подбираются в зависимости от предыдущих шагов
+	\end{itemize}
 
-	Хорошие результаты на большем количестве входных данных \vspace{.5em}
-
-	Применение $SPSA$ к $RG$ и $CGGC$
 \end{frame}
-
-
-\begin{frame}
-	\frametitle{Применимось \emph{SPSA}. Функция качества}
-	Выпуклая усреднённая функция качества\vspace{.5em}
-	
-	Рандомизированный жадный алгоритм $RG$:\vspace{-1em}
-	\begin{figure}[H]
-		\begin{tikzpicture}
-			\begin{axis}[
-			    table/col sep = semicolon,
-			    height = 0.45\paperheight, 
-			    width = 0.49\columnwidth,
-			    xlabel = {$k$},
-			    ylabel = {$Q$},
-			    legend pos = north east,
-			    no marks,
-			    title = {karate},
-			    y label style={at={(axis description cs:-.2,.5)}, anchor=south},
-			]
-			\addplot table [x={k}, y={q}]{../Text/data/arg/validity/karate.csv};
-			\end{axis}
-		\end{tikzpicture}
-		\hskip 0.01\columnwidth
-		\begin{tikzpicture}
-			\begin{axis}[
-			    table/col sep = semicolon,
-			    height = 0.45\paperheight, 
-			    width = 0.49\columnwidth,
-			    xlabel = {$k$},
-			    ylabel = {$Q$},
-			    legend pos = south east,
-			    no marks,
-			    title = {netscience},
-			    y label style={at={(axis description cs:-.18,.5)}, anchor=south},
-			]
-			\addplot table [x={k}, y={q}]{../Text/data/arg/validity/netscience.csv};
-			\end{axis}
-		\end{tikzpicture}
-	\end{figure}~\vspace{-2.5em}\\
-
-	Время растёт линейно от $k$\vspace{.5em}
-
-	Функция качества:\vspace{-.5em} $$f(Q, k) = -\alpha (\ln Q - \beta \ln k),\ \alpha > 0,\ \beta \ge 0$$
-\end{frame}
-
 

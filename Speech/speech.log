@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.1415926-2.4-0.9998 (MiKTeX 2.9) (preloaded format=xelatex 2015.3.30)  3 JUN 2015 02:37
+This is XeTeX, Version 3.1415926-2.4-0.9998 (MiKTeX 2.9) (preloaded format=xelatex 2015.3.30)  3 JUN 2015 21:02
 entering extended mode
 **speech
 ("D:\9. Диплом\BachelorThesis\Speech\speech.tex"
@@ -1262,7 +1262,6 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 . 
 . This font family consists of the following shapes:
 .................................................
-Missing character: There is no О in font cmmi10!
 .................................................
 . fontspec info: "defining-font"
 . 
@@ -1271,16 +1270,6 @@ Missing character: There is no О in font cmmi10!
 . 
 . This font family consists of the following shapes:
 .................................................
-
-Underfull \hbox (badness 10000) in paragraph at lines 56--56
-\EU1/CMUSerif(1)/m/n/10 Алгоритмы
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 56--56
-\EU1/CMUSerif(1)/m/n/10 выделения
- []
-
 .................................................
 . fontspec info: "defining-font"
 . 
@@ -1302,21 +1291,6 @@ Underfull \hbox (badness 10000) in paragraph at lines 63--63
 . 
 . This font family consists of the following shapes:
 .................................................
-
-Underfull \hbox (badness 10000) in paragraph at lines 70--70
-\EU1/CMUSerif(1)/m/n/10 Адаптивный
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 70--70
-\EU1/CMUSerif(1)/m/n/10 рандомизи-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 70--70
-\EU1/CMUSerif(1)/m/n/10 рованный
- []
-
 .................................................
 . fontspec info: "defining-font"
 . 
@@ -1348,8 +1322,16 @@ File: se-ascii-print.def 2011/12/02 v1.10 stringenc: Printable ASCII characters
 . 
 . This font family consists of the following shapes:
 .................................................
+.................................................
+. fontspec info: "defining-font"
+. 
+. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
+. [Ligatures=TeX,Script=Cyrillic].
+. 
+. This font family consists of the following shapes:
+.................................................
 
-Underfull \hbox (badness 10000) in paragraph at lines 75--75
+Underfull \hbox (badness 10000) in paragraph at lines 79--79
 \EU1/CMUSerif(1)/m/n/10 Параметры
  []
 
@@ -1362,7 +1344,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 75--75
 . This font family consists of the following shapes:
 .................................................
 
-Underfull \hbox (badness 10000) in paragraph at lines 78--78
+Underfull \hbox (badness 10000) in paragraph at lines 82--82
 \EU1/CMUSerif(1)/m/n/10 Сравнение
  []
 
@@ -1374,19 +1356,6 @@ Underfull \hbox (badness 10000) in paragraph at lines 78--78
 . 
 . This font family consists of the following shapes:
 .................................................
-
-Underfull \hbox (badness 10000) in paragraph at lines 81--81
-\EU1/CMUSerif(1)/m/n/10 Применение
- []
-
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Ligatures=TeX,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
 .................................................
 . fontspec info: "defining-font"
 . 
@@ -1396,7 +1365,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 81--81
 . This font family consists of the following shapes:
 .................................................
 
-Underfull \hbox (badness 10000) in paragraph at lines 93--93
+Underfull \hbox (badness 10000) in paragraph at lines 97--97
 \EU1/CMUSerif(1)/m/n/10 Параметры
  []
 
@@ -1409,27 +1378,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 93--93
 . This font family consists of the following shapes:
 .................................................
 
-Underfull \hbox (badness 10000) in paragraph at lines 96--96
+Underfull \hbox (badness 10000) in paragraph at lines 100--100
 \EU1/CMUSerif(1)/m/n/10 Снижение
  []
 
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Ligatures=TeX,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
 
-Underfull \hbox (badness 10000) in paragraph at lines 99--99
-\EU1/CMUSerif(1)/m/n/10 Сравнение
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 99--99
-\OML/cmm/m/it/10 ACGGC$ \EU1/CMUSerif(1)/m/n/10 и
- []
+LaTeX Warning: Marginpar on page 2 moved.
 
 .................................................
 . fontspec info: "defining-font"
@@ -1440,15 +1394,24 @@ Underfull \hbox (badness 10000) in paragraph at lines 99--99
 . This font family consists of the following shapes:
 .................................................
 
-Underfull \hbox (badness 10000) in paragraph at lines 104--104
+Underfull \hbox (badness 10000) in paragraph at lines 110--110
 \EU1/CMUSerif(1)/m/n/10 Сравнение
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 104--104
+Underfull \hbox (badness 10000) in paragraph at lines 110--110
 \OML/cmm/m/it/10 ACGGCi$ \EU1/CMUSerif(1)/m/n/10 и
  []
 
+.................................................
+. fontspec info: "defining-font"
+. 
+. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
+. [Ligatures=TeX,Script=Cyrillic].
+. 
+. This font family consists of the following shapes:
+.................................................
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 120.
 .................................................
 . fontspec info: "defining-font"
 . 
@@ -1466,25 +1429,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 104--104
 . This font family consists of the following shapes:
 .................................................
 [2]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 107.
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Ligatures=TeX,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'CMUSerif(1)' created for font 'CMU Serif' with options
-. [Ligatures=TeX,Script=Cyrillic].
-. 
-. This font family consists of the following shapes:
-.................................................
- [3]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 107.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 120.
  ("D:\9. Диплом\BachelorThesis\Speech\speech.aux"
 .................................................
 . fontspec info: "defining-font"
@@ -1495,16 +1440,16 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 107.
 . This font family consists of the following shapes:
 .................................................
 )
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 107.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 107.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 120.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 120.
  ) 
 Here is how much of TeX's memory you used:
  38121 strings out of 429035
  811262 string characters out of 3166907
- 989742 words of memory out of 3000000
+ 988743 words of memory out of 3000000
  40868 multiletter control sequences out of 15000+200000
  10560 words of font info for 68 fonts, out of 3000000 for 9000
  912 hyphenation exceptions out of 8191
  63i,6n,77p,10405b,479s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on speech.pdf (3 pages).
+Output written on speech.pdf (2 pages).
